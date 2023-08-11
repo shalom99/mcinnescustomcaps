@@ -22,10 +22,10 @@ const Store: FC<pageProps> = ({}) => {
                 <select name="filter" id="filter" value="Alphabetically, A-Z" className='text-black text-sm'>
                     <option value="1">Featured</option>
 
-                    <option value="2">Alphabetically, A-Z"</option>
-                    <option value="2">Alphabetically, Z-A"</option>
-                    <option value="2">Price, low to high"</option>
-                    <option value="2">Price, high to low"</option>
+                    <option value="2">Alphabetically, A-Z</option>
+                    <option value="2">Alphabetically, Z-A</option>
+                    <option value="2">Price, low to high</option>
+                    <option value="2">Price, high to low</option>
 
                 </select>
                 </div>

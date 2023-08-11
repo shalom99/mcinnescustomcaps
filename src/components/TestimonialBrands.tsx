@@ -10,7 +10,7 @@ const TestimonialBrands: FC<TestimonialBrandsProps> = ({}) => {
       <div id="container" className="w-[1200px] py-14 gap-y-10 flex flex-col">
         
       
-      <h2 className="text-4xl font-semibold text-center">Brands We've Worked With</h2>
+      <h2 className="text-4xl font-semibold text-center">Brands We&apos;ve Worked With</h2>
       <div className="flex gap-x-10 py-5">
       <Image
         src="/brands/client-img-1.png"
