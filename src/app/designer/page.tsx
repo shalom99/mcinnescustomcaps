@@ -8,7 +8,7 @@ type pageProps = {
 
 const Designer: FC<pageProps> = ({}) => {
   return (
-     <div className='h-screen bg-gray-500 flex justify-center pt-32 pb-32'>
+     <div className=' bg-gray-500 flex justify-center pt-32 pb-32'>
         <div id="container" className='w-[1200px] h-full'>
 
           <div id="topNav" className='bg-primaryGreen py-2'>
@@ -16,7 +16,7 @@ const Designer: FC<pageProps> = ({}) => {
           </div>
           
           <div id="mainDesigner" className='flex h-full'>
-            <div id="toolbar" className='w-[250px] bg-white h-full px-2 py-1 flex flex-col gap-y-5'>
+            <div id="toolbar" className='w-[250px] bg-white h-full px-2 py-2 flex flex-col gap-y-5'>
               <div>
                 <h2 className='text-center mb-5 font-bold'>Toolbar </h2>
               <h3>Front Panel</h3>
@@ -56,8 +56,9 @@ const Designer: FC<pageProps> = ({}) => {
             <div id="middle" className='grow bg-cap bg-no-repeat bg-contain bg-center'>
            
             </div>
-            <div id="right" className='w-[200px] bg-white h-full'>
-              <h2 className='text-center font-bold'>Order Information</h2>
+            <div id="right" className='w-[200px] bg-white'>
+              
+              <h2 className='text-center font-bold h-full'>Order Information</h2>
               
             </div>
           </div>
