@@ -1,0 +1,71 @@
+import { FC } from "react";
+import {
+  BsFillTelephoneFill,
+  BsSend,
+  BsCart3,
+  BsArrowRightCircle,
+} from "react-icons/bs";
+import { MdLocationOn } from "react-icons/md";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import Image from "next/image";
+import Link from "next/link";
+import Navbar from "./Navbar";
+type NavbarProps = {};
+
+const Header: FC<NavbarProps> = ({}) => {
+  return (
+    <>
+      <header className="bg-primaryGreen text-white flex flex-col items-center relative">
+        <div id="nav-top" className="py-3 flex justify-between w-[1200px]">
+          <div id="left" className="flex gap-x-5">
+            <button className="flex items-center gap-x-2">
+              <BsFillTelephoneFill size={15} />
+              <p className="text-xs">0448 633 294</p>
+            </button>
+            <Link
+              href="mailto:howdy@mcinnescustomcaps.com.au"
+              className="flex items-center gap-x-2 px-4 border-x-2 border-activeOrange "
+            >
+              <BsSend size={15} />
+              <p className="text-xs hover:text-activeOrange duration-500">howdy@mcinnescustomcaps.com.au</p>
+            </Link>
+
+            <Link
+              href="https://goo.gl/maps/ckhyyHfCaTgtsGca9"
+              target="_blank"
+              className="flex items-center gap-x-1"
+            >
+              <MdLocationOn size={15} />
+              <p className="text-xs hover:text-activeOrange duration-500">13 Capital Terrace, Queanbeyan NSW</p>
+            </Link>
+          </div>
+          <div id="right" className="flex items-center">
+            <div className="flex items-center border-activeOrange border-r-2 pr-4">
+              <BsArrowRightCircle size={20} />
+              <p className="mx-2 text-xs">Follow Us:</p>
+              <Link
+                href="https://www.facebook.com/McInnesCustomCaps/"
+                target="_blank"
+              >
+                <FaFacebookF className="mr-2 hover:text-activeOrange duration-500" size={20}  />
+              </Link>
+              <Link
+                href="https://www.instagram.com/mcinnescustomcaps/"
+                target="_blank"
+              >
+                <FaInstagram size={20} className="hover:text-activeOrange duration-500" />
+              </Link>
+            </div>
+            <button className="ml-4">
+              <BsCart3 size={20} />
+            </button>
+          </div>
+        </div>
+        <Navbar />
+      </header>
+   
+    </>
+  );
+};
+
+export default Header;
