@@ -1,3 +1,4 @@
+import DesignerContainer from '@/components/DesignerContainer'
 import TestimonialBrands from '@/components/TestimonialBrands'
 import Image from 'next/image'
 import { FC } from 'react'
@@ -53,8 +54,8 @@ const Designer: FC<pageProps> = ({}) => {
               <div className='mt-2'><input type="file" className='text-sm' /></div>
               </div>
             </div>
-            <div id="middle" className='grow bg-cap bg-no-repeat bg-contain bg-center'>
-           
+            <div id="middle" className='grow bg-gray-600 border-x-2 flex items-center justify-center '>
+           <DesignerContainer />
             </div>
             <div id="right" className='w-[200px] bg-white'>
               
