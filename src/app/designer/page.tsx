@@ -1,7 +1,11 @@
+'use client'
+import DesignerCanvas from '@/components/DesignerCanvas'
 import DesignerContainer from '@/components/DesignerContainer'
 import TestimonialBrands from '@/components/TestimonialBrands'
+import Toolbar from '@/components/Toolbar'
 import Image from 'next/image'
 import { FC } from 'react'
+import { TwitterPicker } from 'react-color'
 
 type pageProps = {
   
@@ -16,53 +20,7 @@ const Designer: FC<pageProps> = ({}) => {
           <h1 className='text-center text-2xl text-activeOrange'>Designer</h1>
           </div>
           
-          <div id="mainDesigner" className='flex h-full'>
-            <div id="toolbar" className='w-[250px] bg-white h-full px-2 py-2 flex flex-col gap-y-5'>
-              <div>
-                <h2 className='text-center mb-5 font-bold'>Toolbar </h2>
-              <h3>Front Panel</h3>
-              <p className='text-sm text-red-600'>Pick a Color</p>
-              </div>
-              <div>
-              <h3>Peak</h3>
-              <p className='text-sm text-red-600'>Pick a Color</p>
-              </div>
-              <div>
-              <h3>Upper Stripe</h3>
-              <p className='text-sm text-red-600'>Pick a Color</p>
-              </div>
-              <div>
-              <h3>Lower Strip</h3>
-              <p className='text-sm text-red-600'>Pick a Color</p>
-              </div>
-              <div>
-              <h3>Back Mesh</h3>
-              <p className='text-sm text-red-600'>Pick a Color</p>
-              </div>
-              <div>
-              <h3>Snap Back</h3>
-              <p className='text-sm text-red-600'>Pick a Color</p>
-              </div>
-              <div>
-              <h3>Input Text</h3>
-              <input type="text" className='w-full border' />
-              <div className='flex items-center gap-x-2  mt-2'>
-                <button className='border text-red-400  py-2 px-1 text-xs'>Pick Text Color</button>
-                <button className='bg-black w-[30px] h-[30px]'></button>
-                <button className='border text-xs py-2 px-1'>Add Text</button>
-              </div>
-              <div className='mt-2'><input type="file" className='text-sm' /></div>
-              </div>
-            </div>
-            <div id="middle" className='grow bg-gray-600 border-x-2 flex items-center justify-center '>
-           <DesignerContainer />
-            </div>
-            <div id="right" className='w-[200px] bg-white'>
-              
-              <h2 className='text-center font-bold h-full'>Order Information</h2>
-              
-            </div>
-          </div>
+        <DesignerCanvas />
 
         </div>
    
