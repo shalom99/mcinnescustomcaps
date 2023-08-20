@@ -1,7 +1,6 @@
 "use client";
-import cn from "@/libs/cn";
 import { FC, useState } from "react";
-import { TwitterPicker } from "react-color";
+import ColorPicker from "./ColorPicker";
 
 type ToolbarProps = {
     selectedColor1: any
@@ -20,7 +19,7 @@ type ToolbarProps = {
 };
 
 const Toolbar: FC<ToolbarProps> = ({selectedColor1, selectedColor2, selectedColor3, selectedColor4, selectedColor5, selectedColor6, setSelectedColor1, setSelectedColor2, setSelectedColor3, setSelectedColor4, setSelectedColor5, setSelectedColor6}) => {
-
+    
     const [showPicker1, setShowPicker1] = useState(false)
     const [showPicker2, setShowPicker2] = useState(false)
     const [showPicker3, setShowPicker3] = useState(false)
@@ -31,90 +30,80 @@ const Toolbar: FC<ToolbarProps> = ({selectedColor1, selectedColor2, selectedColo
 
   return (
     <>
+  
       <div>
-        <h2 className="text-center mb-5 font-bold">Toolbar </h2>
-        <h3>Front Panel</h3>
-        <div className="flex items-center gap-x-5 relative">
-          <p className="text-sm text-red-600">Pick a Color:</p>
-          <button onClick={() => setShowPicker1(prev => !prev)}  className={cn("w-[30px] h-[30px] border-black border-2")} style={{backgroundColor: selectedColor1}}></button>
-          <div className="absolute -bottom-24 left-0 right-0 z-10">
-            {showPicker1 &&
-            <TwitterPicker color={selectedColor1} onChange={function(updatedColor){ setSelectedColor1(updatedColor.hex); setShowPicker1(false)}} />}
-          </div>
+        <div   onClick={() => setShowPicker1(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
+          <h3 className="w-[100px] select-none">Front Panel</h3>
+          <p style={{color: selectedColor1.code}}>{selectedColor1.code}</p>
         </div>
-      </div>
-      <div>
-      <h3>Peak</h3>
+
         <div className="flex items-center gap-x-5 relative">
-          <p className="text-sm text-red-600">Pick a Color:</p>
-          <button onClick={() => setShowPicker2(prev => !prev)}  className={cn("w-[30px] h-[30px] border-black border-2")} style={{backgroundColor: selectedColor2}}></button>
-          <div className="absolute -bottom-24 left-0 right-0 z-10">
-            {showPicker2 &&
-            <TwitterPicker color={selectedColor2} onChange={function(updatedColor){ setSelectedColor2(updatedColor.hex); setShowPicker2(false)}}/>}
-          </div>
-        </div>
-      </div>
-      <div>
-      <h3>Upper Stripe</h3>
-        <div className="flex items-center gap-x-5 relative">
-          <p className="text-sm text-red-600">Pick a Color:</p>
-          <button onClick={() => setShowPicker3(prev => !prev)}  className={cn("w-[30px] h-[30px] border-black border-2")} style={{backgroundColor: selectedColor3}}></button>
-          <div className="absolute -bottom-24 left-0 right-0 z-10">
-            {showPicker3 &&
-            <TwitterPicker color={selectedColor3} onChange={function(updatedColor){ setSelectedColor3(updatedColor.hex); setShowPicker3(false)}}/>}
-          </div>
-        </div>
-      </div>
-      <div>
-      <h3>Lower Stripe</h3>
-        <div className="flex items-center gap-x-5 relative">
-          <p className="text-sm text-red-600">Pick a Color:</p>
-          <button onClick={() => setShowPicker4(prev => !prev)}  className={cn("w-[30px] h-[30px] border-black border-2")} style={{backgroundColor: selectedColor4}}></button>
-          <div className="absolute -bottom-24 left-0 right-0 z-10">
-            {showPicker4 &&
-            <TwitterPicker color={selectedColor4} onChange={function(updatedColor){ setSelectedColor4(updatedColor.hex); setShowPicker4(false)}}/>}
-          </div>
-        </div>
-      </div>
-      <div>
-      <h3>Back Mesh</h3>
-        <div className="flex items-center gap-x-5 relative">
-          <p className="text-sm text-red-600">Pick a Color:</p>
-          <button onClick={() => setShowPicker5(prev => !prev)}  className={cn("w-[30px] h-[30px] border-black border-2")} style={{backgroundColor: selectedColor5}}></button>
-          <div className="absolute -bottom-24 left-0 right-0 z-10">
-            {showPicker5 &&
-            <TwitterPicker color={selectedColor5} onChange={function(updatedColor){ setSelectedColor5(updatedColor.hex); setShowPicker5(false)}}/>}
-          </div>
-        </div>
-      </div>
-      <div>
-      <h3>Snap Back</h3>
-        <div className="flex items-center gap-x-5 relative">
-          <p className="text-sm text-red-600">Pick a Color:</p>
-          <button onClick={() => setShowPicker6(prev => !prev)}  className={cn("w-[30px] h-[30px] border-black border-2")} style={{backgroundColor: selectedColor6}}></button>
-          <div className="absolute -bottom-24 left-0 right-0 z-10">
-            {showPicker6 &&
-            <TwitterPicker color={selectedColor6} onChange={function(updatedColor){ setSelectedColor6(updatedColor.hex); setShowPicker6(false)}}/>}
-          </div>
+          {showPicker1 &&<ColorPicker title="Front Panel" setSelectColor={setSelectedColor1} setShowPicker={setShowPicker1}/>}
         </div>
       </div>
 
       <div>
-        <h3>Input Text</h3>
-        <input type="text" className="w-full border" />
-        <div className="flex items-center gap-x-2  mt-2">
-          <button className="border text-red-400  py-2 px-1 text-xs">
-            Pick Text Color
-          </button>
-          <button className="bg-black w-[30px] h-[30px]"></button>
-          <button className="border text-xs py-2 px-1">Add Text</button>
+        <div   onClick={() => setShowPicker2(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
+          <h3 className="w-[100px] select-none">Peak</h3>
+          <p style={{color: selectedColor2.code}}>{selectedColor2.code}</p>
         </div>
-        <div className="mt-2">
-          <input type="file" className="text-sm" />
+
+        <div className="flex items-center gap-x-5 relative">
+          {showPicker2 &&<ColorPicker title="Peak" setSelectColor={setSelectedColor2} setShowPicker={setShowPicker2}  />}
         </div>
       </div>
+
+         <div>
+        <div   onClick={() => setShowPicker3(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
+          <h3 className="w-[100px] select-none">Upper Stripe</h3>
+          <p style={{color: selectedColor3.code}}>{selectedColor3.code}</p>
+        </div>
+
+        <div className="flex items-center gap-x-5 relative">
+          {showPicker3 &&<ColorPicker title="Upper Stripe" setSelectColor={setSelectedColor3} setShowPicker={setShowPicker3} />}
+        </div>
+      </div>
+
+      <div>
+        <div   onClick={() => setShowPicker4(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
+          <h3 className="w-[100px] select-none">Lower Stripe</h3>
+          <p style={{color: selectedColor4.code}}>{selectedColor4.code}</p>
+        </div>
+
+        <div className="flex items-center gap-x-5 relative">
+          {showPicker4 &&<ColorPicker title="Lower Stripe" setSelectColor={setSelectedColor4} setShowPicker={setShowPicker4} />}
+        </div>
+      </div>
+
+      <div>
+        <div   onClick={() => setShowPicker5(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
+          <h3 className="w-[100px] select-none">Back Mesh</h3>
+          <p style={{color: selectedColor5.code}}>{selectedColor5.code}</p>
+        </div>
+
+        <div className="flex items-center gap-x-5 relative">
+          {showPicker5 &&<ColorPicker title="Back Mesh" setSelectColor={setSelectedColor5} setShowPicker={setShowPicker5}/>}
+        </div>
+      </div>
+
+      <div>
+        <div   onClick={() => setShowPicker6(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
+          <h3 className="w-[100px] select-none">Snap Back</h3>
+          <p style={{color: selectedColor6.code}}>{selectedColor6.code}</p>
+        </div>
+
+        <div className="flex items-center gap-x-5 relative">
+          {showPicker6 &&<ColorPicker title="Snap Back" setSelectColor={setSelectedColor6} setShowPicker={setShowPicker6} />}
+        </div>
+      </div>
+
     </>
+    
   );
+
+  function checkTool(){
+   
+  }
 };
 
 export default Toolbar;

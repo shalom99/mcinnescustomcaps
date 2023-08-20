@@ -25,6 +25,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
                   <Link href="/designer" 
                      className={cn(pathname === "/designer"  ? 'text-activeOrange border-b-2 border-activeOrange': '', 'hover:text-activeOrange duration-500')}
                     > Design Your Own</Link>
+                              
                   <Link href="/store" 
                      className={cn(pathname === "/store"  ? 'text-activeOrange border-b-2 border-activeOrange': '', 'hover:text-activeOrange duration-500')}
                     > Store</Link>
