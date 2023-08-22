@@ -21,7 +21,7 @@ const DesignerCanvas: FC<DesignerCanvasProps> = ({}) => {
     <div id="mainDesigner" className=' flex h-full'>
 
 
-    <div id="middle" className='grow bg-gray-600 flex items-center justify-center '>
+    <div id="middle" className='grow bg-gray-300 flex items-center justify-center '>
    <DesignerContainer 
      selectedColor1={selectedColor1}
      selectedColor2={selectedColor2}
@@ -33,7 +33,8 @@ const DesignerCanvas: FC<DesignerCanvasProps> = ({}) => {
     </div>
 
     
-    <div id="toolbar" className='w-[270px] bg-white h-full py-2 flex flex-col overflow-y-scroll overflow-x-hidden'>
+    <div id="toolbar" className='w-[270px] bg-gray-300 h-full py-2 flex flex-col'>
+ 
     <Toolbar      
         selectedColor1={selectedColor1}
         selectedColor2={selectedColor2}

@@ -26,16 +26,16 @@ const DesignerContainer: FC<DesignerProps> = ({
 
 
   return (
-    <div className="relative w-[500px] h-[500px] p-5">
+    <div className=" relative w-[600px] h-[600px] p-5">
 
       {/* front */}
       {side === 0 && (
         <>
-          <img src="/cap/1.png" className="absolute inset-0 z-5" alt="" />
+          <img src="/cap/1.png" className="absolute inset-0 z-10" alt="" />
+          <img src="/cap/2.png" className="absolute inset-0 z-5" alt=""  style={{ filter: selectedColor5.filter  }} />
           <img src="/cap/4.png" className="absolute inset-0" alt=""  style={{ filter: selectedColor3.filter  }} />
           <img src="/cap/5.png" className="absolute inset-0" alt=""  style={{ filter: selectedColor4.filter  }}/>
           <img src="/cap/6.png" className="absolute inset-0" alt=""  style={{ filter: selectedColor1.filter  }}/>
-
           <img
             id="peakFront"
             src="/cap/7.png"
@@ -94,7 +94,7 @@ const DesignerContainer: FC<DesignerProps> = ({
         </>
       )}
 
-      <div className="absolute left-0 right-0 -bottom-10 flex justify-center gap-x-6 z-20 shadow-2xl bg-gray-300 rounded-full py-2">
+      <div className="absolute left-0 right-0 -bottom-5 flex justify-center gap-x-6 z-20 shadow-2xl bg-gray-300 rounded-full py-2">
         <button onClick={() => handleStepper('prev')} className="">
           <MdArrowBackIosNew className="text-activeOrange rounded-full border-activeOrange border-2 p-2" size={40} />
         </button>

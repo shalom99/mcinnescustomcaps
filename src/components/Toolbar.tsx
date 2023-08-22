@@ -30,21 +30,22 @@ const Toolbar: FC<ToolbarProps> = ({selectedColor1, selectedColor2, selectedColo
 
   return (
     <>
-  
+
+      <div className="h-full overflow-y-auto overflow-hidden">
       <div>
-        <div   onClick={() => setShowPicker1(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
-          <h3 className="w-[100px] select-none">Front Panel</h3>
+        <div   onClick={() => setShowPicker1(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-y-2 py-4 px-2">        
+          <h3 className="text-md text-slate-600 select-none">Front Panel</h3>
           <p style={{color: selectedColor1.code}}>{selectedColor1.code}</p>
         </div>
 
         <div className="flex items-center gap-x-5 relative">
-          {showPicker1 &&<ColorPicker title="Front Panel" setSelectColor={setSelectedColor1} setShowPicker={setShowPicker1}/>}
+        {showPicker1 &&<ColorPicker title="Front Panel" setSelectColor={setSelectedColor1} setShowPicker={setShowPicker1}  />}
         </div>
       </div>
 
       <div>
-        <div   onClick={() => setShowPicker2(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
-          <h3 className="w-[100px] select-none">Peak</h3>
+        <div   onClick={() => setShowPicker2(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2">        
+          <h3 className="text-md text-slate-600 select-none">Peak</h3>
           <p style={{color: selectedColor2.code}}>{selectedColor2.code}</p>
         </div>
 
@@ -54,8 +55,8 @@ const Toolbar: FC<ToolbarProps> = ({selectedColor1, selectedColor2, selectedColo
       </div>
 
          <div>
-        <div   onClick={() => setShowPicker3(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
-          <h3 className="w-[100px] select-none">Upper Stripe</h3>
+        <div   onClick={() => setShowPicker3(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2">        
+          <h3 className="text-md text-slate-600 select-none">Upper Stripe</h3>
           <p style={{color: selectedColor3.code}}>{selectedColor3.code}</p>
         </div>
 
@@ -65,8 +66,8 @@ const Toolbar: FC<ToolbarProps> = ({selectedColor1, selectedColor2, selectedColo
       </div>
 
       <div>
-        <div   onClick={() => setShowPicker4(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
-          <h3 className="w-[100px] select-none">Lower Stripe</h3>
+        <div   onClick={() => setShowPicker4(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2">        
+          <h3 className="text-md text-slate-600 select-none">Lower Stripe</h3>
           <p style={{color: selectedColor4.code}}>{selectedColor4.code}</p>
         </div>
 
@@ -76,8 +77,8 @@ const Toolbar: FC<ToolbarProps> = ({selectedColor1, selectedColor2, selectedColo
       </div>
 
       <div>
-        <div   onClick={() => setShowPicker5(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
-          <h3 className="w-[100px] select-none">Back Mesh</h3>
+        <div   onClick={() => setShowPicker5(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2">        
+          <h3 className="text-md text-slate-600 select-none">Back Mesh</h3>
           <p style={{color: selectedColor5.code}}>{selectedColor5.code}</p>
         </div>
 
@@ -87,8 +88,8 @@ const Toolbar: FC<ToolbarProps> = ({selectedColor1, selectedColor2, selectedColo
       </div>
 
       <div>
-        <div   onClick={() => setShowPicker6(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-2 px-2">        
-          <h3 className="w-[100px] select-none">Snap Back</h3>
+        <div   onClick={() => setShowPicker6(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2">        
+          <h3 className="text-md text-slate-600 select-none">Snap Back</h3>
           <p style={{color: selectedColor6.code}}>{selectedColor6.code}</p>
         </div>
 
@@ -97,6 +98,19 @@ const Toolbar: FC<ToolbarProps> = ({selectedColor1, selectedColor2, selectedColo
         </div>
       </div>
 
+      <div className="bg-red-200">
+        <div   onClick={() => setShowPicker6(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-not-allowed border-b-2 py-4 px-2">        
+          <h3 className="text-md text-slate-600 select-none">Under Brim</h3>
+        </div>
+      </div>
+
+      <div className="bg-red-200">
+        <div   onClick={() => setShowPicker6(prev => !prev)} className="flex items-center justify-between gap-x-3 cursor-not-allowed border-b-2 py-4 px-2">        
+          <h3 className="text-md text-slate-600 select-none">Crown Branding</h3>
+        </div>
+        </div>
+      </div>
+      
     </>
     
   );
