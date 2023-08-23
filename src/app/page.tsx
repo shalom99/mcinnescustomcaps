@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import TestimonialBrands from "@/components/TestimonialBrands";
 import {MdOutlineArrowForwardIos} from 'react-icons/md'
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -21,9 +22,9 @@ export default function Home() {
             <button className="bg-black rounded-lg px-6 py-1 text-xl border-white border-2">
               Shop
             </button>
-            <button className="bg-black rounded-lg px-6 py-1 text-xl border-white border-2">
+            <Link href="/designer" className="bg-black rounded-lg px-6 py-1 text-xl border-white border-2">
               Design Your Own
-            </button>
+            </Link>
           </div>
         </div>
       </main>

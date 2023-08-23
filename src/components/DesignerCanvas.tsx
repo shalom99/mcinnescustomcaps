@@ -15,6 +15,10 @@ const DesignerCanvas: FC<DesignerCanvasProps> = ({}) => {
     const [selectedColor5, setSelectedColor5] = useState({code: '', filter: ''})
     const [selectedColor6, setSelectedColor6] = useState({code: '', filter: ''})
     const [selectedColor2, setSelectedColor2] = useState({code: '', filter: ''})
+    const [frontFlag, setFrontFlag] = useState({show: false, code: '', filter: ''})
+    const [leftLabel, setLeftLabel] = useState({show: false, code: '', filter: ''})
+    const [rightLabel, setRightLabel] = useState({show: false, code: '', filter: ''})
+    const [side, setSide] = useState(0);
 
   return (
 
@@ -29,6 +33,11 @@ const DesignerCanvas: FC<DesignerCanvasProps> = ({}) => {
      selectedColor4={selectedColor4}
      selectedColor5={selectedColor5}   
      selectedColor6={selectedColor6}
+     frontFlag={frontFlag}
+     leftLabel={leftLabel}
+     rightLabel={rightLabel}
+     side={side}
+     setSide={setSide}
         />
     </div>
 
@@ -48,6 +57,12 @@ const DesignerCanvas: FC<DesignerCanvasProps> = ({}) => {
         setSelectedColor4={setSelectedColor4}
         setSelectedColor5={setSelectedColor5}
         setSelectedColor6={setSelectedColor6}
+        frontFlag={frontFlag}
+        setFrontFlag={setFrontFlag}
+        leftLabel={leftLabel}
+        setLeftLabel={setLeftLabel}
+        side={side}
+        setSide={setSide}
         />
     </div>
 

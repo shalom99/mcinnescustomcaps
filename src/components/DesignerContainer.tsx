@@ -11,6 +11,11 @@ type DesignerProps = {
   selectedColor4: any;
   selectedColor5: any;
   selectedColor6: any;
+  frontFlag:  any;
+  leftLabel: any;
+  rightLabel: any;
+  side: any;
+  setSide: any;
 };
 
 const DesignerContainer: FC<DesignerProps> = ({
@@ -20,9 +25,13 @@ const DesignerContainer: FC<DesignerProps> = ({
   selectedColor4,
   selectedColor5,
   selectedColor6,
+  frontFlag,
+  leftLabel,
+  rightLabel,
+  side,
+  setSide
 }) => {
-  const [side, setSide] = useState(0);
-  const [filter1, setFilter1] = useState("");
+
 
 
   return (
@@ -44,6 +53,25 @@ const DesignerContainer: FC<DesignerProps> = ({
           />
         </>
       )}
+
+      {side === 0 && frontFlag.show === true ?(
+        <>
+               <img
+            id="flag1"
+            src="/cap/8.png"
+            className="absolute inset-0"
+       
+          />
+              <img
+            id="flag2"
+            src="/cap/9.png"
+            className="absolute inset-0"
+            style={{ filter: frontFlag.filter }}
+          />
+        </>
+      ) : ''}
+
+
          {/* back */}
       {side === 1 && (
      
@@ -75,6 +103,13 @@ const DesignerContainer: FC<DesignerProps> = ({
           />
         </>
       )}
+
+      {side === 2 && leftLabel.show === true ? (
+        <>
+          <img src="/cap/28.png" className="absolute inset-0 z-20" alt=""  />
+          <img src="/cap/29.png" className="absolute inset-0 z-10" alt=""  style={{ filter: leftLabel.filter  }}/>
+        </>
+      ) : ''}
 
       {/* right */}
       {side === 3 && (
@@ -135,7 +170,7 @@ const DesignerContainer: FC<DesignerProps> = ({
                   if(side === 0){
                         setSide(3)
                   }else{
-                        setSide(prev => prev -1) 
+                        setSide((prev:any) => prev -1) 
                   }       
             }
 
@@ -143,7 +178,7 @@ const DesignerContainer: FC<DesignerProps> = ({
                   if(side === 3){
                         setSide(0)
                   }else{
-                        setSide(prev => prev +1) 
+                        setSide((prev:any) => prev +1) 
                   }       
             }
       }
