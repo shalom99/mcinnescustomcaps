@@ -1,6 +1,6 @@
 "use client";
 import cn from "@/libs/cn";
-import { useCapItemStore, useLabelStore, useSideStore } from "@/store";
+import { useCapItemStore, useLabelStore, useSideStore } from "@/libs/store";
 import localFont from "@next/font/local";
 
 import { FC, useState, useEffect } from "react";
@@ -28,19 +28,19 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
             src="/cap/2.png"
             className="absolute inset-0 z-5"
             alt=""
-            style={{ filter: capItems[6].selectedColorFilter }}
+            style={{ filter: capItems[5].selectedColorFilter }}
           />
           <img
             src="/cap/4.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[4].selectedColorFilter }}
+            style={{ filter: capItems[3].selectedColorFilter }}
           />
           <img
             src="/cap/5.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[5].selectedColorFilter }}
+            style={{ filter: capItems[4].selectedColorFilter }}
           />
           <img
             src="/cap/6.png"
@@ -53,7 +53,7 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
             id="peakFront"
             src="/cap/7.png"
             className="absolute inset-0 z-10"
-            style={{ filter: capItems[2].selectedColorFilter }}
+            style={{ filter: capItems[1].selectedColorFilter }}
           />
         </>
       )}
@@ -80,25 +80,25 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
             src="/cap/12.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[6].selectedColorFilter }}
+            style={{ filter: capItems[5].selectedColorFilter }}
           />
           <img
             src="/cap/13.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[4].selectedColorFilter }}
+            style={{ filter: capItems[3].selectedColorFilter }}
           />
           <img
             src="/cap/14.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[5].selectedColorFilter }}
+            style={{ filter: capItems[4].selectedColorFilter }}
           />
           <img
             src="/cap/15.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[7].selectedColorFilter }}
+            style={{ filter: capItems[6].selectedColorFilter }}
           />
           <img
             src="/cap/16.png"
@@ -117,19 +117,19 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
             src="/cap/22.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[6].selectedColorFilter }}
+            style={{ filter: capItems[5].selectedColorFilter }}
           />
           <img
             src="/cap/23.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[4].selectedColorFilter }}
+            style={{ filter: capItems[3].selectedColorFilter }}
           />
           <img
             src="/cap/24.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[5].selectedColorFilter }}
+            style={{ filter: capItems[4].selectedColorFilter }}
           />
 
           <img
@@ -143,7 +143,7 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
             src="/cap/27.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[2].selectedColorFilter }}
+            style={{ filter: capItems[1].selectedColorFilter }}
           />
 
           {side === 2 && labels[0].show === true ? (
@@ -198,19 +198,19 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
             src="/cap/32.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[6].selectedColorFilter }}
+            style={{ filter: capItems[5].selectedColorFilter }}
           />
           <img
             src="/cap/33.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[4].selectedColorFilter }}
+            style={{ filter: capItems[3].selectedColorFilter }}
           />
           <img
             src="/cap/34.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[5].selectedColorFilter }}
+            style={{ filter: capItems[4].selectedColorFilter }}
           />
           <img
             src="/cap/35.png"
@@ -223,7 +223,7 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
             src="/cap/36.png"
             className="absolute inset-0"
             alt=""
-            style={{ filter: capItems[2].selectedColorFilter }}
+            style={{ filter: capItems[1].selectedColorFilter }}
           />
         </>
       )}

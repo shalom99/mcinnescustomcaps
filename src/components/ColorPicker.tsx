@@ -1,5 +1,5 @@
 import cn from '@/libs/cn'
-import { useCapItemStore } from '@/store'
+import { useCapItemStore } from '@/libs/store'
 import { FC } from 'react'
 
 type ColorPickerProps = {

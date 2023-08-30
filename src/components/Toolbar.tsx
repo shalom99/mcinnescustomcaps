@@ -1,10 +1,9 @@
 "use client";
-import { FC, useState } from "react";
+import { FC } from "react";
 import ColorPicker from "./ColorPicker";
 import LabelColorPicker from "./LabelColorPicker";
-
-
-import { useLabelStore, useCapItemStore } from "@/store";
+import { useLabelStore, useCapItemStore } from "@/libs/store";
+import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 
 type ToolbarProps = {
 };
@@ -41,11 +40,14 @@ const Toolbar: FC<ToolbarProps> = ({
           <div key={label.id} className="">
             <div
               onClick={() => labels.setShowPicker(label.id)}
-              className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2"
+              className="flex items-center justify-between gap-x-3 cursor-pointer border-y-2 py-4 px-2"
             >
               <h3 className="text-md text-slate-600 select-none">
                 {label.name}
               </h3>
+
+             {!label.showColorPicker ? <MdOutlineKeyboardArrowDown /> :
+             <MdOutlineKeyboardArrowUp /> }
             </div>
 
             <div className="flex items-center gap-x-5 relative">
@@ -59,7 +61,27 @@ const Toolbar: FC<ToolbarProps> = ({
           </div>
         ))}
 
-        <h1>{JSON.stringify(labels.labels[0].text)}</h1>
+        {/* <h1>{JSON.stringify(labels.labels[0].text)}</h1> */}
+        <div>
+            <div
+             
+              className="flex items-center justify-between gap-x-3 cursor-not-allowed border-y-2 py-4 px-2"
+            >
+              <h3 className="text-md text-slate-600 select-none">
+                Add Brand
+              </h3>
+
+            </div>
+
+            <div className="flex items-center gap-x-5 relative">
+              {/* {label.showColorPicker && (
+                <LabelColorPicker
+                  title={label.name}
+                  label={label}
+                />
+              )} */}
+            </div>
+          </div>
       </div>
     </>
   );

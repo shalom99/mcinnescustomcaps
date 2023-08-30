@@ -1,5 +1,5 @@
 import cn from '@/libs/cn'
-import { useLabelStore } from '@/store'
+import { useLabelStore } from '@/libs/store'
 import { FC, useEffect } from 'react'
 
 type ColorPickerProps = {
@@ -13,14 +13,7 @@ const LabelColorPicker: FC<ColorPickerProps> = ({title, label}) =>
 
   function handleChangeColor(id: number, color: string, colorFilter: string){
     setLabelBackgroundColor(id, color, colorFilter)
-
   }
-
-  // function handleChangeColor(id: number, color: string, colorFilter: string){
-  //   capParts.setCapItemColor(id, color, colorFilter)
-  //   capParts.setShowPicker(id)
-  // }
-
 
   return (
      <div className='text-black w-full flex flex-col gap-y-5 py-5 select-none'>
