@@ -74,8 +74,6 @@ export const useLabelStore = create<LabelsType>()((set) => ({
 }))
 
 
-
-
 export const useSideStore = create<sideType>()((set) => ({
     side: 0,
     setSelectedSide: (newSide) => set({side: newSide}),

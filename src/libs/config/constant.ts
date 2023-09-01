@@ -56,7 +56,7 @@ export const CapItems = [
 export const Labels = [
   {
     id: 0,
-    name: "Front Label",
+    name: "Phone Label(Front)",
     show: false,
     text: '', 
     textHexColor: '',

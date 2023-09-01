@@ -27,7 +27,7 @@ const LabelColorPicker: FC<ColorPickerProps> = ({title, label}) =>
         {label.show === true ?  (
         <>
         <div className='w-full my-2'>
-        <input type="text" placeholder='Input Text' value={label.text} onChange={(e) => setLabelText(label.id, e.target.value)} className='w-full text-gray-600 pl-2 py-2 rounded-md border border-black text-sm' maxLength={10}/>
+        <input type="text" placeholder='Input Text' value={label.text} onChange={(e) => setLabelText(label.id, e.target.value)} className='w-full text-gray-600 pl-2 py-2 rounded-md border border-black text-sm' maxLength={12}/>
         <h2 className='pl-2 text-sm mt-3'>Background Color</h2>
         </div>
         <div className='w-full flex gap-x-1 justify-evenly'>

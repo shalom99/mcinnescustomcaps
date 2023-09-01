@@ -161,9 +161,9 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
                 alt=""
               />
               <p
-                className={`${myLocalFont.className} absolute left-[201px] top-[350px]  -rotate-[76deg] text-[6px] rounded-lg`}
+                className={`${myLocalFont.className} absolute left-[201px] right-[330px] top-[350px]  -rotate-[76deg] text-[6px] rounded-lg text-center`}
               >
-                0000 000 000
+                {labels[0].text.length > 0 ? labels[0].text : '0000 000 000'}
               </p>
             </>
           ) : (
