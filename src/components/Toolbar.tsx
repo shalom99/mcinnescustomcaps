@@ -5,6 +5,7 @@ import LabelColorPicker from "./LabelColorPicker";
 import { useLabelStore, useCapItemStore } from "@/libs/store";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { usePreviewImgStore } from "@/libs/store/previewStore";
 
 type ToolbarProps = {};
 
@@ -13,14 +14,16 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
   const capItems = useCapItemStore();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [image, setImage] = useState<File>();
-  const [preview, setPreview] = useState<string | null>();
+  const { previewImg, setPreviewImg, setShowPreview} = usePreviewImgStore();
+
   const [showBranding, setShowBranding] = useState(false);
 
   useEffect(() => {
     if (image) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setPreview(reader.result as string);
+        setPreviewImg(reader.result as string);
+        setShowPreview(true)
       };
       reader.readAsDataURL(image);
     } else {
@@ -86,7 +89,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
           {showBranding ? (
             <div className="flex flex-col py-2 px-2 gap-y-3 relative">
               <h2>Upload your Logo</h2>
-              <h3 className="text-sm">
+              <h3 className="text-xs">
                 High-quality JPG/JPEG or PNG recommended. Some users have
                 experienced difficulty with other file types.{" "}
               </h3>
@@ -111,15 +114,15 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
                   }}
                   className="bg-gray-400 rounded-full p-2 w-[150px]"
                 >
-                  {!preview ? "Add Image" : "Change Image"}
+                  {!previewImg ? "Add Image" : "Change Image"}
                 </button>
               </div>
               {/* <p>preview: {preview}</p> */}
 
-              {preview ? (
+              {previewImg ? (
                 <div className="flex gap-x-[-5px]">
                   <img
-                    src={preview}
+                    src={previewImg}
                     alt=""
                     width={50}
                     height={30}
@@ -128,7 +131,8 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      setPreview(null);
+                      setPreviewImg(null);
+                      setShowPreview(false)
                     }}
                     className="w-[15px] h-[15px]"
                   >

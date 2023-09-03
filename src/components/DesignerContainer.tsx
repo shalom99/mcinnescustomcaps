@@ -6,6 +6,8 @@ import localFont from "@next/font/local";
 import { FC, useRef,  } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import FrontCanvas from "./FrontCanvas";
+import { usePreviewImgStore } from "@/libs/store/previewStore";
+import Draggable from "react-draggable";
 
 const myLocalFont = localFont({
   src: "../fonts/VenusRising.otf",
@@ -18,13 +20,20 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
   const { capItems } = useCapItemStore();
   const { side, setSelectedSide, setNextSide, setPrevSide } = useSideStore();
   const { labels } = useLabelStore();
+  const {previewImg, showPreview} = usePreviewImgStore();
   // console.log(labels);
 
 
   return (
     <div className=" relative w-[600px] h-[600px] p-5">
 
-    <FrontCanvas />
+    {/* <FrontCanvas /> */}
+    {showPreview ?     <div className="absolute top-[90px] bottom-[200px] left-[100px] right-[90px] z-20 border-2 border-dashed border-red-700">
+        <Draggable bounds="parent">
+        <img src={previewImg ? previewImg: ''} alt="" className="w-[200px] h-[200px] object-contain" />
+        </Draggable>
+    </div> : null}
+
 
       {/* front */}
       {side === 0 && (
