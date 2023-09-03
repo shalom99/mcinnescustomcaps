@@ -4,6 +4,7 @@ import ColorPicker from "./ColorPicker";
 import LabelColorPicker from "./LabelColorPicker";
 import { useLabelStore, useCapItemStore } from "@/libs/store";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 
 type ToolbarProps = {};
 
@@ -29,7 +30,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
   return (
     <>
       <div className="h-full overflow-y-auto overflow-hidden">
-        {/* {capItems.capItems.map((capItem) => (
+        {capItems.capItems.map((capItem) => (
           <div key={capItem.id}>
             <div
               onClick={() => capItems.setShowPicker(capItem.id)}
@@ -70,7 +71,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
               )}
             </div>
           </div>
-        ))} */}
+        ))}
 
         {/* <h1>{JSON.stringify(labels.labels[0].text)}</h1> */}
 
