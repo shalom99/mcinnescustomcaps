@@ -1,6 +1,7 @@
+'use client'
 import cn from '@/libs/cn'
-import { useCapItemStore } from '@/libs/store'
-import { FC } from 'react'
+import { useCapItemStore, useSideStore } from '@/libs/store'
+import { FC, useEffect } from 'react'
 
 type ColorPickerProps = {
   title: string
@@ -10,13 +11,21 @@ type ColorPickerProps = {
 
 const ColorPicker: FC<ColorPickerProps> = ({title, capItemId}) =>
  {
-  const capParts = useCapItemStore()
+  const { capItems ,setCapItemColor, setShowPicker} = useCapItemStore()
+  const { setSelectedSide } = useSideStore()
 
   function handleChangeColor(id: number, color: string, colorFilter: string){
-    capParts.setCapItemColor(id, color, colorFilter)
-    capParts.setShowPicker(id)
+    setCapItemColor(id, color, colorFilter)
+    setShowPicker(id)
   }
 
+  useEffect(() => {
+   if(capItems[capItemId].id === 6){
+      setSelectedSide(1)
+    }
+
+  
+  }, [ capItems[capItemId].hexcode])
   
   return (
      <div className='text-black w-full flex flex-col gap-y-5 py-5 select-none'>

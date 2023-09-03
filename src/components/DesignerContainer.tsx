@@ -3,8 +3,9 @@ import cn from "@/libs/cn";
 import { useCapItemStore, useLabelStore, useSideStore } from "@/libs/store";
 import localFont from "@next/font/local";
 
-import { FC, useState, useEffect } from "react";
+import { FC, useRef,  } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+import FrontCanvas from "./FrontCanvas";
 
 const myLocalFont = localFont({
   src: "../fonts/VenusRising.otf",
@@ -13,13 +14,18 @@ const myLocalFont = localFont({
 type DesignerProps = {};
 
 const DesignerContainer: FC<DesignerProps> = ({}) => {
+  const canvasRef = useRef(null)
   const { capItems } = useCapItemStore();
   const { side, setSelectedSide, setNextSide, setPrevSide } = useSideStore();
   const { labels } = useLabelStore();
   // console.log(labels);
 
+
   return (
     <div className=" relative w-[600px] h-[600px] p-5">
+
+    <FrontCanvas />
+
       {/* front */}
       {side === 0 && (
         <>

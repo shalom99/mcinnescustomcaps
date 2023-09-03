@@ -1,5 +1,6 @@
+'use client'
 import cn from '@/libs/cn'
-import { useLabelStore } from '@/libs/store'
+import { useLabelStore, useSideStore } from '@/libs/store'
 import { FC, useEffect } from 'react'
 
 type ColorPickerProps = {
@@ -9,7 +10,24 @@ type ColorPickerProps = {
 
 const LabelColorPicker: FC<ColorPickerProps> = ({title, label}) =>
  {
-  const {setShowLabel, setLabelText, setLabelBackgroundColor} = useLabelStore()
+  const { labels, setShowLabel, setLabelText, setLabelBackgroundColor} = useLabelStore()
+  const { side, setSelectedSide } = useSideStore()
+
+  useEffect(() => {
+    // set side on show of selected label
+    if(labels[label.id].show === true){
+      if(label.id === 0 || label.id === 1){
+        setSelectedSide(2)
+        console.log(`moved side ${labels[label.id].name}  `)
+      }else {
+        setSelectedSide(3)
+        console.log(`moved side ${labels[label.id].name}`)
+      }
+    }
+    
+
+  },[labels[label.id].show])
+
 
   function handleChangeColor(id: number, color: string, colorFilter: string){
     setLabelBackgroundColor(id, color, colorFilter)
@@ -18,6 +36,9 @@ const LabelColorPicker: FC<ColorPickerProps> = ({title, label}) =>
   return (
      <div className='text-black w-full flex flex-col gap-y-5 py-5 select-none'>
         <h2 className='font-bold text-sm px-2'>{title}</h2>
+
+        
+
         <select name="" id="" value={label.show === true ? 1 : 0} 
         onChange={(e) => {setShowLabel(label.id, e.target.value == '1' ? true : false)}} className="w-full rounded-md border border-black py-2 px-2 text-sm">
           <option value="0" className="text-sm">No Label</option>
