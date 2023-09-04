@@ -3,7 +3,7 @@ import cn from "@/libs/cn";
 import { useCapItemStore, useLabelStore, useSideStore } from "@/libs/store";
 import localFont from "@next/font/local";
 
-import { FC, useRef,  } from "react";
+import { FC, useRef } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import FrontCanvas from "./FrontCanvas";
 import { usePreviewImgStore } from "@/libs/store/previewStore";
@@ -16,28 +16,31 @@ const myLocalFont = localFont({
 type DesignerProps = {};
 
 const DesignerContainer: FC<DesignerProps> = ({}) => {
-  const canvasRef = useRef(null)
+  const canvasRef = useRef(null);
   const { capItems } = useCapItemStore();
   const { side, setSelectedSide, setNextSide, setPrevSide } = useSideStore();
   const { labels } = useLabelStore();
-  const {previewImg, showPreview} = usePreviewImgStore();
+  const { previewImg, showPreview } = usePreviewImgStore();
   // console.log(labels);
-
 
   return (
     <div className=" relative w-[600px] h-[600px] p-5">
-
-    {/* <FrontCanvas /> */}
-    {showPreview ?     <div className="absolute top-[90px] bottom-[200px] left-[100px] right-[90px] z-20 border-2 border-dashed border-red-700">
-        <Draggable bounds="parent">
-        <img src={previewImg ? previewImg: ''} alt="" className="w-[200px] h-[200px] object-contain" />
-        </Draggable>
-    </div> : null}
-
-
       {/* front */}
       {side === 0 && (
         <>
+          {/* <FrontCanvas /> */}
+          {showPreview ? (
+            <div className="absolute top-[90px] bottom-[200px] left-[100px] right-[90px] z-20 border-2 border-dashed border-red-700">
+              <Draggable bounds="parent">
+                <img
+                  src={previewImg ? previewImg : ""}
+                  alt=""
+                  className="w-[200px] h-[200px] object-contain"
+                />
+              </Draggable>
+            </div>
+          ) : null}
+
           <img src="/cap/1.png" className="absolute inset-0 z-10" alt="" />
           <img
             src="/cap/2.png"
@@ -178,7 +181,7 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
               <p
                 className={`${myLocalFont.className} absolute left-[201px] right-[330px] top-[350px]  -rotate-[76deg] text-[6px] rounded-lg text-center`}
               >
-                {labels[0].text.length > 0 ? labels[0].text : '0000 000 000'}
+                {labels[0].text.length > 0 ? labels[0].text : "0000 000 000"}
               </p>
             </>
           ) : (
