@@ -30,13 +30,15 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
         <>
           {/* <FrontCanvas /> */}
           {showPreview ? (
-            <div className="absolute top-[90px] bottom-[200px] left-[100px] right-[90px] z-20 border-2 border-dashed border-red-700">
+            <div className="absolute top-[90px] bottom-[200px] left-[100px] right-[90px] z-20 border-2 border-dashed border-red-700 overflow-hidden" style={{borderRadius: '140px 140px 0px 0px'}}>
               <Draggable bounds="parent">
+                
                 <img
                   src={previewImg ? previewImg : ""}
                   alt=""
-                  className="w-[200px] h-[200px] object-contain"
+                  className="w-[200px] h-[200px] object-contain border"
                 />
+               
               </Draggable>
             </div>
           ) : null}
@@ -178,8 +180,9 @@ const DesignerContainer: FC<DesignerProps> = ({}) => {
                 className="absolute inset-0"
                 alt=""
               />
+              <div className="absolute left-[201px] right-[330px] top-[350px]  -rotate-[76deg] text-[6px] rounded-lg text-center"></div>
               <p
-                className={`${myLocalFont.className} absolute left-[201px] right-[330px] top-[350px]  -rotate-[76deg] text-[6px] rounded-lg text-center`}
+                className={`${myLocalFont.className} `}
               >
                 {labels[0].text.length > 0 ? labels[0].text : "0000 000 000"}
               </p>

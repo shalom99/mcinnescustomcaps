@@ -1,55 +1,55 @@
 
 export const CapItems = [
- {
-  id: 0,
-  name: 'Front Panel',
-  hexcode: '',
-  selectedColorFilter: '',
-  showColorPicker: false
- },
- {
-  id: 1,
-  name: 'Peak',
-  hexcode: '',
-  selectedColorFilter: '',
-  showColorPicker: false
- },
- {
-  id: 2,
-  name: 'Under Brim',
-  hexcode: '',
-  selectedColorFilter: '',
-  showColorPicker: false
- },
- {
-  id: 3,
-  name: 'Upper Stripe',
-  hexcode: '',
-  selectedColorFilter: '',
-  showColorPicker: false
- },
- {
-  id: 4,
-  name: 'Lower Stripe',
-  hexcode: '',
-  selectedColorFilter: '',
-  showColorPicker: false
- },
- {
-  id: 5,
-  name: 'Back Mesh',
-  hexcode: '',
-  selectedColorFilter: '',
-  showColorPicker: false
- },
- {
-  id: 6,
-  name: 'Snap Back',
-  hexcode: '',
-  selectedColorFilter: '',
-  showColorPicker: false
- },
- 
+  {
+    id: 0,
+    name: 'Front Panel',
+    hexcode: '',
+    selectedColorFilter: '',
+    showColorPicker: false
+  },
+  {
+    id: 1,
+    name: 'Peak',
+    hexcode: '',
+    selectedColorFilter: '',
+    showColorPicker: false
+  },
+  {
+    id: 2,
+    name: 'Under Brim',
+    hexcode: '',
+    selectedColorFilter: '',
+    showColorPicker: false
+  },
+  {
+    id: 3,
+    name: 'Upper Stripe',
+    hexcode: '',
+    selectedColorFilter: '',
+    showColorPicker: false
+  },
+  {
+    id: 4,
+    name: 'Lower Stripe',
+    hexcode: '',
+    selectedColorFilter: '',
+    showColorPicker: false
+  },
+  {
+    id: 5,
+    name: 'Back Mesh',
+    hexcode: '',
+    selectedColorFilter: '',
+    showColorPicker: false
+  },
+  {
+    id: 6,
+    name: 'Snap Back',
+    hexcode: '',
+    selectedColorFilter: '',
+    showColorPicker: false
+  },
+
 
 ]
 
@@ -58,10 +58,10 @@ export const Labels = [
     id: 0,
     name: "Phone Label(Front)",
     show: false,
-    text: '', 
+    text: '',
     textHexColor: '',
     filterHexColor: '',
-    selectedTextColorFilter: '', 
+    selectedTextColorFilter: '',
     selectedColorFilter: '',
     showColorPicker: false
   },
@@ -69,10 +69,10 @@ export const Labels = [
     id: 1,
     name: "Left Label",
     show: false,
-    text: '', 
+    text: '',
     textHexColor: '',
     filterHexColor: '',
-    selectedTextColorFilter: '', 
+    selectedTextColorFilter: '',
     selectedColorFilter: '',
     showColorPicker: false
   },
@@ -80,10 +80,10 @@ export const Labels = [
     id: 2,
     name: "Right Label",
     show: false,
-    text: '', 
+    text: '',
     textHexColor: '',
     filterHexColor: '',
-    selectedTextColorFilter: '', 
+    selectedTextColorFilter: '',
     selectedColorFilter: '',
     showColorPicker: false
   },
@@ -160,10 +160,68 @@ export const ColorOptions = [
 
 ]
 
+export const branding = [
+  {
+    id: 0,
+    part: '',
+    imageURL: '',
+    x: 0,
+    y: 0
+  },
+  {
+    id: 1,
+    part: '',
+    imageURL: '',
+    x: 0,
+    y: 0
+  },
+  {
+    id: 2,
+    part: '',
+    imageURL: '',
+    x: 0,
+    y: 0
+  },
+  {
+    id: 3,
+    part: '',
+    imageURL: '',
+    x: 0,
+    y: 0
+  },
+  {
+    id: 4,
+    part: '',
+    imageURL: '',
+    x: 0,
+    y: 0
+  },
+  {
+    id: 5,
+    part: '',
+    imageURL: '',
+    x: 0,
+    y: 0
+  },
+  {
+    id: 6,
+    part: '',
+    imageURL: '',
+    x: 0,
+    y: 0
+  }, {
+    id: 0,
+    part: '',
+    imageURL: '',
+    x: 0,
+    y: 0
+  },
+
+]
 
 
 
-     
 
-     
-    
+
+
+

@@ -48,6 +48,8 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
             <div className="flex items-center gap-x-5 relative">
               {capItem.showColorPicker && <ColorPicker title={capItem.name} capItemId={capItem.id} />}
             </div>
+
+            
           </div>
         ))}
 
@@ -83,7 +85,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
           <div onClick={() => {
             setShowBranding(prev => !prev)
           }} className="flex items-center justify-between gap-x-3 cursor-pointer border-y-2 py-4 px-2">
-            <h3 className="text-md text-slate-600 select-none">Add Brand</h3>
+            <h3 className="text-md text-slate-600 select-none">Add Front Brand</h3>
           </div>
 
           {showBranding ? (
