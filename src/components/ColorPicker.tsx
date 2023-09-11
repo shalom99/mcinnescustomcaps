@@ -29,7 +29,7 @@ const ColorPicker: FC<ColorPickerProps> = ({title, capItemId}) =>
   
   return (
      <div className='text-black w-full flex flex-col gap-y-5 py-5 select-none'>
-      <h2 className='font-bold text-sm px-2'>{title}</h2>
+      <h2 className='font-bold text-sm px-2'>Color</h2>
           <div className='w-full flex gap-x-1 justify-evenly'>
             <div className='flex flex-col items-center text-xs text-gray-600'>
          

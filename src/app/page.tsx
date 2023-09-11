@@ -13,7 +13,7 @@ export default function Home() {
           id="overlay"
           className="absolute inset-0 bg-black opacity-25 "
         ></div>
-        <div className="w-[1200px] text-white z-10">
+        <div className="w-full lg:w-[1200px] text-white z-10 px-5 pb-10 lg:pb-0 lg:px-0">
           <h2 className="text-6xl mb-5">Lorem ipsum dolor sit amet.</h2>
           <h3 className="text-2xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -29,17 +29,17 @@ export default function Home() {
         </div>
       </main>
 
-      <div id="store" className="bg-gray-200 flex justify-center">
-        <div id="container" className="w-[1200px] py-20 flex">
-          <div id="left" className=" flex gap-x-10">
-            <div className="flex flex-col gap-y-10">
-              <div className="w-[270px] h-[390px] bg-home1 bg-center bg-cover rounded-lg relative">
+      <div id="store" className="bg-gray-200 flex justify-center ">
+        <div id="container" className="w-full lg:w-[1200px] px-2 lg:px-0 py-10 lg:py-20 flex flex-col lg:flex-row">
+          <div id="left" className="flex gap-x-1 items-between lg:gap-x-10">
+            <div className="w-[50%] flex flex-col gap-y-10">
+              <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[390px] bg-home1 bg-center bg-cover rounded-lg relative">
                 <div id="overlay" className="absolute inset-0 bg-black opacity-25"></div>
                   <div className="absolute bottom-5 left-0 right-0 flex justify-center">
                     <button className="flex items-center font-bold gap-x-2 text-white">FIND OUT MORE <MdOutlineArrowForwardIos /></button>
                   </div>
               </div>
-              <div className="w-[270px] h-[390px] bg-home2 bg-center bg-cover rounded-lg relative">
+              <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[390px] bg-home2 bg-center bg-cover rounded-lg relative">
                 <div id="overlay" className="absolute inset-0 bg-black opacity-25"></div>
                   <div className="absolute bottom-5 left-0 right-0 flex justify-center">
                     <button className="flex items-center font-bold gap-x-2 text-white">FIND OUT MORE <MdOutlineArrowForwardIos /></button>
@@ -47,13 +47,13 @@ export default function Home() {
               </div>
             </div>
             <div className="pt-20 flex flex-col gap-y-10">
-            <div className="w-[270px] h-[390px] bg-home3 bg-center bg-cover rounded-lg relative">
+            <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[390px] bg-home3 bg-center bg-cover rounded-lg relative">
                 <div id="overlay" className="absolute inset-0 bg-black opacity-25"></div>
                   <div className="absolute bottom-5 left-0 right-0 flex justify-center">
                     <button className="flex items-center font-bold text-white gap-x-2">FIND OUT MORE <MdOutlineArrowForwardIos /></button>
                   </div>
               </div>
-              <div className="w-[270px] h-[390px] bg-home4 bg-center bg-cover rounded-lg relative">
+              <div className="w-[190px] h-[300px] lg:w-[270px] lg:h-[390px] bg-home4 bg-center bg-cover rounded-lg relative">
                 <div id="overlay" className="absolute inset-0 bg-black opacity-25"></div>
                   <div className="absolute bottom-5 left-0 right-0 flex justify-center">
                     <button className="flex items-center font-bold gap-x-2 text-white">FIND OUT MORE <MdOutlineArrowForwardIos /></button>
@@ -61,7 +61,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div id="right" className="w-full h-auto flex items-center pl-10">
+          <div id="right" className="w-full h-auto flex items-center px-5 lg:pl-10">
             <div className="flex flex-col gap-y-2">
               <h2 className="text-activeOrange font-semibold text-xl">Lorem</h2>
               <h3 className="text-2xl font-bold">

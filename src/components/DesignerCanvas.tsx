@@ -1,23 +1,24 @@
 "use client";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import Toolbar from "./Toolbar";
 import DesignerContainer from "./DesignerContainer";
 
 type DesignerCanvasProps = {};
 
 const DesignerCanvas: FC<DesignerCanvasProps> = ({}) => {
+
   return (
-    <div id="mainDesigner" className=" flex h-full">
+    <div id="mainDesigner" className="w-full flex flex-col gap-y-5 lg:flex-row h-full">
       <div
-        id="middle"
+        id="middleCanvas"
         className="grow bg-gray-300 flex items-center justify-center "
       >
-        <DesignerContainer />
+        <DesignerContainer  />
       </div>
 
       <div
         id="toolbar"
-        className="w-[270px] bg-gray-300 h-full py-2 flex flex-col"
+        className="w-full lg:w-[270px] bg-gray-300 h-full py-2 lg:flex flex-col"
       >
         <Toolbar />
       </div>

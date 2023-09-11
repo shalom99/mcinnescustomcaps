@@ -15,8 +15,8 @@ type NavbarProps = {};
 const Header: FC<NavbarProps> = ({}) => {
   return (
     <>
-      <header className="bg-primaryGreen text-white flex flex-col items-center relative">
-        <div id="nav-top" className="py-3 flex justify-between w-[1200px]">
+      <header className=" bg-primaryGreen text-white lg:flex flex-col items-center relative">
+        <div id="nav-top" className="hidden py-3 lg:flex justify-between w-[1200px]">
           <div id="left" className="flex gap-x-5">
             <button className="flex items-center gap-x-2">
               <BsFillTelephoneFill size={15} />

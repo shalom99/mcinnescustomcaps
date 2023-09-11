@@ -5,49 +5,89 @@ export const CapItems = [
     name: 'Front Panel',
     hexcode: '',
     selectedColorFilter: '',
-    showColorPicker: false
+    showColorPicker: false,
+    hasBranding: false,
+    showBrandingPicker: false,
+    branding: {
+      imageURL: '',
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0
+    },
   },
   {
     id: 1,
     name: 'Peak',
     hexcode: '',
     selectedColorFilter: '',
-    showColorPicker: false
+    showColorPicker: false,
+    hasBranding: false,
+    showBrandingPicker: false,
+    branding: {
+      imageURL: '',
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0
+    },
   },
   {
     id: 2,
     name: 'Under Brim',
     hexcode: '',
     selectedColorFilter: '',
-    showColorPicker: false
+    showColorPicker: false,
+    hasBranding: false,
+    showBrandingPicker: false,
+    branding: {
+      imageURL: '',
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0
+    },
   },
   {
     id: 3,
     name: 'Upper Stripe',
     hexcode: '',
     selectedColorFilter: '',
-    showColorPicker: false
+    showColorPicker: false,
+    hasBranding: false,
+    
   },
   {
     id: 4,
     name: 'Lower Stripe',
     hexcode: '',
     selectedColorFilter: '',
-    showColorPicker: false
+    showColorPicker: false,
+    hasBranding: false,
   },
   {
     id: 5,
     name: 'Back Mesh',
     hexcode: '',
     selectedColorFilter: '',
-    showColorPicker: false
+    showColorPicker: false,
+    hasBranding: true,
+    showBrandingPicker: false,
+    branding: {
+      imageURL: '',
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0
+    },
   },
   {
     id: 6,
     name: 'Snap Back',
     hexcode: '',
     selectedColorFilter: '',
-    showColorPicker: false
+    showColorPicker: false,
+    hasBranding: false,
   },
 
 
