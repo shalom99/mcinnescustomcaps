@@ -16,7 +16,10 @@ const Header: FC<NavbarProps> = ({}) => {
   return (
     <>
       <header className=" bg-primaryGreen text-white lg:flex flex-col items-center relative">
-        <div id="nav-top" className="hidden py-3 lg:flex justify-between w-[1200px]">
+        <div
+          id="nav-top"
+          className="hidden py-3 lg:flex justify-between w-[1200px]"
+        >
           <div id="left" className="flex gap-x-5">
             <button className="flex items-center gap-x-2">
               <BsFillTelephoneFill size={15} />
@@ -27,7 +30,9 @@ const Header: FC<NavbarProps> = ({}) => {
               className="flex items-center gap-x-2 px-4 border-x-2 border-activeOrange "
             >
               <BsSend size={15} />
-              <p className="text-xs hover:text-activeOrange duration-500">howdy@mcinnescustomcaps.com.au</p>
+              <p className="text-xs hover:text-activeOrange duration-500">
+                howdy@mcinnescustomcaps.com.au
+              </p>
             </Link>
 
             <Link
@@ -36,7 +41,9 @@ const Header: FC<NavbarProps> = ({}) => {
               className="flex items-center gap-x-1"
             >
               <MdLocationOn size={15} />
-              <p className="text-xs hover:text-activeOrange duration-500">13 Capital Terrace, Queanbeyan NSW</p>
+              <p className="text-xs hover:text-activeOrange duration-500">
+                13 Capital Terrace, Queanbeyan NSW
+              </p>
             </Link>
           </div>
           <div id="right" className="flex items-center">
@@ -47,13 +54,19 @@ const Header: FC<NavbarProps> = ({}) => {
                 href="https://www.facebook.com/McInnesCustomCaps/"
                 target="_blank"
               >
-                <FaFacebookF className="mr-2 hover:text-activeOrange duration-500" size={20}  />
+                <FaFacebookF
+                  className="mr-2 hover:text-activeOrange duration-500"
+                  size={20}
+                />
               </Link>
               <Link
                 href="https://www.instagram.com/mcinnescustomcaps/"
                 target="_blank"
               >
-                <FaInstagram size={20} className="hover:text-activeOrange duration-500" />
+                <FaInstagram
+                  size={20}
+                  className="hover:text-activeOrange duration-500"
+                />
               </Link>
             </div>
             <button className="ml-4">
@@ -61,9 +74,36 @@ const Header: FC<NavbarProps> = ({}) => {
             </button>
           </div>
         </div>
+
+        <div id="mobileHeader" className="lg:hidden w-full flex flex-col bg-activeOrange py-2 px-2">
+ 
+
+          <Link
+            href="mailto:howdy@mcinnescustomcaps.com.au"
+            className="flex items-center gap-x-2"
+          >
+            <BsSend size={20} />
+            <p className="text-md">
+              howdy@mcinnescustomcaps.com.au
+            </p>
+          </Link>
+          <button className="flex items-center gap-x-2">
+            <BsFillTelephoneFill size={20} />
+            <p className="text-md">0448 633 294</p>
+          </button>
+          {/* <Link
+            href="https://goo.gl/maps/ckhyyHfCaTgtsGca9"
+            target="_blank"
+            className="flex items-center gap-x-1"
+          >
+            <MdLocationOn size={15} />
+            <p className="text-xs hover:text-activeOrange duration-500">
+              13 Capital Terrace, Queanbeyan NSW
+            </p>
+          </Link> */}
+        </div>
         <Navbar />
       </header>
-   
     </>
   );
 };

@@ -130,134 +130,334 @@ export const Labels = [
 
 ];
 
-export const ColorOptions = [
-  {
-    id: 0,
-    code: '#FF6E00',
-    filter: 'invert(49%) sepia(23%) saturate(7488%) hue-rotate(0deg) brightness(102%) contrast(104%)'
-  },
+
+export const Brandings = [
   {
     id: 1,
-    code: '#FF9C00',
-    filter: 'invert(83%) sepia(25%) saturate(4801%) hue-rotate(358deg) brightness(400%) contrast(108%)'
+    part: 'FRONT',
+    show: false,
+    imageURL: '',
+    x: 0,
+    y: 0
   },
   {
     id: 2,
-    code: '#64B592',
-    filter: 'invert(84%) sepia(9%) saturate(1586%) hue-rotate(102deg) brightness(400%) contrast(87%)'
+    part: 'LEFT',
+    show: false,
+    imageURL: '',
+    x: 0,
+    y: 0
   },
   {
     id: 3,
-    code: '#00AE36',
-    filter: 'invert(60%) sepia(88%) saturate(2170%) hue-rotate(115deg) brightness(96%) contrast(101%)'
+    part: 'RIGHT',
+    show: false,
+    imageURL: '',
+    x: 0,
+    y: 0
   },
   {
     id: 4,
-    code: '#E96537',
-    filter: 'invert(49%) sepia(23%) saturate(7488%) hue-rotate(0deg) brightness(102%) contrast(104%)'
+    part: 'BACK',
+    show: false,
+    imageURL: '',
+    x: 0,
+    y: 0
   },
   {
-    id: 5,
-    code: '#A75D6F',
-    filter: 'invert(60%) sepia(14%) saturate(1188%) hue-rotate(295deg) brightness(105%) contrast(103%)'
+    id: 4,
+    part: 'UNDER BREAM',
+    show: false,
+    imageURL: '',
+    x: 0,
+    y: 0
   },
+]
+
+
+export const ColorOptions = [
   {
-    id: 6,
-    code: '#FF6E00',
-    filter: 'invert(49%) sepia(23%) saturate(7488%) hue-rotate(0deg) brightness(102%) contrast(104%)'
-  },
-  {
-    id: 7,
-    code: '#FEA0D1',
-    filter: 'invert(12%) sepia(91%) saturate(6465%) hue-rotate(280deg) brightness(92%) contrast(118%)'
-  },
-  {
-    id: 8,
-    code: '#8BDE7C',
-    filter: 'invert(21%) sepia(22%) saturate(800%) hue-rotate(63deg) brightness(98%) contrast(89%)'
-  },
-  {
-    id: 9,
-    code: '#1E1312',
-    filter: 'invert(91%) sepia(5%) saturate(2166%) hue-rotate(319deg) brightness(110%) contrast(104%)'
-  },
-  {
-    id: 10,
-    code: '#FF4474',
+    id: 1,
+    code: '#F55201',
     filter: 'invert(59%) sepia(27%) saturate(5404%) hue-rotate(321deg) brightness(104%) contrast(102%)'
   },
   {
-    id: 11,
-    code: '#FFC825',
+    id: 2,
+    code: '#92928B',
     filter: 'invert(20%) sepia(73%) saturate(1745%) hue-rotate(335deg) brightness(108%) contrast(108%)'
   },
   {
+    id: 3,
+    code: '#FF9711',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 4,
+    code: '#9D0105',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 5,
+    code: '#878377',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 6,
+    code: '#EF8B93',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 7,
+    code: '#2A174C',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 8,
+    code: '#0C216C',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 9,
+    code: '#111924',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 10,
+    code: '#497BB6',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 11,
+    code: '#24623E',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
     id: 12,
-    code: '#F79EF7',
+    code: '#AC9673',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 13,
+    code: '#FFFFFF',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 14,
+    code: '#000000',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 15,
+    code: '#361317',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 16,
+    code: '#1F3731',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 17,
+    code: '#302217',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 18,
+    code: '#4A4A48',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 19,
+    code: '#FFA101',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 20,
+    code: '#227695',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 21,
+    code: '#5CAB11',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 22,
+    code: '#E0E0D4',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 23,
+    code: '#4B8D36',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 24,
+    code: '#1D7964',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 25,
+    code: '#3D3914',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 26,
+    code: '#FD4E07',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 27,
+    code: '#1B3035',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 28,
+    code: '#D0D305',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 29,
+    code: '#714717',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 30,
+    code: '#860001',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 31,
+    code: '#D7BD00',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 32,
+    code: '#1F1F1A',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 33,
+    code: '#AB3550',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 34,
+    code: '#93BFA2',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 35,
+    code: '#92928B',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 36,
+    code: '#D8D1B8',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 37,
+    code: '#E5E1DE',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 38,
+    code: '#471A24',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 39,
+    code: '#2E271F',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+
+  {
+    id: 40,
+    code: '#141513',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 41,
+    code: '#BA3232',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 42,
+    code: '#B5B3AC',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 43,
+    code: '#7D7D7B',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 44,
+    code: '#5C5D5C',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 45,
+    code: '#101012',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 46,
+    code: '#E2E1DF',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 47,
+    code: '#B60415',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 48,
+    code: '#1A1A27',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 49,
+    code: '#914613',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 50,
+    code: '#AA1B14',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 51,
+    code: '#106353',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 52,
+    code: '#94B725',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 53,
+    code: '#BD8A0D',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 54,
+    code: '#393A35',
+    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+  },
+  {
+    id: 55,
+    code: '#060C4A',
     filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
   },
 
 
+
+  
 ]
 
-export const branding = [
-  {
-    id: 0,
-    part: '',
-    imageURL: '',
-    x: 0,
-    y: 0
-  },
-  {
-    id: 1,
-    part: '',
-    imageURL: '',
-    x: 0,
-    y: 0
-  },
-  {
-    id: 2,
-    part: '',
-    imageURL: '',
-    x: 0,
-    y: 0
-  },
-  {
-    id: 3,
-    part: '',
-    imageURL: '',
-    x: 0,
-    y: 0
-  },
-  {
-    id: 4,
-    part: '',
-    imageURL: '',
-    x: 0,
-    y: 0
-  },
-  {
-    id: 5,
-    part: '',
-    imageURL: '',
-    x: 0,
-    y: 0
-  },
-  {
-    id: 6,
-    part: '',
-    imageURL: '',
-    x: 0,
-    y: 0
-  }, {
-    id: 0,
-    part: '',
-    imageURL: '',
-    x: 0,
-    y: 0
-  },
-
-]
 
 
 

@@ -12,17 +12,19 @@ const BrandingPicker: FC<BrandingPickerProps> = ({}) => {
 
     const { previewImg, setPreviewImg, setShowPreview} = usePreviewImgStore();
     const [image, setImage] = useState<File>();
-    useEffect(() => {
-        if (image) {
-          const reader = new FileReader();
-          reader.onloadend = () => {
-            setPreviewImg(reader.result as string);
-            setShowPreview(true)
-          };
-          reader.readAsDataURL(image);
-        } else {
-        }
-      }, [image]);
+
+
+      // useEffect(() => {
+      //   if (image) {
+      //     const reader = new FileReader();
+      //     reader.onloadend = () => {
+      //       setPreviewImg(reader.result as string);
+      //       setShowPreview(true)
+      //     };
+      //     reader.readAsDataURL(image);
+      //   } else {
+      //   }
+      // }, [image]);
 
   return (
      
