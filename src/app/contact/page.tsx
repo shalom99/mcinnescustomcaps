@@ -90,7 +90,7 @@ const Contact: FC<pageProps> = ({}) => {
               ></textarea>
             </div>
             <div className="">
-              <button className="bg-red-700 rounded-2xl py-3 px-5 text-white text-sm">
+              <button className="bg-activeOrange rounded-2xl py-3 px-5 text-white text-sm">
                 Send Message
               </button>
             </div>
