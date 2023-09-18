@@ -1,6 +1,6 @@
 
 import { FC } from 'react'
-import DesignerCanvas from './components/DesignerCanvas'
+import DesignerCanvas from '@/app/designer/components/DesignerCanvas'
 
 type pageProps = {
   
