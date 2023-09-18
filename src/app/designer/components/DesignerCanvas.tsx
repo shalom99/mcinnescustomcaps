@@ -1,7 +1,8 @@
 "use client";
 import { FC, useState, useEffect } from "react";
-import Toolbar from "./Toolbar";
+
 import DesignerContainer from "./DesignerContainer";
+import Toolbar from "./Toolbar";
 
 type DesignerCanvasProps = {};
 

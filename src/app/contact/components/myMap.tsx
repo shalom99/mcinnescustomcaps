@@ -1,5 +1,5 @@
 'use client'
-import { FC, useState, useCallback, } from 'react'
+import { FC, useState,  } from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 type myMapProps = {
   
@@ -16,10 +16,13 @@ const containerStyle = {
   };
 
 const MyMap: FC<myMapProps> = ({}) => {
+
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: "AIzaSyAtHRg8SJquJrfog7TZO0TL8_J1-wYYhnE"
+        googleMapsApiKey:   process.env.NEXT_PUBLIC_GoogleMapsApi as string
       })
+
+    
 
       const [map, setMap] = useState(null)
     //   const [zoom, setZoom] = useState(18)

@@ -83,7 +83,7 @@ const Checkout: FC<pageProps> = ({}) => {
                 <div className="col-span-2 flex flex-col">
                     <label htmlFor="">Order notes (optional)</label>
                     <textarea />
-                </div>
+                </div> 
             </form>
         </div>
 

@@ -6,6 +6,7 @@ import { useLabelStore, useCapItemStore } from "@/libs/store";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import BrandingPicker from "./BrandingPicker";
 
+
 type ToolbarProps = {};
 
 const Toolbar: FC<ToolbarProps> = ({}) => {
@@ -34,7 +35,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
           
                 < div>
                   <ColorPicker title={capItem.name} capItemId={capItem.id} />
-                  <BrandingPicker />
+         
                 </div>
             
               }
@@ -74,6 +75,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
     
 
       <div className="lg:hidden w-full bg-yellow-200 grid grid-cols-4 gap-x-4 items-center">
+      START CAP LABELS  
       {
       capItems.capItems.map((capItem) => (
           <div key={capItem.id}>
@@ -87,6 +89,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
             </div>
           </div>
         ))}
+        END CAP LABELS  
         
       </div>
 

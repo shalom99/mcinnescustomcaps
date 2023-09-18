@@ -1,18 +1,18 @@
 "use client";
 import cn from "@/libs/cn";
 import { useCapItemStore, useLabelStore, useSideStore } from "@/libs/store";
-import localFont from "@next/font/local";
+import localFont from "next/font/local";
 // import {makeDraggable, makeResizable, makeRotatable} from '@/libs/config/helpers'
 import { FC, useRef, useEffect, useState } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
-import FrontCanvas from "./FrontCanvas";
+
 import { usePreviewImgStore } from "@/libs/store/previewStore";
-import Draggable from "react-draggable";
+
 import { CgArrowsExpandLeft } from "react-icons/cg";
 import { FiRotateCw } from "react-icons/fi";
-import { Resizable } from 'react-resizable';
+
 const myLocalFont = localFont({
-  src: "../fonts/VenusRising.otf",
+  src: "../../../fonts/VenusRising.otf",
 });
 
 type DesignerProps = {
@@ -34,15 +34,13 @@ const DesignerContainer: FC<DesignerProps> = () => {
   });
 
 
-
   useEffect(() => {
-
     const container = document.querySelector("#fPanelContainer")!;
     const element = document.querySelector("#fPanelElement")!;
     const middleCanvas = document.querySelector('#middleCanvas')!;
     const img = document.querySelector("#fPanelImg")!;
 
-     makeDraggable(element, container);
+    makeDraggable(element, container);
     makeResizable(element, container, img, middleCanvas)
     makeRotatable(element)
   }, []);
