@@ -14,14 +14,14 @@ const DesignerCanvas: FC<DesignerCanvasProps> = ({}) => {
     >
       <div
         id="middleCanvas"
-        className="grow bg-gray-300 flex items-center justify-center "
+        className="grow bg-white flex items-center justify-center "
       >
         <DesignerContainer />
       </div>
 
       <div
         id="toolbar"
-        className="w-full lg:w-[270px] bg-gray-300 h-full lg:flex flex-col"
+        className="w-full lg:w-[270px] bg-white h-full lg:flex flex-col"
       >
         <Toolbar />
       </div>

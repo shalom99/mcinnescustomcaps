@@ -3,7 +3,7 @@ import cn from "@/libs/cn";
 import { useCapItemStore, useSideStore } from "@/libs/store";
 import { FC, useEffect } from "react";
 import { ColorOptions } from "@/libs/config/constant";
-import {motion, AnimatePresence} from "framer-motion";
+import {motion} from "framer-motion";
 
 type ColorPickerProps = {
   title: string;
@@ -57,7 +57,7 @@ const ColorPicker: FC<ColorPickerProps> = ({ title, capItemId }) => {
                   colorOption.filter
                 )
               }
-              className={cn("w-[40px] h-[40px]  rounded-full")}
+              className={cn("w-[40px] h-[40px]  rounded-full border")}
               style={{ backgroundColor: colorOption.code }}
             />
             <label htmlFor="">Color #{colorOption.id}</label>

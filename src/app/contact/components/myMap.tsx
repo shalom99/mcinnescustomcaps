@@ -6,8 +6,8 @@ type myMapProps = {
 }
 
 const containerStyle = {
-    width: '600px',
-    height: '400px'
+    width: '100%',
+    height: '100%'
   };
   
   const center = {
