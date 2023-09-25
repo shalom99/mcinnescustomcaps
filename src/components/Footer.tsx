@@ -51,7 +51,7 @@ const Footer: FC<FooterProps> = ({}) => {
             <ul className="flex flex-col mt-3 lg:mt-5 gap-y-1 lg:gap-y-3 text-gray-300">
               <Link href="/"> Home</Link>
               <Link href="/"> How To Order</Link>
-              <Link href="/"> Design Your Own</Link>
+              <Link href="/designer"> Design Your Own</Link>
               <Link href="/"> Store</Link>
               <Link href="/"> Portfolio</Link>
               <Link href="/"> Contact Us</Link>

@@ -2,7 +2,6 @@ import { FC } from "react";
 import {
   BsFillTelephoneFill,
   BsSend,
-  BsCart3,
   BsArrowRightCircle,
 } from "react-icons/bs";
 import { MdLocationOn } from "react-icons/md";
@@ -10,6 +9,8 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "./Navbar";
+
+import Cart from "./Cart";
 type NavbarProps = {};
 
 const Header: FC<NavbarProps> = ({}) => {
@@ -69,23 +70,20 @@ const Header: FC<NavbarProps> = ({}) => {
                 />
               </Link>
             </div>
-            <button className="ml-4">
-              <BsCart3 size={20} />
-            </button>
+              <Cart />
           </div>
         </div>
 
-        <div id="mobileHeader" className="lg:hidden w-full flex flex-col bg-activeOrange py-2 px-2">
- 
-
+        <div
+          id="mobileHeader"
+          className="lg:hidden w-full flex flex-col bg-activeOrange py-2 px-2"
+        >
           <Link
             href="mailto:howdy@mcinnescustomcaps.com.au"
             className="flex items-center gap-x-2"
           >
             <BsSend size={20} />
-            <p className="text-md">
-              howdy@mcinnescustomcaps.com.au
-            </p>
+            <p className="text-md">howdy@mcinnescustomcaps.com.au</p>
           </Link>
           <button className="flex items-center gap-x-2">
             <BsFillTelephoneFill size={20} />

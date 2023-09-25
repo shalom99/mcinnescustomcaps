@@ -4,14 +4,14 @@ type pageProps = {};
 
 const Checkout: FC<pageProps> = ({}) => {
   return (
-    <div className=" bg-gray-600 flex justify-center py-32">
+    <div className=" bg-gray-600 flex justify-center py-10 lg:py-32">
       <div id="container" className="w-full lg:w-[1200px] text-white px-2 flex flex-col mt-10">
         
         <h2 className="text-4xl font-bold border-b pb-4 mb-10 text-activeOrange">Checkout</h2>
 
-        <div id="container2" className="flex items-start gap-x-10 ">
+        <div id="container2" className="flex flex-col lg:flex-row items-start gap-x-10 ">
 
-        <div id="billingDetails" className="w-[60%]">
+        <div id="billingDetails" className="w-full lg:w-[60%]">
             <form action="" className="grid grid-cols-2 gap-x-5 gap-y-3 ">
 
                 <div className="flex flex-col">
@@ -87,7 +87,7 @@ const Checkout: FC<pageProps> = ({}) => {
             </form>
         </div>
 
-        <div id="orderDetails" className=" w-[40%] grid grid-cols-3 border auto-rows-min py-5 px-5">
+        <div id="orderDetails" className="w-full lg:w-[40%] grid grid-cols-3 border auto-rows-min py-5 px-5">
             <h2 className="col-span-3 font-bold text-xl">YOUR ORDER</h2>
             <div className="col-span-3 pt-3 pb-2 flex justify-between border-b font-bold">
                 <p>Product</p>

@@ -26,6 +26,7 @@ interface sideType {
     setPrevSide: () => void;
 }
 
+
 export const useCapItemStore = create<CapItemType>()((set) => ({
     capItems: CapItems,
     setCapItems: (capItems) => set({capItems}),
@@ -84,5 +85,22 @@ export const useSideStore = create<sideType>()((set) => ({
         side: state.side > 0 ? state.side - 1 : 3
     })),
 }))
+
+
+interface cartType {
+    cart: number;
+    addToCart: () => void;
+    removeFromCart: () => void;
+}
+
+
+export const useCartStore = create<cartType>()((set) => ({
+    cart: 1,
+    addToCart: () => set({cart: 1}),
+    removeFromCart: () => set({cart: 0}),
+}))
+
+
+
 
 

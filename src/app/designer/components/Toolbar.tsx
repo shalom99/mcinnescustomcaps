@@ -1,25 +1,33 @@
 "use client";
-import { FC } from "react";
+import { CSSProperties, FC, useState } from "react";
 import ColorPicker from "./ColorPicker";
 import LabelColorPicker from "./LabelColorPicker";
-import { useLabelStore, useCapItemStore } from "@/libs/store";
+import { useLabelStore, useCapItemStore, useCartStore } from "@/libs/store";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md";
 import BrandingPicker from "./BrandingPicker";
+import { ClipLoader } from "react-spinners";
+import { useRouter } from 'next/navigation'
+ 
 
 type ToolbarProps = {};
 
 const Toolbar: FC<ToolbarProps> = ({}) => {
   const labels = useLabelStore();
+  const {cart, addToCart} = useCartStore()
   const capItems = useCapItemStore();
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter()
 
   return (
     <>
       <div className="hidden lg:block h-full overflow-y-auto overflow-hidden px-5 lg:px-0">
         <div className="flex justify-center items-center">
-          <h2 className="w-full text-center font-bold border-b-2 py-4">Custom Cap Designer</h2>
+          <h2 className="w-full text-center font-bold border-b-2 py-4">
+            Custom Cap Designer
+          </h2>
         </div>
         {/* START CAP PARTS */}
         {capItems.capItems.map((capItem) => (
@@ -90,19 +98,35 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
         </div>
 
         <div className="flex justify-center py-4">
-          <button className="bg-activeOrange rounded-full px-10 py-2 text-white">
-            Add to Cart
+          <button
+            onClick={addToCartHandler}
+            className="bg-activeOrange rounded-full w-[170px] py-2 text-white flex items-center justify-center"
+          >
+            {isLoading ? (
+              <ClipLoader
+                color="white"
+                loading={isLoading}
+                size={20}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            ) : (
+              "Add to Cart"
+            )}
           </button>
         </div>
       </div>
     </>
   );
 
-  function handleSelected(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log(e.currentTarget.files);
-  }
+  function addToCartHandler() {
+    setIsLoading(prev => (!prev))
+    addToCart()
+    router.push('/cart')
+    
 
-  function checkTool() {}
+
+  }
 };
 
 export default Toolbar;
