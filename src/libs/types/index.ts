@@ -25,7 +25,7 @@ export interface sideType {
 }
 
 export interface CartItem {
-    id: string, 
+    id: number, 
     name: string,
     price: number, 
     quantity: number,
@@ -34,9 +34,9 @@ export interface CartItem {
 
 export interface CartType {
     cartItems: CartItem[]
-    addToCart: (item: CartItem) => void;
-    removeFromCart: (id: string) => void;
-    updateCartItem: (id: string, quantity: number) => void;
+    addToCart: (item: Omit<CartItem, 'id'>) => void;
+    removeFromCart: (id: number) => void;
+    updateCartItem: (id: number, quantity: number) => void;
 }
 
 export interface previewImgType {

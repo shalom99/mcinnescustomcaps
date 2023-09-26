@@ -6,13 +6,13 @@ import { FC, useState } from 'react'
 import { ClipLoader } from 'react-spinners';
 
 type AddToCartButtonProps = {
-    id: string, 
+    id: number, 
     name: string, 
     quantity: number, 
     price: number 
 }
 
-const AddToCartButton: FC<AddToCartButtonProps> = ({id, name, quantity, price}) => {
+const AddToCartButton: FC<AddToCartButtonProps> = ({ id,name, quantity, price}) => {
     const addToCart = useCartStore(state => state.addToCart);
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +20,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({id, name, quantity, price}) 
     
     const addToCartHandler = () => {
         setIsLoading(prev => (!prev))
-        addToCart({ id, name, quantity, price, subtotal: quantity * price }); // Include subtotal when adding to cart
+        addToCart({  name, quantity, price, subtotal: quantity * price }); // Include subtotal when adding to cart
         router.push('/cart')
       };
 
