@@ -1,25 +1,26 @@
 "use client";
-import { CSSProperties, FC, useState } from "react";
+import { FC, useState } from "react";
 import ColorPicker from "./ColorPicker";
 import LabelColorPicker from "./LabelColorPicker";
-import { useLabelStore, useCapItemStore, useCartStore } from "@/libs/store";
+import { useLabelStore, useCapItemStore } from "@/libs/store";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md";
-import BrandingPicker from "./BrandingPicker";
-import { ClipLoader } from "react-spinners";
-import { useRouter } from 'next/navigation'
- 
+
+import AddToCartButton from "./AddToCartButton";
 
 type ToolbarProps = {};
 
 const Toolbar: FC<ToolbarProps> = ({}) => {
   const labels = useLabelStore();
-  const {cart, addToCart} = useCartStore()
+
   const capItems = useCapItemStore();
-  const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter()
+
+  const productId = "12345"; // Example product ID
+  const productName = "Example Product";
+  const productQuantity = 25;
+  const productPrice = 20.99;
 
   return (
     <>
@@ -98,35 +99,16 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
         </div>
 
         <div className="flex justify-center py-4">
-          <button
-            onClick={addToCartHandler}
-            className="bg-activeOrange rounded-full w-[170px] py-2 text-white flex items-center justify-center"
-          >
-            {isLoading ? (
-              <ClipLoader
-                color="white"
-                loading={isLoading}
-                size={20}
-                aria-label="Loading Spinner"
-                data-testid="loader"
-              />
-            ) : (
-              "Add to Cart"
-            )}
-          </button>
+          <AddToCartButton
+            id={productId}
+            name={productName}
+            quantity={productQuantity}
+            price={productPrice}
+          />
         </div>
       </div>
     </>
   );
-
-  function addToCartHandler() {
-    setIsLoading(prev => (!prev))
-    addToCart()
-    router.push('/cart')
-    
-
-
-  }
 };
 
 export default Toolbar;

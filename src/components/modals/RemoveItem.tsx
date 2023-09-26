@@ -1,13 +1,17 @@
 'use client'
+
+import { useCartStore } from "@/libs/store";
+import { CartItem } from "@/libs/types";
 import { FC } from "react";
-import { useCartStore } from '@/libs/store'
+
 
 type RemoveItemProps = {
   setRemoveItemModal: any
+  cartItem: CartItem
 };
 
-const RemoveItem: FC<RemoveItemProps> = ({setRemoveItemModal}) => {
-  const { removeFromCart } = useCartStore()
+const RemoveItem: FC<RemoveItemProps> = ({setRemoveItemModal, cartItem}) => {
+  const {removeFromCart} = useCartStore()
   return (
     <>
       <div className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[50%] z-50">
@@ -24,7 +28,7 @@ const RemoveItem: FC<RemoveItemProps> = ({setRemoveItemModal}) => {
   );
 
   function handleOnRemove(){
-    removeFromCart()
+    removeFromCart(cartItem.id)
     setRemoveItemModal(false)
   }
 };

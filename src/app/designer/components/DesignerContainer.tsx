@@ -1,12 +1,12 @@
 "use client";
 
-import { useCapItemStore, useLabelStore, useSideStore } from "@/libs/store";
+import { useCapItemStore, useLabelStore, usePreviewImgStore, useSideStore } from "@/libs/store";
 import localFont from "next/font/local";
 // import {makeDraggable, makeResizable, makeRotatable} from '@/libs/config/helpers'
 import { FC, useRef, useEffect, useState } from "react";
 
 
-import { usePreviewImgStore } from "@/libs/store/previewStore";
+
 
 import { CgArrowsExpandLeft } from "react-icons/cg";
 import { FiRotateCw } from "react-icons/fi";

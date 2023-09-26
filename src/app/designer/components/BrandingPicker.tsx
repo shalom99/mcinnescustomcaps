@@ -1,5 +1,6 @@
 'use client'
-import { usePreviewImgStore } from '@/libs/store/previewStore'
+
+import { usePreviewImgStore } from '@/libs/store'
 import { FC, useEffect, useRef, useState } from 'react'
 import { AiFillCloseCircle } from 'react-icons/ai'
 

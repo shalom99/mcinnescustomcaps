@@ -55,7 +55,7 @@ export const CapItems = [
     selectedColorFilter: '',
     showColorPicker: false,
     hasBranding: false,
-    
+
   },
   {
     id: 4,
@@ -455,7 +455,20 @@ export const ColorOptions = [
 
 
 
-  
+
+]
+
+export const cartItems = [
+  {
+    "id": "1",
+    "name": "Cap 1",
+    "price": 29.99,
+    "quantity": 2,
+    "image": "example_product_1.jpg",
+    "category": "Electronics",
+    "description": "A high-quality example product with various features.",
+    "subtotal": 59.98
+  },
 ]
 
 

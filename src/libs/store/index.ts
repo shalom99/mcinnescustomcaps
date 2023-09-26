@@ -1,30 +1,8 @@
-import { Labels, CapItems } from '@/libs/config/constant'
+
 import { create } from 'zustand'
+import { CapItemType, CartType, LabelsType, brandingType, previewImgType, sideType } from '../types'
+import { Brandings, CapItems, Labels } from '../config/constant'
 
-
-interface CapItemType {
-    capItems: typeof CapItems;
-    setCapItems: (capItems: typeof CapItems) => void;
-    setShowPicker: (capItemId: number) => void;
-    setCapItemColor: (capItemId: number, hexcode: string, filter: string) => void;
-}
-
-interface LabelsType {
-    labels: typeof Labels;
-    setLabels: (label: typeof Labels) => void;
-    setShowPicker: (labelId: number) => void;
-    setShowLabel: (labelId: number, option: boolean) => void;
-    setLabelText: (labelId: number, text: string) => void;
-    setLabelTextColor: (labelId: number, hexcode: string, filter: string) => void;
-    setLabelBackgroundColor: (labelId: number, hexcode: string, filter: string) => void;
-}
-
-interface sideType {
-    side: number;
-    setSelectedSide: (newSide: number) => void;
-    setNextSide: () => void;
-    setPrevSide: () => void;
-}
 
 
 export const useCapItemStore = create<CapItemType>()((set) => ({
@@ -87,18 +65,66 @@ export const useSideStore = create<sideType>()((set) => ({
 }))
 
 
-interface cartType {
-    cart: number;
-    addToCart: () => void;
-    removeFromCart: () => void;
-}
 
+export const useCartStore = create<CartType>()((set) => ({
+    cartItems: [{
+        id: "one", 
+        name: "Cap Designed Sample",
+        price: 20, 
+        quantity: 25,
+        subtotal: 500
+    }
+    ],
+    addToCart: (item) => set((state) => ({
+        cartItems: [...state.cartItems, {...item, subtotal: item.price * item.quantity}]
+    })),
 
-export const useCartStore = create<cartType>()((set) => ({
-    cart: 1,
-    addToCart: () => set({cart: 1}),
-    removeFromCart: () => set({cart: 0}),
+    removeFromCart: (id) => set((state) => ({
+        cartItems: state.cartItems.filter(item => item.id !== id)
+    })),
+
+    updateCartItem: (id, quantity) => set((state) => {
+        const updatedItems = state.cartItems.map(item => {
+            if(item.id === id) {
+                return {
+                    ...item,
+                    quantity,
+                    subtotal: item.price * quantity
+                };
+            }
+            return item;
+        });
+        return { cartItems: updatedItems}
+    }),
+
 }))
+
+
+
+export const usePreviewImgStore = create<previewImgType>()((set) => ({
+    previewImg: '',
+    showPreview: false,
+    setPreviewImg: (previewImg) => set({previewImg}),
+    setShowPreview: (showPreview) => set({showPreview})
+
+}))
+
+
+
+export const useBranding = create<brandingType>()((set) => ({
+    brandings: Brandings,
+    setShowBranding: (brandingId) => set((state) => ({
+        brandings: state.brandings.map((branding) => 
+        branding.id === brandingId ? { ...branding, show: !branding.show } : branding
+        )
+    })),
+    setBranding: () => set((state) => ({
+
+    }))
+}))
+
+
+
 
 
 

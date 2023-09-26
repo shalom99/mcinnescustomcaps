@@ -9,8 +9,9 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "./Navbar";
+import CartHeader from "./CartHeader";
 
-import Cart from "./Cart";
+
 type NavbarProps = {};
 
 const Header: FC<NavbarProps> = ({}) => {
@@ -70,7 +71,7 @@ const Header: FC<NavbarProps> = ({}) => {
                 />
               </Link>
             </div>
-              <Cart />
+              <CartHeader />
           </div>
         </div>
 
