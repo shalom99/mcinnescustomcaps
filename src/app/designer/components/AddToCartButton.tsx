@@ -27,7 +27,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({ id,name, quantity, price}) 
   return (
     <button
     onClick={addToCartHandler}
-    className="bg-activeOrange rounded-full w-[170px] py-2 text-white flex items-center justify-center"
+    className="bg-activeOrange rounded-full w-[170px] py-2 text-white flex items-center justify-center select-none"
   >
     {isLoading ? (
       <ClipLoader

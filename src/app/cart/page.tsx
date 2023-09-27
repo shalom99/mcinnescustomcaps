@@ -8,6 +8,7 @@ import { calculateTotal } from "@/libs/config/helpers";
 import { CartItem } from "@/libs/types";
 import { BsFillCartXFill } from "react-icons/bs";
 import { useRouter } from "next/navigation";
+import ItemComponent from "./components/ItemComponent";
 
 
 type pageProps = {};
@@ -19,13 +20,8 @@ const CartPage: FC<pageProps> = ({}) => {
   const router = useRouter()
 
 
-  // const [quantity, setQuantity] = useState(cartItems[0].quantity) 
+  const [quantity, setQuantity] = useState() 
 
-  // const [subtotal, setSubtotal] = useState(calculateTotal(cartItems))
-
-  // useEffect(()=> {
-  //   setSubtotal(quantity * cartItems[0].price)
-  // }, [quantity])
 
 
   if(cartItems.length === 0){
@@ -86,57 +82,7 @@ const CartPage: FC<pageProps> = ({}) => {
               {
                  cartItems.map(function(item: CartItem){
                   return (
-                    <>
-                    <div className="col-span-3 flex">
-                    <div id="left" className="w-[50%] flex items-center px-5 gap-x-5">
-                      <AiFillCloseCircle onClick={() => {setRemoveItemModal(true)}} size={30} className="cursor-pointer" />
-                      <img src="./cap/1.png" alt="" width={150} />
-                    </div>
-                    <div id="right" className="w-[50%]">
-                      <p className="text-activeOrange font-bold text-lg">
-                        Custom Hat Design - Request A Quote
-                      </p>
-                      <ul className="text-start list-disc list-inside font-bold">
-                        <li>Front Panel: </li>
-                        <li>Peak: </li>
-                        <li>Under Brim: </li>
-                        <li>Upper Stripe: </li>
-                        <li>Lower Stripe: </li>
-                        <li>Back Mesh: </li>
-                        <li>Snap Back: </li>
-                        <li>Front Branding:</li>
-                        <li>Side Left Branding:</li>
-                        <li>Side Right Branding:</li>
-                        <li>Back Branding:</li>
-                        <li>Under Brim Branding:</li>
-                        <li>Hat Profile: </li>
-                        <li>Cap Fabric Material: </li>
-                        <li>Front Label: </li>
-                        <li>Side Left Label: </li>
-                        <li>Side Right Label: </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div>
-                    <p>${item.price.toFixed(2)}</p>
-                  </div>
-                  <div>
-                    <input
-                      type="number"
-                      placeholder="25"
-                      className="border text-black w-[100px] text-center"
-                      min={25}
-                      value={item.quantity}
-                      // onChange={(e) => {
-                      //   setQuantity(e.target.valueAsNumber)
-                      // }}
-                      max={1000}
-                    />
-                  </div>
-                  <div>
-                    <p>${item.subtotal.toFixed(2)}</p>
-                  </div>
-                  </>
+                    <ItemComponent setRemoveItemModal={setRemoveItemModal} key={item.id} item={item}/>
                   )
                  })
               }
