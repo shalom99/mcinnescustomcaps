@@ -29,7 +29,12 @@ export interface CartItem {
     name: string,
     price: number, 
     quantity: number,
-    subtotal: number
+    subtotal: number,
+    type: number,
+    configuration: {
+        capParts: typeof CapItems,
+        labels: typeof Labels
+    }
 }
 
 export interface CartType {

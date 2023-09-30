@@ -17,10 +17,11 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
 
   const capItems = useCapItemStore();
 
-  const productId = 1234; // Example product ID
-  const productName = "Example Product";
+  const productId = 1; // Example product ID
+  const productName = "Custom Hat Design";
   const productQuantity = 25;
   const productPrice = 20.99;
+  const productType = 0;
 
   return (
     <>
@@ -104,6 +105,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
             name={productName}
             quantity={productQuantity}
             price={productPrice}
+            type={productType}
           />
         </div>
       </div>
