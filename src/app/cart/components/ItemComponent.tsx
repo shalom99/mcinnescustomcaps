@@ -1,4 +1,5 @@
 "use client";
+import { useCartStore } from "@/libs/store";
 import { CartItem } from "@/libs/types";
 import { FC, useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
@@ -7,17 +8,19 @@ import { BsFillCartXFill } from "react-icons/bs";
 type ItemComponentProps = {
   item: CartItem;
   setRemoveItemModal: any;
+  index: number
 };
 
 const ItemComponent: FC<ItemComponentProps> = ({
   item,
   setRemoveItemModal,
+  index
 }) => {
-  const [quantity, setQuantity] = useState(25);
+  const { cartItems,setMockQuantity} = useCartStore()
 
   return (
     <>
-      <div key={item.id} className="col-span-3 flex">
+      <div className="col-span-3 flex">
         <div id="left" className="w-[50%] flex items-center px-5 gap-x-5">
           <AiFillCloseCircle
             onClick={() => {
@@ -30,26 +33,26 @@ const ItemComponent: FC<ItemComponentProps> = ({
         </div>
         <div key={item.id} id="right" className="w-[50%]">
           <p className="text-activeOrange font-bold text-lg">
-            Custom Hat Design - Request A Quote
+            Custom Hat Design - Request A Quote {index + 1}
           </p>
           <ul className="text-start list-disc list-inside font-bold">
-            <li>Front Panel: </li>
-            <li>Peak: </li>
-            <li>Under Brim: </li>
-            <li>Upper Stripe: </li>
-            <li>Lower Stripe: </li>
-            <li>Back Mesh: </li>
-            <li>Snap Back: </li>
-            <li>Front Branding:</li>
-            <li>Side Left Branding:</li>
-            <li>Side Right Branding:</li>
-            <li>Back Branding:</li>
-            <li>Under Brim Branding:</li>
-            <li>Hat Profile: </li>
-            <li>Cap Fabric Material: </li>
-            <li>Front Label: </li>
-            <li>Side Left Label: </li>
-            <li>Side Right Label: </li>
+            <li>Front Panel: {item.configuration.capParts[0].hexcode}</li>
+            <li>Peak: {item.configuration.capParts[1].hexcode} </li>
+            <li>Under Brim: {item.configuration.capParts[2].hexcode} </li>
+            <li>Upper Stripe: {item.configuration.capParts[3].hexcode} </li>
+            <li>Lower Stripe: {item.configuration.capParts[4].hexcode}</li>
+            <li>Back Mesh: {item.configuration.capParts[5].hexcode}</li>
+            <li>Snap Back: {item.configuration.capParts[6].hexcode} </li>
+            <li>Front Branding: </li>
+            <li>Side Left Branding: </li>
+            <li>Side Right Branding: </li>
+            <li>Back Branding: </li>
+            <li>Under Brim Branding: </li>
+            <li>Hat Profile:  </li>
+            <li>Cap Fabric Material:  </li>
+            <li>Front Label:  </li>
+            <li>Side Left Label:  </li>
+            <li>Side Right Label:  </li>
           </ul>
         </div>
       </div>
@@ -59,15 +62,15 @@ const ItemComponent: FC<ItemComponentProps> = ({
       <div>
         <input
           type="number"
-          value={quantity}
+          value={item.mockQuantity}
           className="border text-black w-[100px] text-center"
           min={25}
-          onChange={(e) => setQuantity(Number(e.target.value))}
+          onChange={(e) => setMockQuantity(item.id,Number(e.target.value))}
           max={1000}
         />
       </div>
       <div>
-        <p>${(item.price * quantity).toFixed(2)}</p>
+        <p>${(item.price * item.mockQuantity).toFixed(2)}</p>
       </div>
     </>
   );

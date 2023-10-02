@@ -10,6 +10,7 @@ import {
 
 import AddToCartButton from "./AddToCartButton";
 
+
 type ToolbarProps = {};
 
 const Toolbar: FC<ToolbarProps> = ({}) => {
@@ -109,6 +110,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
           />
         </div>
       </div>
+    
     </>
   );
 };

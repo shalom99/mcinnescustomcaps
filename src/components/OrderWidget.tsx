@@ -28,13 +28,13 @@ const OrderWidget: FC<OrderWidgetProps> = ({}) => {
                 </div>
         
                 <ul className="text-start list-disc list-inside">
-                  <li>Front Panel: </li>
-                  <li>Peak: </li>
-                  <li>Under Brim: </li>
-                  <li>Upper Stripe: </li>
-                  <li>Lower Stripe: </li>
-                  <li>Back Mesh: </li>
-                  <li>Snap Back: </li>
+                  <li>Front Panel: {item.configuration.capParts[0].hexcode}</li>
+                  <li>Peak:{item.configuration.capParts[1].hexcode} </li>
+                  <li>Under Brim:{item.configuration.capParts[2].hexcode} </li>
+                  <li>Upper Stripe:{item.configuration.capParts[3].hexcode} </li>
+                  <li>Lower Stripe:{item.configuration.capParts[4].hexcode} </li>
+                  <li>Back Mesh:{item.configuration.capParts[5].hexcode} </li>
+                  <li>Snap Back:{item.configuration.capParts[6].hexcode} </li>
                 </ul>
         
                 <div className="flex justify-between">

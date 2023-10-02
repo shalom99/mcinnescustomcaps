@@ -1,6 +1,6 @@
 'use client'
 
-import { useCapItemStore, useCartStore, useLabelStore } from '@/libs/store';
+import { useBrandingStore, useCapItemStore, useCartStore, useLabelStore } from '@/libs/store';
 import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react'
 import { ClipLoader } from 'react-spinners';
@@ -10,25 +10,32 @@ type AddToCartButtonProps = {
     name: string, 
     quantity: number, 
     price: number, 
-    type: number,
+    type: number
 }
 
 const AddToCartButton: FC<AddToCartButtonProps> = ({ id,name, quantity, price, type}) => {
 
-    const {capItems} = useCapItemStore();
-    const {labels} = useLabelStore();
+    const {capItems, setResetCap} = useCapItemStore();
+    const {labels, setResetLabels} = useLabelStore();
+    const { brandings, setResetBrandings} = useBrandingStore()
     const addToCart = useCartStore(state => state.addToCart);
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false);
     const configuration = {
       capParts: capItems,
-      labels: labels
+      labels,
+      brandings
     }
+
+    const [sampleImg, setSampleImg] = useState('')
 
     
     const addToCartHandler = () => {
         setIsLoading(prev => (!prev))
-        addToCart({  name, quantity, price, subtotal: quantity * price, type, configuration }); // Include subtotal when adding to cart
+        addToCart({  name, quantity, mockQuantity: quantity, price, subtotal: quantity * price, type, configuration, sampleImg }); // Include subtotal when adding to cart
+        setResetCap();
+        setResetLabels();
+        setResetBrandings();
         router.push('/cart')
       };
 

@@ -4,7 +4,6 @@ import { CapItemType, CartType, LabelsType, brandingType, previewImgType, sideTy
 import { Brandings, CapItems, Labels } from '../config/constant'
 
 
-
 export const useCapItemStore = create<CapItemType>()((set) => ({
     capItems: CapItems,
     setCapItems: (capItems) => set({capItems}),
@@ -18,8 +17,8 @@ export const useCapItemStore = create<CapItemType>()((set) => ({
         capItem.id === capItemId ? { ...capItem, hexcode: hexcode, selectedColorFilter: filter } : capItem
         )
     })),
+    setResetCap: () => set({capItems: CapItems})
 }))
-
 
 
 export const useLabelStore = create<LabelsType>()((set) => ({
@@ -50,6 +49,7 @@ export const useLabelStore = create<LabelsType>()((set) => ({
         label.id === labelId ? { ...label, filterHexColor: hexcode, selectedColorFilter: filter} : label
         )
     })),
+    setResetLabels: () => set({labels: Labels})
 }))
 
 
@@ -114,17 +114,37 @@ export const useCartStore = create<CartType>((set) => {
             cartItems: state.cartItems.filter(item => item.id !== id)
         })),
     
-        updateCartItem: (id, quantity) => set((state) => {
+        // setCartItem: (id, quantity) => set((state) => {
+        //     const updatedItems = state.cartItems.map(item => {
+        //         if(item.id === id) {
+        //             return {
+        //                 ...item,
+        //                 quantity,
+        //                 subtotal: item.price * quantity
+        //             };
+        //         }
+        //         return item;
+        //     });
+        //     return { cartItems: updatedItems}
+        // }),
+        setMockQuantity: (id, mockQuantity) => set((state) => {
             const updatedItems = state.cartItems.map(item => {
                 if(item.id === id) {
                     return {
                         ...item,
-                        quantity,
-                        subtotal: item.price * quantity
+                        mockQuantity,
                     };
                 }
                 return item;
             });
+            return { cartItems: updatedItems}
+        }),
+        setUpdateCart: () => set((state) => {
+            const updatedItems = state.cartItems.map(item => ({
+                ...item,
+                quantity: item.mockQuantity,
+                subtotal: item.price * item.mockQuantity
+            }));
             return { cartItems: updatedItems}
         }),
     };
@@ -142,7 +162,7 @@ export const usePreviewImgStore = create<previewImgType>()((set) => ({
 
 
 
-export const useBranding = create<brandingType>()((set) => ({
+export const useBrandingStore = create<brandingType>()((set) => ({
     brandings: Brandings,
     setShowBranding: (brandingId) => set((state) => ({
         brandings: state.brandings.map((branding) => 
@@ -151,7 +171,8 @@ export const useBranding = create<brandingType>()((set) => ({
     })),
     setBranding: () => set((state) => ({
 
-    }))
+    })),
+    setResetBrandings: () => set({brandings: Brandings})
 }))
 
 

@@ -8,13 +8,6 @@ export const CapItems = [
     showColorPicker: false,
     hasBranding: false,
     showBrandingPicker: false,
-    branding: {
-      imageURL: '',
-      x: 0,
-      y: 0,
-      width: 0,
-      height: 0
-    },
   },
   {
     id: 1,
@@ -24,13 +17,6 @@ export const CapItems = [
     showColorPicker: false,
     hasBranding: false,
     showBrandingPicker: false,
-    branding: {
-      imageURL: '',
-      x: 0,
-      y: 0,
-      width: 0,
-      height: 0
-    },
   },
   {
     id: 2,
@@ -40,13 +26,6 @@ export const CapItems = [
     showColorPicker: false,
     hasBranding: false,
     showBrandingPicker: false,
-    branding: {
-      imageURL: '',
-      x: 0,
-      y: 0,
-      width: 0,
-      height: 0
-    },
   },
   {
     id: 3,
@@ -71,15 +50,8 @@ export const CapItems = [
     hexcode: '',
     selectedColorFilter: '',
     showColorPicker: false,
-    hasBranding: true,
+    hasBranding: false,
     showBrandingPicker: false,
-    branding: {
-      imageURL: '',
-      x: 0,
-      y: 0,
-      width: 0,
-      height: 0
-    },
   },
   {
     id: 6,
@@ -138,7 +110,9 @@ export const Brandings = [
     show: false,
     imageURL: '',
     x: 0,
-    y: 0
+    y: 0,
+    width: 0,
+    height: 0
   },
   {
     id: 2,
@@ -146,7 +120,9 @@ export const Brandings = [
     show: false,
     imageURL: '',
     x: 0,
-    y: 0
+    y: 0,
+    width: 0,
+    height: 0
   },
   {
     id: 3,
@@ -154,7 +130,9 @@ export const Brandings = [
     show: false,
     imageURL: '',
     x: 0,
-    y: 0
+    y: 0,
+    width: 0,
+    height: 0
   },
   {
     id: 4,
@@ -162,7 +140,9 @@ export const Brandings = [
     show: false,
     imageURL: '',
     x: 0,
-    y: 0
+    y: 0,
+    width: 0,
+    height: 0
   },
   {
     id: 4,
@@ -170,7 +150,9 @@ export const Brandings = [
     show: false,
     imageURL: '',
     x: 0,
-    y: 0
+    y: 0,
+    width: 0,
+    height: 0
   },
 ]
 
@@ -457,21 +439,6 @@ export const ColorOptions = [
 
 
 ]
-
-export const cartItems = [
-  {
-    "id": "1",
-    "name": "Cap 1",
-    "price": 29.99,
-    "quantity": 2,
-    "image": "example_product_1.jpg",
-    "category": "Electronics",
-    "description": "A high-quality example product with various features.",
-    "subtotal": 59.98
-  },
-]
-
-
 
 
 

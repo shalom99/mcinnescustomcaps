@@ -5,6 +5,7 @@ export interface CapItemType {
     setCapItems: (capItems: typeof CapItems) => void;
     setShowPicker: (capItemId: number) => void;
     setCapItemColor: (capItemId: number, hexcode: string, filter: string) => void;
+    setResetCap: () => void
 }
 
 export interface LabelsType {
@@ -15,6 +16,7 @@ export interface LabelsType {
     setLabelText: (labelId: number, text: string) => void;
     setLabelTextColor: (labelId: number, hexcode: string, filter: string) => void;
     setLabelBackgroundColor: (labelId: number, hexcode: string, filter: string) => void;
+    setResetLabels: () => void
 }
 
 export interface sideType {
@@ -29,19 +31,24 @@ export interface CartItem {
     name: string,
     price: number, 
     quantity: number,
+    mockQuantity: number,
     subtotal: number,
     type: number,
     configuration: {
         capParts: typeof CapItems,
-        labels: typeof Labels
-    }
+        labels: typeof Labels,
+        brandings: typeof Brandings
+    },
+    sampleImg: string
 }
 
 export interface CartType {
     cartItems: CartItem[]
     addToCart: (item: Omit<CartItem, 'id'>) => void;
     removeFromCart: (id: number) => void;
-    updateCartItem: (id: number, quantity: number) => void;
+    // setCartItem: (id: number, quantity: number) => void;
+    setMockQuantity: (id: number, mockQuantity: number) => void;
+    setUpdateCart: () => void;
 }
 
 export interface previewImgType {
@@ -55,4 +62,5 @@ export interface brandingType {
     brandings: typeof Brandings;
     setShowBranding: (brandingId: number) => void;
     setBranding: () => void;
+    setResetBrandings: () => void;
 }

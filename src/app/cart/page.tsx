@@ -1,5 +1,5 @@
 "use client";
-import { FC, useEffect, useState } from "react";
+import { FC, ReactEventHandler, useEffect, useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 
 import RemoveItem from "@/components/modals/RemoveItem";
@@ -13,10 +13,10 @@ import ItemComponent from "./components/ItemComponent";
 type pageProps = {};
 
 const CartPage: FC<pageProps> = ({}) => {
-  const { cartItems } = useCartStore();
+  const { cartItems, setUpdateCart } = useCartStore();
   const [removeItemModal, setRemoveItemModal] = useState(false);
   const router = useRouter();
-  console.log(cartItems)
+  console.log(cartItems);
 
   if (cartItems.length === 0) {
     return (
@@ -69,12 +69,13 @@ const CartPage: FC<pageProps> = ({}) => {
                 id="tableBody"
                 className="w-full max-h-[600px] grid grid-cols-6 auto-cols-max items-center gap-y-5 py-10 overflow-y-scroll"
               >
-                {cartItems.map(function (item: CartItem) {
+                {cartItems.map(function (item: CartItem, i) {
                   return (
                     <ItemComponent
-                    key={item.id}
+                      key={i}
                       setRemoveItemModal={setRemoveItemModal}
                       item={item}
+                      index={i}
                     />
                   );
                 })}
@@ -84,7 +85,10 @@ const CartPage: FC<pageProps> = ({}) => {
                 id="tableFooter"
                 className="border flex py-5 px-10 lg:justify-end"
               >
-                <button onClick={handleUpdateCart} className="bg-activeOrange rounded-full px-5 py-2 text-white font-bold">
+                <button
+                  onClick={handleUpdateCart}
+                  className="bg-activeOrange rounded-full px-5 py-2 text-white font-bold"
+                >
                   Update Cart
                 </button>
               </div>
@@ -146,10 +150,11 @@ const CartPage: FC<pageProps> = ({}) => {
     );
   }
 
-  function handleUpdateCart(){
 
+  function handleUpdateCart(e: React.MouseEvent<HTMLElement>) {
+    e.preventDefault()
+    setUpdateCart()
   }
-
 };
 
 export default CartPage;
