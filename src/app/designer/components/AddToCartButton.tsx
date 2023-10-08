@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react'
 import { ClipLoader } from 'react-spinners';
 
+import * as htmlToImage from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 type AddToCartButtonProps = {
     id: number, 
     name: string, 
@@ -18,7 +20,8 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({ id,name, quantity, price, t
     const {capItems, setResetCap} = useCapItemStore();
     const {labels, setResetLabels} = useLabelStore();
     const { brandings, setResetBrandings} = useBrandingStore()
-    const addToCart = useCartStore(state => state.addToCart);
+
+    const { addToCart, setUpdateViews} = useCartStore()
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false);
     const configuration = {
@@ -27,20 +30,21 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({ id,name, quantity, price, t
       brandings
     }
 
-    const [sampleImg, setSampleImg] = useState('')
+
+
 
     
     const addToCartHandler = () => {
         setIsLoading(prev => (!prev))
-        addToCart({  name, quantity, mockQuantity: quantity, price, subtotal: quantity * price, type, configuration, sampleImg }); // Include subtotal when adding to cart
-        setResetCap();
-        setResetLabels();
-        setResetBrandings();
-        router.push('/cart')
+         generateBase64()
+    
+   
       };
 
   return (
+    <>
     <button
+    id="testy"
     onClick={addToCartHandler}
     className="bg-activeOrange rounded-full w-[170px] py-2 text-white flex items-center justify-center select-none"
   >
@@ -56,7 +60,102 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({ id,name, quantity, price, t
       "Add to Cart"
     )}
   </button>
+  {/* <div className='fixed inset-0 bg-black z-50'>
+    hello
+  </div> */}
+  </>
 )
+
+
+
+function generateBase64() {
+
+let views = {
+  'front': '',
+  'back': '',
+  'right': '',
+  'left': ''
+}
+
+
+htmlToImage
+.toPng(document.getElementById('FrontV') as HTMLElement)
+.then(function (dataUrl) {
+  // console.log(dataUrl)
+  views['front'] = dataUrl;
+})
+
+
+htmlToImage
+.toPng(document.getElementById('BackV') as HTMLElement)
+.then(function (dataUrl) {
+  // console.log(dataUrl)
+  views['back'] = dataUrl;
+})
+
+htmlToImage
+.toPng(document.getElementById('RightV') as HTMLElement)
+.then(function (dataUrl) {
+  // console.log(dataUrl)
+  views['right'] = dataUrl;
+})
+
+htmlToImage
+.toPng(document.getElementById('LeftV') as HTMLElement)
+.then(function (dataUrl) {
+  // console.log(dataUrl)
+  views['left'] = dataUrl;
+
+  addToCart({  name, quantity, mockQuantity: quantity, price, subtotal: quantity * price, type, configuration, views: {
+    front: views.front,
+    back: views.back,
+    left: views.left,
+    right: views.right,
+    bottom: ''
+  } }); 
+
+
+     
+  setResetCap();
+  setResetLabels();
+  setResetBrandings();
+  router.push('/cart')
+})
+
+
+
+console.log(views)
+  
+
+
+  // htmlToImage
+  //   .toPng(document.getElementById("FrontV") as HTMLElement)
+  //   .then(function (dataUrl) {
+  //     console.log(dataUrl);
+  //     // const link = document.createElement("a");
+  //     // link.download = "my-image-name.png";
+  //     // link.href = dataUrl;
+  //     // link.click();
+    
+
+      
+    // });
+
+
+  
+}
+
+function getBase64(element:string){
+  htmlToImage
+    .toPng(document.getElementById(element) as HTMLElement)
+    .then(function (dataUrl) {
+      console.log(dataUrl)
+      return dataUrl as string
+    })
+
+
+
+}
 
 
 }

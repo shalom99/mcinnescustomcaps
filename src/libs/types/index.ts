@@ -39,7 +39,13 @@ export interface CartItem {
         labels: typeof Labels,
         brandings: typeof Brandings
     },
-    sampleImg: string
+    views: {
+        front: string,
+        back: string,
+        left: string,
+        right: string,
+        bottom: string
+    }
 }
 
 export interface CartType {
@@ -49,6 +55,7 @@ export interface CartType {
     // setCartItem: (id: number, quantity: number) => void;
     setMockQuantity: (id: number, mockQuantity: number) => void;
     setUpdateCart: () => void;
+    setUpdateViews: (id: number, side: string, img: string) => void;
 }
 
 export interface previewImgType {

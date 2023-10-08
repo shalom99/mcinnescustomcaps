@@ -3,7 +3,7 @@ import cn from "@/libs/cn";
 import { useCapItemStore, useSideStore } from "@/libs/store";
 import { FC, useEffect } from "react";
 import { ColorOptions } from "@/libs/config/constant";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 type ColorPickerProps = {
   title: string;
@@ -26,29 +26,29 @@ const ColorPicker: FC<ColorPickerProps> = ({ title, capItemId }) => {
   }, [capItems[capItemId].hexcode]);
 
   return (
-
-
-
-    <motion.div 
-    initial={{
-      height: 0,
-      opacity: 0,
-  }}
-  animate={{
-      height: "auto",
-      opacity: 1,
-  }}
-  exit={{
-      height: 0,
-      opacity: 0,
-  }}
-        transition={{ duration: 1 }}
-    className="text-black w-full flex flex-col gap-y-5 py-5 select-none">
+    <motion.div
+      initial={{
+        height: 0,
+        opacity: 0,
+      }}
+      animate={{
+        height: "auto",
+        opacity: 1,
+      }}
+      exit={{
+        height: 0,
+        opacity: 0,
+      }}
+      transition={{ duration: 1 }}
+      className="text-black w-full flex flex-col gap-y-5 py-5 select-none"
+    >
       <h2 className="font-bold text-sm px-2">Choose Color:</h2>
       <div className="w-full grid grid-cols-4 gap-x-1 gap-y-5 justify-evenly">
-
         {ColorOptions.map((colorOption) => (
-          <div key={colorOption.id} className="flex flex-col items-center text-xs text-gray-600">
+          <div
+            key={colorOption.id}
+            className="flex flex-col items-center text-xs text-gray-600"
+          >
             <button
               onClick={() =>
                 handleChangeColor(
@@ -63,10 +63,8 @@ const ColorPicker: FC<ColorPickerProps> = ({ title, capItemId }) => {
             <label htmlFor="">Color #{colorOption.id}</label>
           </div>
         ))}
-        
       </div>
     </motion.div>
-   
   );
 };
 

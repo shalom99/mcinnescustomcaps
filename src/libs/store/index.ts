@@ -65,41 +65,13 @@ export const useSideStore = create<sideType>()((set) => ({
 }))
 
 
-
-// export const useCartStore = create<CartType>((set) => ({
-//     let itemIdCounter =  // Initialize the ID counter
-
-//     cartItems: [],
-//     addToCart: (item) => set((state) => ({
-//         cartItems: [...state.cartItems, {...item, subtotal: item.price * item.quantity}]
-//     })),
-
-//     removeFromCart: (id) => set((state) => ({
-//         cartItems: state.cartItems.filter(item => item.id !== id)
-//     })),
-
-//     updateCartItem: (id, quantity) => set((state) => {
-//         const updatedItems = state.cartItems.map(item => {
-//             if(item.id === id) {
-//                 return {
-//                     ...item,
-//                     quantity,
-//                     subtotal: item.price * quantity
-//                 };
-//             }
-//             return item;
-//         });
-//         return { cartItems: updatedItems}
-//     }),
-
-// }))
-
 export const useCartStore = create<CartType>((set) => {
     let itemIdCounter = 1; // Initialize the ID counter
   
     return {
         cartItems: [],
-        addToCart: (item) => set((state) => {
+        addToCart: (item) => {
+            set((state) => {
             const newItem = {
               ...item,
               id: itemIdCounter, // Assign the current ID and then increment the counter
@@ -108,25 +80,14 @@ export const useCartStore = create<CartType>((set) => {
             return {
               cartItems: [...state.cartItems, newItem],
             };
-          }),
+
+          })
+
+        },
     
         removeFromCart: (id) => set((state) => ({
             cartItems: state.cartItems.filter(item => item.id !== id)
         })),
-    
-        // setCartItem: (id, quantity) => set((state) => {
-        //     const updatedItems = state.cartItems.map(item => {
-        //         if(item.id === id) {
-        //             return {
-        //                 ...item,
-        //                 quantity,
-        //                 subtotal: item.price * quantity
-        //             };
-        //         }
-        //         return item;
-        //     });
-        //     return { cartItems: updatedItems}
-        // }),
         setMockQuantity: (id, mockQuantity) => set((state) => {
             const updatedItems = state.cartItems.map(item => {
                 if(item.id === id) {
@@ -147,6 +108,22 @@ export const useCartStore = create<CartType>((set) => {
             }));
             return { cartItems: updatedItems}
         }),
+        setUpdateViews: (id, side, img) => set((state) => {
+            const updatedItems = state.cartItems.map(item => {
+                if(item.id === id) {
+                    return {
+                        ...item,
+                        views: {
+                            ...item.views,
+                            [side]: img,
+                        }
+                    };
+                }
+                return item;
+            });
+            return { cartItems: updatedItems}
+       
+        })
     };
   });
 

@@ -15,9 +15,7 @@ type ToolbarProps = {};
 
 const Toolbar: FC<ToolbarProps> = ({}) => {
   const labels = useLabelStore();
-
   const capItems = useCapItemStore();
-
   const productId = 1; // Example product ID
   const productName = "Custom Hat Design";
   const productQuantity = 25;
