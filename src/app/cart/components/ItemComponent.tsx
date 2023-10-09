@@ -35,7 +35,7 @@ const ItemComponent: FC<ItemComponentProps> = ({
 
           }} 
           size={30} 
-          className="cursor-pointer mb-1"/>
+          className="cursor-not-allowed mb-1"/>
         </div>
         <div key={item.id} id="right" className="w-[50%]">
           <p className="text-activeOrange font-bold text-lg">

@@ -1,5 +1,5 @@
 'use client'
-import { FC, useEffect, useRef } from "react";
+import { FC, useEffect } from "react";
 import { calculateTotal } from "@/libs/config/helpers";
 import { AiOutlineRollback } from "react-icons/ai";
 import Link from "next/link";
@@ -22,25 +22,28 @@ export type CheckoutFormData = {
     email: string;
     orderNotes?: string;
     cartItems: any;
+    checkbox: any;
   };
   
 
 type pageProps = {};
 
 const Checkout: FC<pageProps> = ({}) => {
-    const formRef = useRef();
+  
     const router = useRouter()
     const { cartItems} = useCartStore();
 
 
-    const { register, handleSubmit } = useForm<CheckoutFormData>();
+    const { 
+        register, 
+        handleSubmit, 
+        setError, 
+        formState: { errors } ,
+    } = useForm<CheckoutFormData>();
 
     function onCheckoutSubmit(data: CheckoutFormData) {
         sendOrder({...data, cartItems: cartItems});
       }
-
-  
-    
     
 
     useEffect(() => {
@@ -71,9 +74,11 @@ const Checkout: FC<pageProps> = ({}) => {
                             <label htmlFor="" className="font-bold text-sm mb-2">First Name
                             <span className="text-red-600">*</span>
                             </label>
+                      
                             <input type="text" className="text-lg text-black p-1"
                               {...register('firstName', { required: true })}
                             />
+                             {errors.firstName?.type === 'required' && <p className="text-red-700 font-bold text-sm mt-2">* First name is required</p>}
                         </div>
                         <div className="flex flex-col">
                             <label htmlFor=""  className="font-bold text-sm mb-2">Last Name
@@ -82,6 +87,7 @@ const Checkout: FC<pageProps> = ({}) => {
                             <input type="text" className="text-lg text-black p-1" 
                               {...register('lastName', { required: true })}
                             />
+                                  {errors.lastName?.type === 'required' && <p className="text-red-700 font-bold text-sm mt-2">* Last name is required</p>}
                         </div>
                         <div className="col-span-2 flex flex-col">
                             <label htmlFor=""  className="font-bold text-sm mb-2">Company Name (optional)</label>
@@ -99,8 +105,9 @@ const Checkout: FC<pageProps> = ({}) => {
                               {...register('streetAddress1', { required: true })}
                             />
                             <input type="text" placeholder="Apartment, suite, unit, etc. (optional)"  className="text-lg text-black p-1"
-                              {...register('streetAddress1', { required: false })}
+                              {...register('streetAddress2', { required: false })}
                             />
+                                    {errors.streetAddress1?.type === 'required' && <p className="text-red-700 font-bold text-sm mt-2">* Address is required</p>}
                         </div>
         
                         <div className="col-span-2 flex flex-col">
@@ -108,12 +115,13 @@ const Checkout: FC<pageProps> = ({}) => {
                             <input type="text"  className="text-lg text-black p-1" 
                              {...register('suburb', { required: true })}
                             />
+                               {errors.suburb?.type === 'required' && <p className="text-red-700 font-bold text-sm mt-2">* Suburb is required</p>}
                         </div>
         
                         <div className="col-span-2 flex flex-col">
                             <label htmlFor=""  className="font-bold text-sm mb-2">State <span className="text-red-600">*</span></label>
-                            <select id=""  className="text-lg text-black p-1"  defaultValue={0}  {...register('state', { required: true })}>
-                            <option value="0" disabled className="text-gray-300">Select an option...</option>
+                            <select defaultValue={0} className="text-lg text-black p-1" {...register('state', { required: true })}>
+                            <option value={0} disabled className="text-gray-300">Select an option...</option>
                                 <option value="ACT">Australian Capital Territory</option>
                                 <option value="New South Wales">New South Wales</option>
                                 <option value="Northern Territory">Northern Territory</option>
@@ -123,6 +131,7 @@ const Checkout: FC<pageProps> = ({}) => {
                                 <option value="Victoria">Victoria</option>
                                 <option value="Western Australia">Western Australia</option>
                             </select>
+                            {errors.state && <p className="text-red-700 font-bold text-sm mt-2">Please select a state</p>}
                         </div>
         
                         <div className="col-span-2 flex flex-col">
@@ -130,6 +139,7 @@ const Checkout: FC<pageProps> = ({}) => {
                             <input type="text"   className="text-lg text-black p-1"
                             {...register('postcode', { required: true })}
                             />
+                                {errors.postcode?.type === 'required' && <p className="text-red-700 font-bold text-sm mt-2">* Postcode is required</p>}
                         </div>
         
                         <div className="col-span-2 flex flex-col">
@@ -137,12 +147,14 @@ const Checkout: FC<pageProps> = ({}) => {
                             <input type="text" className="text-lg text-black p-1"
                             {...register('phone', { required: true })}
                             />
+                                {errors.phone?.type === 'required' && <p className="text-red-700 font-bold text-sm mt-2">* Phone is required</p>}
                         </div>
                         <div className="col-span-2 flex flex-col">
                             <label htmlFor=""  className="font-bold text-sm mb-2">Email address <span className="text-red-600">*</span></label>
                             <input type="email" className="text-lg text-black p-1"
-                            {...register('phone', { required: true })}
+                            {...register('email', { required: true })}
                             />
+                                {errors.email?.type === 'required' && <p className="text-red-700 font-bold text-sm mt-2">* Email address is required</p>}
                         </div>
         
         
@@ -153,7 +165,7 @@ const Checkout: FC<pageProps> = ({}) => {
                         
                         <div className="col-span-2 flex flex-col">
                             <label htmlFor="">Order notes (optional)</label>
-                            <textarea {...register('orderNotes', { required: false })}/>
+                            <textarea className="text-black p-1 text-lg" {...register('orderNotes', { required: false })}/>
                         </div> 
                     </div>
                 </div>
@@ -188,13 +200,14 @@ const Checkout: FC<pageProps> = ({}) => {
         </p>
       </div>
       <div className="col-span-3 mb-4">
-        <input type="checkbox" className="" />
-
+        <input type="checkbox" className=""  {...register('checkbox', { required: true })}/>
+     
         <p className="ml-3 inline">
           I have read and agree to the website
           <span className="text-activeOrange"> terms and conditions </span>{" "}
           <span> * </span>
         </p>
+        {errors.checkbox?.type && <p className="text-red-700 font-bold text-sm mt-2">* Required</p>}
       </div>
       <button className="col-span-3 rounded-full bg-activeOrange font-bold py-2">
         PLACE ORDER
