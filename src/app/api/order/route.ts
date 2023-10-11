@@ -16,8 +16,6 @@ export async function POST(request: NextRequest) {
 
 
 
-  
-
   const {
     firstName,
     lastName,
@@ -74,20 +72,19 @@ export async function POST(request: NextRequest) {
   </html>
 `
 
+// let imgAttachments = [];
 
-let imgAttachments = [];
-
-for (const obj of cartItems) {
-  const nestedImages = obj.views;
-  for (const key in nestedImages) {
-    imgAttachments.push({
-      filename: `${obj.name}_${key}.png`,
-      encoding: 'base64',
-      content: removeBase64Prefix(nestedImages[key]),
-      cid: `${obj.name.toLowerCase()}_${key}@nodemailer.com`
-    });
-  }
-}
+// for (const obj of cartItems) {
+//   const nestedImages = obj.views;
+//   for (const key in nestedImages) {
+//     imgAttachments.push({
+//       filename: `${obj.name}_${key}.png`,
+//       encoding: 'base64',
+//       content: removeBase64Prefix(nestedImages[key]),
+//       cid: `${obj.name.toLowerCase()}_${key}@nodemailer.com`
+//     });
+//   }
+// }
 
 
 
@@ -113,40 +110,78 @@ for (const obj of cartItems) {
     to: process.env.TO_EMAIL,
     // cc: email, (uncomment this line if you want to send a copy to the sender)
     subject: `Order Email from ${firstName + " " + lastName}  (${email})`,
-    html: `
+  //   html: `
+  //   <html>
+  //     <body>
+  //       <h1>Embedded Image Example</h1>
+  //       ${imgAttachments.map(attachment => `
+  //       <img src="cid:${attachment.cid}" alt="${attachment.filename}" width="100">
+  //     `).join('')}
+  //     </body>
+  //   </html>
+  // `,
+  html: `
     <html>
       <body>
-        <h1>Embedded Image Example</h1>
-        ${imgAttachments.map(attachment => `
-        <img src="cid:${attachment.cid}" alt="${attachment.filename}" width="100">
-      `).join('')}
+        <h1>Order #</h1>
+        <h2>Order Details: </h2>
+        <ul>
+          <li>Name: ${firstName} ${lastName}</li>
+          <li>Email: ${email}</li>
+          <li>Company Name: ${companyName ? companyName : 'N/A'}</li>
+          <li>Phone: ${phone}</li>
+          <li>Street Address 1: ${streetAddress1}</li>
+          <li>Street Address 2: ${streetAddress2}</li>
+          <li>Postcode: ${postcode}</li>
+          <li>Suburb: ${suburb}</li>
+          <li>State: ${state}</li>
+          <li>Order Notes: ${orderNotes ? orderNotes : 'N/A'}</li>
+        </ul>
+        <h2>Cart Items: </h2>
+  
+        <h2> Custom Cap A Details: </h2>
+        <ul>
+          <li>Front Panel: ${cartItems[0].configuration.capParts[0].hexcode ? cartItems[0].configuration.capParts[0].hexcode  : 'N/A'} </li>
+          <li>Peak: ${cartItems[0].configuration.capParts[1].hexcode ? cartItems[0].configuration.capParts[1].hexcode  : 'N/A'} </li>
+          <li>Under Brim: ${cartItems[0].configuration.capParts[2].hexcode ? cartItems[0].configuration.capParts[2].hexcode  : 'N/A'} </li>
+          <li>Upper Stripe: ${cartItems[0].configuration.capParts[3].hexcode ? cartItems[0].configuration.capParts[3].hexcode  : 'N/A'} </li>
+          <li>Lower Stripe: ${cartItems[0].configuration.capParts[4].hexcode ? cartItems[0].configuration.capParts[4].hexcode  : 'N/A'}</li>
+          <li>Back Mesh: ${cartItems[0].configuration.capParts[5].hexcode ? cartItems[0].configuration.capParts[5].hexcode  : 'N/A'}</li>
+          <li>Snap Back: ${cartItems[0].configuration.capParts[6].hexcode ? cartItems[0].configuration.capParts[6].hexcode  : 'N/A'} </li>
+        </ul>
+        <img src="cid:unique1@nodemailer.com" alt="img1" width="100">
+        <img src="cid:unique2@nodemailer.com" alt="img2" width="100">
+        <img src="cid:unique3@nodemailer.com" alt="img3" width="100">
+        <img src="cid:unique4@nodemailer.com" alt="img4" width="100">
       </body>
     </html>
   `,
-
-  attachments: imgAttachments
-    // {
-    //   filename: 'image.png',  // Name of the attached file
-    //   encoding: 'base64',
-    //   content: removeBase64Prefix(cartItems[0].views.front)
-    // },
-    // {
-    //   filename: 'cat.jpg',
-    //   content: cartItems[0].views.front.split("base64,")[1],
-    //   encoding: 'base64'
-    // },
-    // {
-    //   filename: 'image2.png',
-    //   content: removeBase64Prefix(cartItems[0].views.front),
-    //   cid: 'unique@nodemailer.com'
-    // },
-    // {
-    //   filename: 'image3.png',  // Name of the attached file
-    //   encoding: 'base64',
-    //   content: removeBase64Prefix(cartItems[0].views.front),
-    //   cid: 'unique2@nodemailer.com' // Unique identifier for the embedded image
-    // }
-  
+  attachments: [
+    {
+      filename: 'image1.png',  // Name of the attached file
+      encoding: 'base64',
+      content: removeBase64Prefix(cartItems[0].views.front),
+      cid: 'unique1@nodemailer.com' // Unique identifier for the embedded image
+    },
+    {
+      filename: 'image2.png',  // Name of the attached file
+      encoding: 'base64',
+      content: removeBase64Prefix(cartItems[0].views.back),
+      cid: 'unique2@nodemailer.com' // Unique identifier for the embedded image
+    },
+    {
+      filename: 'image3.png',  // Name of the attached file
+      encoding: 'base64',
+      content: removeBase64Prefix(cartItems[0].views.right),
+      cid: 'unique3@nodemailer.com' // Unique identifier for the embedded image
+    },
+    {
+      filename: 'image4.png',  // Name of the attached file
+      encoding: 'base64',
+      content: removeBase64Prefix(cartItems[0].views.left),
+      cid: 'unique4@nodemailer.com' // Unique identifier for the embedded image
+    }
+  ],
   };
 
   const sendMailPromise = () =>

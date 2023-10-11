@@ -19,7 +19,8 @@ const BackView: FC<BackViewProps> = ({}) => {
   const { side} = useSideStore();
 
   return (
-    <div id="BackV" className={cn(side == 1 ? ''  : 'opacity-0','absolute inset-0')}>
+    <div  className={cn(side == 1 ? ''  : 'opacity-0','absolute inset-0')}>
+      <div id="BackV" className="w-full h-full relative">
       <img src="/cap/11.png" className="absolute inset-0 z-10" alt="" />
       <img
         src="/cap/12.png"
@@ -51,6 +52,7 @@ const BackView: FC<BackViewProps> = ({}) => {
         alt=""
         style={{ filter: capItems[0].selectedColorFilter }}
       />
+      </div>
     </div>
   );
 };

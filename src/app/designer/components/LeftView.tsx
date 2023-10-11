@@ -20,7 +20,8 @@ const LeftView: FC<LeftViewProps> = ({}) => {
   const { labels } = useLabelStore();
 
   return (
-    <div id="LeftV" className={cn(side == 3 ? ''  : 'opacity-0','absolute inset-0')}>
+    <div  className={cn(side == 3 ? ''  : 'opacity-0','absolute inset-0')}>
+        <div id="LeftV" className="relative w-full h-full">
       <img src="/cap/21.png" className="absolute inset-0 z-10" alt="" />
       <img
         src="/cap/22.png"
@@ -54,6 +55,7 @@ const LeftView: FC<LeftViewProps> = ({}) => {
         alt=""
         style={{ filter: capItems[1].selectedColorFilter }}
       />
+      </div>
     </div>
   );
 };

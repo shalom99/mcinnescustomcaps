@@ -22,7 +22,8 @@ const RightView: FC<RightViewProps> = ({}) => {
   const { labels } = useLabelStore();
 
   return (
-    <div id="RightV" className={cn(side == 2 ? ''  : 'opacity-0','absolute inset-0')}>
+    <div className={cn(side == 2 ? ''  : 'opacity-0','absolute inset-0')}>
+       <div id="RightV" className="relative w-full h-full">
       <img src="/cap/31.png" className="absolute inset-0 z-10" alt="" />
       <img
     
@@ -56,6 +57,7 @@ const RightView: FC<RightViewProps> = ({}) => {
         alt=""
         style={{ filter: capItems[1].selectedColorFilter }}
       />
+      </div>
     </div>
   );
 };

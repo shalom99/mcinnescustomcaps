@@ -91,6 +91,11 @@ htmlToImage
 .then(function (dataUrl) {
   // console.log(dataUrl)
   views['back'] = dataUrl;
+
+      //  const link = document.createElement("a");
+      // link.download = "my-image-name.png";
+      // link.href = dataUrl;
+      // link.click();
 })
 
 htmlToImage
@@ -98,6 +103,11 @@ htmlToImage
 .then(function (dataUrl) {
   // console.log(dataUrl)
   views['right'] = dataUrl;
+
+      //  const link = document.createElement("a");
+      // link.download = "my-image-name.png";
+      // link.href = dataUrl;
+      // link.click();
 })
 
 htmlToImage
@@ -106,6 +116,11 @@ htmlToImage
   // console.log(dataUrl)
   views['left'] = dataUrl;
 
+      //  const link = document.createElement("a");
+      // link.download = "my-image-name.png";
+      // link.href = dataUrl;
+      // link.click();
+
   addToCart({  name, quantity, mockQuantity: quantity, price, subtotal: quantity * price, type, configuration, views: {
     front: views.front,
     back: views.back,
@@ -113,6 +128,8 @@ htmlToImage
     right: views.right,
     bottom: ''
   } }); 
+
+
 
 
      

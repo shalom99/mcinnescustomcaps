@@ -161,37 +161,37 @@ export const ColorOptions = [
   {
     id: 1,
     code: '#F55201',
-    filter: 'invert(59%) sepia(27%) saturate(5404%) hue-rotate(321deg) brightness(104%) contrast(102%)'
+    filter: 'invert(48%) sepia(65%) saturate(4679%) hue-rotate(358deg) brightness(93%) contrast(108%)'
   },
   {
     id: 2,
     code: '#92928B',
-    filter: 'invert(20%) sepia(73%) saturate(1745%) hue-rotate(335deg) brightness(108%) contrast(108%)'
+    filter: 'invert(58%) sepia(9%) saturate(160%) hue-rotate(21deg) brightness(98%) contrast(89%)'
   },
   {
     id: 3,
     code: '#FF9711',
-    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+    filter: 'invert(52%) sepia(79%) saturate(538%) hue-rotate(349deg) brightness(109%) contrast(101%)'
   },
   {
     id: 4,
     code: '#9D0105',
-    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+    filter: 'invert(32%) sepia(86%) saturate(6355%) hue-rotate(346deg) brightness(60%) contrast(120%)'
   },
   {
     id: 5,
     code: '#878377',
-    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+    filter: 'invert(52%) sepia(5%) saturate(672%) hue-rotate(7deg) brightness(97%) contrast(90%)'
   },
   {
     id: 6,
     code: '#EF8B93',
-    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+    filter: 'invert(54%) sepia(72%) saturate(337%) hue-rotate(307deg) brightness(108%) contrast(87%)'
   },
   {
     id: 7,
     code: '#2A174C',
-    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+    filter: 'invert(12%) sepia(33%) saturate(2907%) hue-rotate(239deg) brightness(30%) contrast(101%)'
   },
   {
     id: 8,
@@ -201,22 +201,22 @@ export const ColorOptions = [
   {
     id: 9,
     code: '#111924',
-    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+    filter: 'invert(8%) sepia(4%) saturate(6286%) hue-rotate(176deg) brightness(104%) contrast(97%)'
   },
   {
     id: 10,
     code: '#497BB6',
-    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+    filter: 'invert(47%) sepia(35%) saturate(745%) hue-rotate(171deg) brightness(90%) contrast(88%)'
   },
   {
     id: 11,
     code: '#24623E',
-    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+    filter: 'invert(31%) sepia(38%) saturate(677%) hue-rotate(92deg) brightness(68%) contrast(89%)'
   },
   {
     id: 12,
     code: '#AC9673',
-    filter: 'invert(9%) sepia(24%) saturate(5148%) hue-rotate(216deg) brightness(99%) contrast(96%)'
+    filter: 'invert(62%) sepia(46%) saturate(229%) hue-rotate(358deg) brightness(148%) contrast(92%)'
   },
   {
     id: 13,

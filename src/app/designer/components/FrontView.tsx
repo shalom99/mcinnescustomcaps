@@ -7,10 +7,7 @@ import {
   useSideStore,
 } from "@/libs/store";
 import { FC, useState, useEffect } from "react";
-import { CgArrowsExpandLeft } from "react-icons/cg";
-import { FiRotateCw } from "react-icons/fi";
-import domtoimage from "dom-to-image";
-import * as htmlToImage from "html-to-image";
+
 import cn from "@/libs/cn";
 type FrontViewProps = {};
 
@@ -39,7 +36,8 @@ const FrontView: FC<FrontViewProps> = ({}) => {
   }, []);
 
   return (
-    <div className={cn(side == 0 ? ''  : 'opacity-0','absolute inset-0')} id="FrontV">
+    <div className={cn(side == 0 ? ''  : 'opacity-0','absolute inset-0')} >
+      <div id="FrontV" className="relative w-full h-full">
       <img
         id="cap1"
         src="/cap/1.png"
@@ -78,6 +76,7 @@ const FrontView: FC<FrontViewProps> = ({}) => {
         draggable={false}
         style={{ filter: capItems[1].selectedColorFilter }}
       />
+      </div>
     </div>
   );
 
