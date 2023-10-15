@@ -5,10 +5,10 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { AiFillCloseCircle } from 'react-icons/ai'
 
 type BrandingPickerProps = {
-  
+  brandingId: number
 }
 
-const BrandingPicker: FC<BrandingPickerProps> = ({}) => {
+const BrandingPicker: FC<BrandingPickerProps> = ({brandingId}) => {
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const { previewImg, setPreviewImg, setShowPreview} = usePreviewImgStore();

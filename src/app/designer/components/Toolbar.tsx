@@ -2,13 +2,14 @@
 import { FC, useState } from "react";
 import ColorPicker from "./ColorPicker";
 import LabelColorPicker from "./LabelColorPicker";
-import { useLabelStore, useCapItemStore } from "@/libs/store";
+import { useLabelStore, useCapItemStore, useBrandingStore } from "@/libs/store";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md";
 
 import AddToCartButton from "./AddToCartButton";
+import BrandingPicker from "./BrandingPicker";
 
 
 type ToolbarProps = {};
@@ -16,10 +17,11 @@ type ToolbarProps = {};
 const Toolbar: FC<ToolbarProps> = ({}) => {
   const labels = useLabelStore();
   const capItems = useCapItemStore();
+  const {brandings, setShowBranding} = useBrandingStore()
   const productId = 1; // Example product ID
   const productName = "Custom Hat Design";
   const productQuantity = 25;
-  const productPrice = 20.99;
+  const productPrice = 15;
   const productType = 0;
 
   return (
@@ -40,7 +42,10 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
               <h3 className="text-md text-slate-600 select-none">
                 {capItem.name}
               </h3>
-              <p style={{ color: capItem.hexcode }}>{capItem.hexcode}</p>
+              <div className="flex flex-col text-sm">
+              <p style={{ color: capItem.hexcode }}> {capItem.hexcode}</p>
+              {/* <p style={{ color: capItem.hexcode }}>Color Id{capItem.colorId}</p> */}
+              </div>
             </div>
 
             <div className="flex items-center flex-col gap-x-5 relative">
@@ -80,6 +85,36 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
           </div>
         ))}
         {/* END CAP LABELS */}
+
+
+        {/* START CAP BRANDINGS */}
+        {brandings.map((branding) => (
+          <div key={branding.id} className="">
+            <div
+              onClick={() => setShowBranding(branding.id)}
+              className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2"
+            >
+              <h3 className="text-md text-slate-600 select-none">
+                {branding.part} Branding
+              </h3>
+
+              {!branding.show ? (
+                <MdOutlineKeyboardArrowDown />
+              ) : (
+                <MdOutlineKeyboardArrowUp />
+              )}
+            </div>
+
+            <div className="flex items-center gap-x-5 relative">
+              {branding.show && (
+                <BrandingPicker brandingId={branding.id}/>
+              )}
+            </div>
+          </div>
+        ))}
+        {/* END CAP BRANDINGS */}
+
+
 
         <div className="lg:hidden w-full bg-yellow-200 grid grid-cols-4 gap-x-4 items-center">
           START CAP LABELS

@@ -1,6 +1,7 @@
 import { ContactFormData } from "@/app/contact/page";
 import { CartItem } from "../types";
 import { CheckoutFormData } from "@/app/checkout/page";
+import { useLoaderStore } from "../store";
 
 export const calculateTotal = (cartItems: CartItem[]): number => {
     let total = 0;
@@ -35,6 +36,7 @@ export const calculateTotal = (cartItems: CartItem[]): number => {
 
 
   export function sendOrder(data: any) {
+ 
 
     console.log(data)
     const apiEndpoint = '/api/order';
@@ -46,6 +48,7 @@ export const calculateTotal = (cartItems: CartItem[]): number => {
       .then((res) => res.json())
       .then((response) => {
         alert(response.message);
+   
       })
       .catch((err) => {
         alert(err);

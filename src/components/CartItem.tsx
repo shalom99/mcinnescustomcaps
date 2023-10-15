@@ -1,16 +1,18 @@
 "use client";
-
 import { calculateTotal } from "@/libs/config/helpers";
+import { useLoaderStore } from "@/libs/store";
 import { CartItem } from "@/libs/types";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FC } from "react";
-import { BiSolidUpArrow } from "react-icons/bi";
 
 type CartItemProps = {
   cartItems: any;
 };
 
 const CartItem: FC<CartItemProps> = ({ cartItems }) => {
+  const { isLoading, setIsLoading } = useLoaderStore();
+  const router = useRouter();
   return (
     <div className="flex flex-col">
       <div className="flex justify-end">
@@ -59,18 +61,30 @@ const CartItem: FC<CartItemProps> = ({ cartItems }) => {
           SUB TOTAL {calculateTotal(cartItems).toFixed(2)}
         </p>
         <div className="w-full flex justify-between">
-          <Link
-            href="/cart"
+          <button
+            onClick={() => {
+              setIsLoading(true);
+              setTimeout(() => {
+                setIsLoading(false)
+                router.push("/cart");
+              }, 2000);
+            }}
             className="w-[35%] border-2 border-activeOrange px-2 py-3 text-sm text-activeOrange text-center"
           >
             View Cart
-          </Link>
-          <Link
-            href="/checkout"
+          </button>
+          <button
+            onClick={() => {
+              setIsLoading(true);
+              setTimeout(() => {
+                setIsLoading(false)
+                router.push("/checkout");
+              }, 2000);
+            }}
             className="w-[55%] bg-primaryGreen py-3 px-2 text-sm text-white text-center"
           >
             Go to Checkout
-          </Link>
+          </button>
         </div>
       </div>
     </div>

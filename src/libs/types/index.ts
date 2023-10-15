@@ -4,7 +4,7 @@ export interface CapItemType {
     capItems: typeof CapItems;
     setCapItems: (capItems: typeof CapItems) => void;
     setShowPicker: (capItemId: number) => void;
-    setCapItemColor: (capItemId: number, hexcode: string, filter: string) => void;
+    setCapItemColor: (capItemId: number, hexcode: string, filter: string, colorId: string) => void;
     setResetCap: () => void
 }
 
@@ -70,4 +70,9 @@ export interface brandingType {
     setShowBranding: (brandingId: number) => void;
     setBranding: () => void;
     setResetBrandings: () => void;
+}
+
+export interface loaderType {
+    isLoading: boolean;
+    setIsLoading: (load: boolean) => void;
 }

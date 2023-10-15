@@ -1,9 +1,11 @@
-import Navbar from '@/components/Navbar'
+
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import Loading from '@/components/Loading'
+import  { Toaster } from 'react-hot-toast';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +25,14 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Loading />
+        <Toaster  toastOptions={{
+          duration: 3000,
+          style: {
+            border: "1px solid green",
+            padding: "16px",
+          },
+        }} />
         </body>
     </html>
   )

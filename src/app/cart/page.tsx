@@ -1,9 +1,7 @@
 "use client";
-import { FC, ReactEventHandler, useEffect, useState } from "react";
-import { AiFillCloseCircle } from "react-icons/ai";
-
+import { FC, useState } from "react";
 import RemoveItem from "@/components/modals/RemoveItem";
-import { useCartStore } from "@/libs/store";
+import { useCartStore, useLoaderStore } from "@/libs/store";
 import { calculateTotal } from "@/libs/config/helpers";
 import { CartItem } from "@/libs/types";
 import { BsFillCartXFill } from "react-icons/bs";
@@ -15,6 +13,7 @@ type pageProps = {};
 const CartPage: FC<pageProps> = ({}) => {
   const { cartItems, setUpdateCart } = useCartStore();
   const [removeItemModal, setRemoveItemModal] = useState(false);
+  const { setIsLoading} = useLoaderStore()
   const router = useRouter();
   console.log(cartItems);
 
@@ -121,9 +120,7 @@ const CartPage: FC<pageProps> = ({}) => {
                 </div>
 
                 <button
-                  onClick={() => {
-                    router.push("/checkout");
-                  }}
+                  onClick={handleToCheckout}
                   className="bg-activeOrange w-full my-5 py-2 rounded-full text-white font-bold"
                 >
                   Proceed to checkout
@@ -150,10 +147,24 @@ const CartPage: FC<pageProps> = ({}) => {
     );
   }
 
+  function handleToCheckout() {
+    setIsLoading(true)
+    setTimeout(()=>{
+      router.push("/checkout")
+      setIsLoading(false)
+    },2000)
+ 
+
+  }
 
   function handleUpdateCart(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault()
-    setUpdateCart()
+    setIsLoading(true)
+    setTimeout(() => {
+      setUpdateCart()
+      setIsLoading(false)
+    }, 2000)
+  
   }
 };
 

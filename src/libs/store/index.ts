@@ -1,6 +1,6 @@
 
 import { create } from 'zustand'
-import { CapItemType, CartType, LabelsType, brandingType, previewImgType, sideType } from '../types'
+import { CapItemType, CartType, LabelsType, brandingType, loaderType, previewImgType, sideType } from '../types'
 import { Brandings, CapItems, Labels } from '../config/constant'
 
 
@@ -12,9 +12,9 @@ export const useCapItemStore = create<CapItemType>()((set) => ({
         capItem.id === capItemId ? { ...capItem, showColorPicker: !capItem.showColorPicker } : capItem
         )
     })),
-    setCapItemColor: (capItemId, hexcode, filter) => set((state) => ({
+    setCapItemColor: (capItemId, hexcode, filter, colorId) => set((state) => ({
         capItems: state.capItems.map((capItem) => 
-        capItem.id === capItemId ? { ...capItem, hexcode: hexcode, selectedColorFilter: filter } : capItem
+        capItem.id === capItemId ? { ...capItem, hexcode, selectedColorFilter: filter, colorId } : capItem
         )
     })),
     setResetCap: () => set({capItems: CapItems})
@@ -153,6 +153,10 @@ export const useBrandingStore = create<brandingType>()((set) => ({
 }))
 
 
+export const useLoaderStore = create<loaderType>()((set) => ({
+    isLoading: false,
+    setIsLoading: (load) => set({ isLoading: load}),
+}))
 
 
 
