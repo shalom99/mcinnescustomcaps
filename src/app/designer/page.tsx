@@ -23,7 +23,7 @@ const Designer: FC<pageProps> = ({}) => {
             id="CapCanvas"
             className="grow bg-white flex items-center justify-center "
           >
-            <div className="relative w-full h-[450px] lg:w-[600px] lg:h-[600px] p-5">
+            <div className="relative w-full min-h-[450px] lg:w-[600px] lg:h-[600px] p-5">
               <Views />
               <CapSideSelector />
             </div>

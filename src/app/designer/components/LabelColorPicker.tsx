@@ -17,10 +17,10 @@ const LabelColorPicker: FC<ColorPickerProps> = ({ title, label }) => {
     // set side on show of selected label
     if (labels[label.id].show === true) {
       if (label.id === 0 || label.id === 1) {
-        setSelectedSide(2);
+        setSelectedSide(3);
         console.log(`moved side ${labels[label.id].name}  `);
       } else {
-        setSelectedSide(3);
+        setSelectedSide(2);
         console.log(`moved side ${labels[label.id].name}`);
       }
     }

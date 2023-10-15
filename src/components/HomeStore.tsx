@@ -11,11 +11,9 @@ const HomeStore: FC<HomeStoreProps> = ({}) => {
     <div id="container" className="w-full lg:w-[1200px] px-2 lg:px-0 py-10 lg:py-20 flex flex-col lg:flex-row gap-y-10">
       <div id="left" className="flex gap-x-1 items-between lg:gap-x-10">
         <div className="w-[50%] flex flex-col gap-y-10">
-          <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[390px] bg-home1 bg-center bg-cover rounded-lg relative">
+          <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[390px] bg-center bg-cover rounded-lg relative">
             <div id="overlay" className="absolute inset-0 bg-black opacity-25"></div>
-              <div className="absolute bottom-5 left-0 right-0 flex justify-center">
-                <button className="flex items-center font-bold gap-x-2 text-white">FIND OUT MORE <MdOutlineArrowForwardIos /></button>
-              </div>
+       
           </div>
           <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[390px] bg-home2 bg-center bg-cover rounded-lg relative">
             <div id="overlay" className="absolute inset-0 bg-black opacity-25"></div>

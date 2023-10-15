@@ -14,7 +14,7 @@ const ColorPicker: FC<ColorPickerProps> = ({ title, capItemId }) => {
   const { capItems, setCapItemColor, setShowPicker } = useCapItemStore();
   const { setSelectedSide } = useSideStore();
 
-  function handleChangeColor(id: number, color: string, colorFilter: string, colorId: string) {
+  function handleChangeColor(id: number, color: string, colorFilter: string, colorId: string ) {
     setCapItemColor(id, color, colorFilter, colorId);
     setShowPicker(id);
   }
