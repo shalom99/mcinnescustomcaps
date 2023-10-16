@@ -86,7 +86,7 @@ export const Labels = [
   },
   {
     id: 1,
-    name: "Left Label",
+    name: "Right Label",
     show: false,
     text: '',
     textHexColor: '',
@@ -97,7 +97,7 @@ export const Labels = [
   },
   {
     id: 2,
-    name: "Right Label",
+    name: "Left Label",
     show: false,
     text: '',
     textHexColor: '',

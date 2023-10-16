@@ -1,6 +1,7 @@
 'use client'
 
-import { usePreviewImgStore } from '@/libs/store'
+import { Brandings } from '@/libs/config/constant'
+import { useBrandingStore } from '@/libs/store'
 import { FC, useEffect, useRef, useState } from 'react'
 import { AiFillCloseCircle } from 'react-icons/ai'
 
@@ -10,8 +11,8 @@ type BrandingPickerProps = {
 
 const BrandingPicker: FC<BrandingPickerProps> = ({brandingId}) => {
     const fileInputRef = useRef<HTMLInputElement>(null);
-
-    const { previewImg, setPreviewImg, setShowPreview} = usePreviewImgStore();
+    const {} = useBrandingStore()
+   
     const [image, setImage] = useState<File>();
 
 
@@ -56,15 +57,15 @@ const BrandingPicker: FC<BrandingPickerProps> = ({brandingId}) => {
         }}
         className="bg-gray-400 rounded-full p-2 w-[150px]"
       >
-        {!previewImg ? "Add Image" : "Change Image"}
+        {!Brandings[brandingId].imageURL ? "Add Image" : "Change Image"}
       </button>
     </div>
     {/* <p>preview: {preview}</p> */}
 
-    {previewImg ? (
+    {Brandings[brandingId].show ? (
       <div className="flex gap-x-[-5px]">
         <img
-          src={previewImg}
+          src={Brandings[brandingId].imageURL}
           alt=""
           width={50}
           height={30}
@@ -73,8 +74,8 @@ const BrandingPicker: FC<BrandingPickerProps> = ({brandingId}) => {
         <button
           onClick={(e) => {
             e.preventDefault();
-            setPreviewImg(null);
-            setShowPreview(false)
+            // setPreviewImg(null);
+            // setShowPreview(false)
           }}
           className="w-[15px] h-[15px]"
         >

@@ -129,13 +129,13 @@ export const useCartStore = create<CartType>((set) => {
 
 
 
-export const usePreviewImgStore = create<previewImgType>()((set) => ({
-    previewImg: '',
-    showPreview: false,
-    setPreviewImg: (previewImg) => set({previewImg}),
-    setShowPreview: (showPreview) => set({showPreview})
+// export const usePreviewImgStore = create<previewImgType>()((set) => ({
+//     previewImg: '',
+//     showPreview: false,
+//     setPreviewImg: (previewImg) => set({previewImg}),
+//     setShowPreview: (showPreview) => set({showPreview})
 
-}))
+// }))
 
 
 
