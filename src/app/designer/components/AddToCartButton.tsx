@@ -13,19 +13,11 @@ import { ClipLoader } from "react-spinners";
 
 import * as htmlToImage from "html-to-image";
 type AddToCartButtonProps = {
-  id: number;
-  name: string;
-  quantity: number;
-  price: number;
-  type: number;
+
 };
 
 const AddToCartButton: FC<AddToCartButtonProps> = ({
-  id,
-  name,
-  quantity,
-  price,
-  type,
+
 }) => {
   const { capItems, setResetCap } = useCapItemStore();
   const { labels, setResetLabels } = useLabelStore();
@@ -115,12 +107,12 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({
         // link.click();
 
         addToCart({
-          name,
-          quantity,
-          mockQuantity: quantity,
-          price,
-          subtotal: quantity * price,
-          type,
+          name: "Custom Hat Design",
+          quantity: 25,
+          mockQuantity: 25,
+          price: 15,
+          subtotal: 25 * 15,
+          type: 0,
           configuration,
           views: {
             front: views.front,
@@ -130,6 +122,13 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({
             bottom: "",
           },
         });
+
+        // const productId = 1; 
+        // const productName = "Custom Hat Design";
+        // const productQuantity = 25;
+        // const productPrice = 15;
+        // const productType = 0;
+      
 
         setResetCap();
         setResetLabels();

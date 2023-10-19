@@ -1,6 +1,6 @@
 
 import { create } from 'zustand'
-import { CapItemType, CartType, LabelsType, brandingType, loaderType, previewImgType, sideType } from '../types'
+import { CapItemType, CartType, LabelsType, brandingType, loaderType, sideType } from '../types'
 import { Brandings, CapItems, Labels } from '../config/constant'
 
 
@@ -44,9 +44,9 @@ export const useLabelStore = create<LabelsType>()((set) => ({
         label.id === labelId ? { ...label, filterHexColor: hexcode, selectedColorFilter: filter} : label
         )
     })),
-    setLabelBackgroundColor: (labelId, hexcode, filter) => set((state) => ({
+    setLabelBackgroundColor: (labelId, hexcode, filter, colorId) => set((state) => ({
         labels: state.labels.map((label) => 
-        label.id === labelId ? { ...label, filterHexColor: hexcode, selectedColorFilter: filter} : label
+        label.id === labelId ? { ...label, filterHexColor: hexcode, selectedColorFilter: filter, colorId} : label
         )
     })),
     setResetLabels: () => set({labels: Labels})
@@ -146,8 +146,15 @@ export const useBrandingStore = create<brandingType>()((set) => ({
         branding.id === brandingId ? { ...branding, show: !branding.show } : branding
         )
     })),
-    setBranding: () => set((state) => ({
-
+    setBrandingImg: (brandingId, img) => set((state) =>  ({
+        brandings: state.brandings.map((branding) => 
+        branding.id === brandingId ? { ...branding, imageURL: img} : branding
+        )
+    })),
+    removeBrandingImg: (brandingId) => set((state) =>  ({
+        brandings: state.brandings.map((branding) => 
+        branding.id === brandingId ? { ...branding, imageURL: ""} : branding
+        )
     })),
     setResetBrandings: () => set({brandings: Brandings})
 }))

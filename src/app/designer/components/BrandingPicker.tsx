@@ -1,8 +1,7 @@
 'use client'
 
-import { Brandings } from '@/libs/config/constant'
 import { useBrandingStore } from '@/libs/store'
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, ReactEventHandler, useEffect, useRef, useState } from 'react'
 import { AiFillCloseCircle } from 'react-icons/ai'
 
 type BrandingPickerProps = {
@@ -11,22 +10,52 @@ type BrandingPickerProps = {
 
 const BrandingPicker: FC<BrandingPickerProps> = ({brandingId}) => {
     const fileInputRef = useRef<HTMLInputElement>(null);
-    const {} = useBrandingStore()
+    const { brandings, setBrandingImg, removeBrandingImg } = useBrandingStore()
    
     const [image, setImage] = useState<File>();
-
+    const [error, setError] = useState("");
 
       // useEffect(() => {
       //   if (image) {
       //     const reader = new FileReader();
       //     reader.onloadend = () => {
-      //       setPreviewImg(reader.result as string);
-      //       setShowPreview(true)
+      //       // setPreviewImg(reader.result as string);
+      //       // setShowPreview(true)
+      //       setBrandingImg(brandingId, reader.result as string)
+      //       console.log(reader.result as string)
       //     };
       //     reader.readAsDataURL(image);
       //   } else {
+          
       //   }
       // }, [image]);
+
+      // function handleFileUpload(event:any){
+      //   const file = event.target.files[0];
+
+      //   if (file) {
+      //     // Check if the selected file is an image
+      //     if (!file.type.startsWith('image/')) {
+      //       setError('Please upload an image file.');
+      //       return;
+      //     }
+    
+      //     // Check if the file size is less than 2MB
+      //     if (file.size > 2 * 1024 * 1024) {
+      //       setError('File size must be less than 2MB.');
+      //       return;
+      //     }
+    
+      //     const reader = new FileReader();
+    
+      //     reader.onload = (e) => {
+      //       setImage(e.target.result);
+      //       setError("");
+      //     }
+    
+      //     reader.readAsDataURL(file);
+      //   }
+      // }
 
   return (
      
@@ -57,15 +86,15 @@ const BrandingPicker: FC<BrandingPickerProps> = ({brandingId}) => {
         }}
         className="bg-gray-400 rounded-full p-2 w-[150px]"
       >
-        {!Brandings[brandingId].imageURL ? "Add Image" : "Change Image"}
+        {!brandings[brandingId].imageURL ? "Add Image" : "Change Image"}
       </button>
     </div>
     {/* <p>preview: {preview}</p> */}
 
-    {Brandings[brandingId].show ? (
+    {brandings[brandingId].imageURL ? (
       <div className="flex gap-x-[-5px]">
         <img
-          src={Brandings[brandingId].imageURL}
+          src={brandings[brandingId].imageURL}
           alt=""
           width={50}
           height={30}
@@ -75,6 +104,7 @@ const BrandingPicker: FC<BrandingPickerProps> = ({brandingId}) => {
           onClick={(e) => {
             e.preventDefault();
             // setPreviewImg(null);
+            removeBrandingImg(brandingId)
             // setShowPreview(false)
           }}
           className="w-[15px] h-[15px]"

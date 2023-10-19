@@ -1,5 +1,5 @@
 "use client";
-import { FC, useState } from "react";
+import { FC } from "react";
 import ColorPicker from "./ColorPicker";
 import LabelColorPicker from "./LabelColorPicker";
 import { useLabelStore, useCapItemStore, useBrandingStore } from "@/libs/store";
@@ -18,11 +18,6 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
   const labels = useLabelStore();
   const capItems = useCapItemStore();
   const {brandings, setShowBranding} = useBrandingStore()
-  const productId = 1; // Example product ID
-  const productName = "Custom Hat Design";
-  const productQuantity = 25;
-  const productPrice = 15;
-  const productType = 0;
 
   return (
     <>
@@ -61,7 +56,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
 
         {/* START CAP LABELS */}
         {labels.labels.map((label) => (
-          <div key={label.id} className="">
+          <div key={"label"+label.id} className="">
             <div
               onClick={() => labels.setShowPicker(label.id)}
               className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2"
@@ -79,7 +74,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
 
             <div className="flex items-center gap-x-5 relative">
               {label.showColorPicker && (
-                <LabelColorPicker title={label.name} label={label} />
+                <LabelColorPicker label={label} />
               )}
             </div>
           </div>
@@ -89,7 +84,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
 
         {/* START CAP BRANDINGS */}
         {brandings.map((branding) => (
-          <div key={branding.id} className="">
+          <div key={"branding"+branding.id} className="">
             <div
               onClick={() => setShowBranding(branding.id)}
               className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2"
@@ -134,13 +129,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
         </div>
 
         <div className="flex justify-center py-4">
-          <AddToCartButton
-            id={productId}
-            name={productName}
-            quantity={productQuantity}
-            price={productPrice}
-            type={productType}
-          />
+          <AddToCartButton />
         </div>
       </div>
     

@@ -15,7 +15,7 @@ export interface LabelsType {
     setShowLabel: (labelId: number, option: boolean) => void;
     setLabelText: (labelId: number, text: string) => void;
     setLabelTextColor: (labelId: number, hexcode: string, filter: string) => void;
-    setLabelBackgroundColor: (labelId: number, hexcode: string, filter: string) => void;
+    setLabelBackgroundColor: (labelId: number, hexcode: string, filter: string, colorId: string) => void;
     setResetLabels: () => void
 }
 
@@ -58,17 +58,13 @@ export interface CartType {
     setUpdateViews: (id: number, side: string, img: string) => void;
 }
 
-export interface previewImgType {
-    previewImg: string | null;
-    showPreview: boolean;
-    setPreviewImg: (previewImg: string | null) => void;
-    setShowPreview: (showPreview: boolean) => void;
-}
+
 
 export interface brandingType {
     brandings: typeof Brandings;
     setShowBranding: (brandingId: number) => void;
-    setBranding: () => void;
+    setBrandingImg: (brandingId: number, img: string) => void;
+    removeBrandingImg: (brandingId: number) => void;
     setResetBrandings: () => void;
 }
 

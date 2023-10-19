@@ -82,6 +82,7 @@ export const Labels = [
     filterHexColor: '',
     selectedTextColorFilter: '',
     selectedColorFilter: '',
+    selectedColorId: '',
     showColorPicker: false
   },
   {
@@ -93,6 +94,7 @@ export const Labels = [
     filterHexColor: '',
     selectedTextColorFilter: '',
     selectedColorFilter: '',
+    selectedColorId: '',
     showColorPicker: false
   },
   {
@@ -104,6 +106,7 @@ export const Labels = [
     filterHexColor: '',
     selectedTextColorFilter: '',
     selectedColorFilter: '',
+    selectedColorId: '',
     showColorPicker: false
   },
 
@@ -112,7 +115,7 @@ export const Labels = [
 
 export const Brandings = [
   {
-    id: 1,
+    id: 0,
     part: 'Front',
     show: false,
     imageURL: '',
@@ -122,7 +125,7 @@ export const Brandings = [
     height: 0
   },
   {
-    id: 2,
+    id: 1,
     part: 'Left',
     show: false,
     imageURL: '',
@@ -132,7 +135,7 @@ export const Brandings = [
     height: 0
   },
   {
-    id: 3,
+    id: 2,
     part: 'Right',
     show: false,
     imageURL: '',
@@ -142,7 +145,7 @@ export const Brandings = [
     height: 0
   },
   {
-    id: 4,
+    id: 3,
     part: 'Back',
     show: false,
     imageURL: '',

@@ -3,6 +3,7 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { HiComputerDesktop, HiMiniRectangleStack } from "react-icons/hi2";
 import { RiCustomerService2Line } from "react-icons/ri";
 import { TbTruckDelivery } from "react-icons/tb";
+import { SlSocialDropbox } from 'react-icons/sl'
 type HomeStoreProps = {};
 
 const HomeStore: FC<HomeStoreProps> = ({}) => {
@@ -17,31 +18,30 @@ const HomeStore: FC<HomeStoreProps> = ({}) => {
           className="flex flex-col gap-y-10 items-between lg:gap-x-10"
         >
           <div className=" flex gap-x-10">
-            <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[300px] bg-black text-white rounded-lg relative flex flex-col items-center justify-center px-5">
-              <HiComputerDesktop size={50} />
+            <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[300px] bg-black text-white rounded-lg relative flex flex-col items-center justify-center px-5 group">
+              <HiComputerDesktop size={70} className="group-hover:translate-y-[-20px] group-hover:shadow-xl group-hover:shadow-gray-600 duration-1000" />
               <h2 className="font-bold my-5 text-xl">Place Order</h2>
 
               <p className="text-center text-sm text-gray-300">
                 Design your own custom hat using our online
-                <span className="text-red-700 cursor-pointer"> designer</span> !
+                <span className="text-red-700 cursor-pointer"> designer</span>!
                 Add colours, <br /> a logo/design and text to your needs.
               </p>
             </div>
 
-            <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[300px] bg-black rounded-lg relative text-white flex flex-col items-center justify-center px-5">
-              <HiMiniRectangleStack size={50} />
+            <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[300px] bg-black rounded-lg relative text-white flex flex-col items-center justify-center px-5 group">
+              <HiMiniRectangleStack size={70} className="group-hover:translate-y-[-20px] group-hover:shadow-xl group-hover:shadow-gray-600 duration-1000"/>
               <h2 className="font-bold my-5 text-xl">Minimum Order</h2>
 
               <p className="text-center text-sm text-gray-300">
-                Minimum order is
-                <span className="bg-activeOrange p-1 ">25</span> hats per
+                Minimum order is <span className="bg-activeOrange p-1">25</span> hats per
                 design.
               </p>
             </div>
           </div>
           <div className=" flex gap-x-10">
-            <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[300px] bg-black rounded-lg relative text-white flex flex-col items-center justify-center px-5">
-              <RiCustomerService2Line size={50} />
+            <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[300px] bg-black rounded-lg relative text-white flex flex-col items-center justify-center px-5 group">
+              <RiCustomerService2Line size={70} className="group-hover:translate-y-[-20px] group-hover:shadow-xl group-hover:shadow-gray-600 duration-1000" />
               <h2 className="font-bold my-5 text-xl">Confirmation</h2>
 
               <p className="text-center text-sm text-gray-300">
@@ -51,8 +51,8 @@ const HomeStore: FC<HomeStoreProps> = ({}) => {
               </p>
             </div>
 
-            <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[300px] bg-black rounded-lg relative text-white flex flex-col items-center justify-center px-5">
-              <TbTruckDelivery size={50} />
+            <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[300px] bg-black rounded-lg relative text-white flex flex-col items-center justify-center px-5 group">
+              <TbTruckDelivery size={70} className="group-hover:translate-y-[-20px] group-hover:shadow-xl group-hover:shadow-gray-600 duration-1000"/>
               <h2 className="font-bold my-5 text-xl">Delivery</h2>
 
               <p className="text-center text-sm text-gray-300">
@@ -63,8 +63,8 @@ const HomeStore: FC<HomeStoreProps> = ({}) => {
           </div>
 
           <div className=" flex justify-center">
-            <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[300px] bg-black rounded-lg relative text-white flex flex-col items-center justify-center px-5">
-              <HiMiniRectangleStack size={50} />
+            <div className="w-[180px] h-[300px] lg:w-[270px] lg:h-[300px] bg-black rounded-lg relative text-white flex flex-col items-center justify-center px-5 group">
+              <SlSocialDropbox size={70} className="group-hover:translate-y-[-20px] group-hover:shadow-xl group-hover:shadow-gray-600 duration-1000" />
               <h2 className="font-bold my-5 text-xl"> Enjoy</h2>
 
               <p className="text-center text-sm text-gray-300">

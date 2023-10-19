@@ -7,6 +7,7 @@ import {
 import { FC } from "react";
 import FrontView from "./FrontView";
 import cn from "@/libs/cn";
+import BBranding from "./BBranding";
 
 type ViewsProps = {};
 
@@ -31,6 +32,7 @@ const BackView: FC = ({}) => {
   return (
     <div className={cn(side == 1 ? "" : "opacity-0", "absolute inset-0")}>
       <div id="BackV" className="w-full h-full relative">
+        <BBranding />
         <img src="/cap/11.png" className="absolute inset-0 z-10" alt="" />
         <img
           src="/cap/12.png"
@@ -82,6 +84,7 @@ const RightView: FC = ({}) => {
               src="/cap/frontlabelfill.png"
               className="absolute inset-0 z-10"
               alt=""
+              style={{ filter: labels[0].selectedColorFilter }}
               
             />
             <img
@@ -99,6 +102,7 @@ const RightView: FC = ({}) => {
               src="/cap/rlabelfill.png"
               className="absolute inset-0 z-20"
               alt=""
+              style={{ filter: labels[1].selectedColorFilter }}
               
             />
             <img
@@ -165,7 +169,7 @@ const LeftView: FC = ({}) => {
               src="/cap/llabelfill.png"
               className="absolute inset-0 z-20"
               alt=""
-              
+              style={{ filter: labels[2].selectedColorFilter }}
             />
               <img
               src="/cap/llabel.png"
