@@ -27,7 +27,7 @@ const LabelColorPicker: FC<ColorPickerProps> = ({ label }) => {
     }
   }, [labels[label.id].show]);
 
-  function handleChangeColor(id: number, color: string, colorId: string) {
+  function handleChangeColor(id: number, color: string, colorId: number) {
     setLabelBackgroundColor(id, color, colorId);
   }
 
@@ -75,7 +75,7 @@ const LabelColorPicker: FC<ColorPickerProps> = ({ label }) => {
                 handleChangeColor(
                   label.id,
                   colorOption.code,
-                  colorOption.colorId
+                  colorOption.id
                 )
               }
               className={cn("w-[40px] h-[40px]  rounded-full border")}

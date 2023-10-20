@@ -4,7 +4,7 @@ export interface CapItemType {
     capItems: typeof CapItems;
     setCapItems: (capItems: typeof CapItems) => void;
     setShowPicker: (capItemId: number) => void;
-    setCapItemColor: (capItemId: number, hexcode: string, colorId: string) => void;
+    setCapItemColor: (capItemId: number, hexcode: string, colorId: number) => void;
     setResetCap: () => void
 }
 
@@ -15,7 +15,7 @@ export interface LabelsType {
     setShowLabel: (labelId: number, option: boolean) => void;
     setLabelText: (labelId: number, text: string) => void;
     setLabelTextColor: (labelId: number, hexcode: string) => void;
-    setLabelBackgroundColor: (labelId: number, hexcode: string, colorId: string) => void;
+    setLabelBackgroundColor: (labelId: number, hexcode: string, colorId: number) => void;
     setResetLabels: () => void
 }
 
