@@ -27,8 +27,8 @@ const LabelColorPicker: FC<ColorPickerProps> = ({ label }) => {
     }
   }, [labels[label.id].show]);
 
-  function handleChangeColor(id: number, color: string, colorFilter: string, colorId: string) {
-    setLabelBackgroundColor(id, color, colorFilter, colorId);
+  function handleChangeColor(id: number, color: string, colorId: string) {
+    setLabelBackgroundColor(id, color, colorId);
   }
 
   return (
@@ -75,7 +75,6 @@ const LabelColorPicker: FC<ColorPickerProps> = ({ label }) => {
                 handleChangeColor(
                   label.id,
                   colorOption.code,
-                  colorOption.filter,
                   colorOption.colorId
                 )
               }

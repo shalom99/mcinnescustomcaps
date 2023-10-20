@@ -20,7 +20,7 @@ const FrontView: FC<FrontViewProps> = ({}) => {
             <div
               id="fLabel1"
               className="absolute inset-0 z-10"
-              style={{ backgroundColor: labels[0].filterHexColor }}
+              style={{ backgroundColor: labels[0].filterHexColor ? labels[0].filterHexColor : 'white' }}
             ></div>
             <div
               id="fLabel2"

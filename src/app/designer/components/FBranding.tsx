@@ -72,14 +72,14 @@ const FBranding: FC<FBrandingProps> = ({}) => {
            />
            <CgArrowsExpandLeft
              id="resizer"
-             className={cn( brandings[0].show?"":"hidden pointer-events-none","absolute bottom-[-30px] right-[-20px] select-none cursor-se-resize")}
-             size={20}
+             className={cn( brandings[0].show?"":"hidden pointer-events-none","absolute bottom-[-30px] right-[-20px] select-none cursor-se-resize rounded-full bg-activeOrange p-1")}
+             size={25}
        
            />
            <FiRotateCw
            id="rotater"
-             size={20}
-             className={cn( brandings[0].show?"":"hidden pointer-events-none","absolute bottom-[-30px] left-0 right-0 mx-auto cursor-crosshair")}
+             size={25}
+             className={cn( brandings[0].show?"":"hidden pointer-events-none","absolute bottom-[-30px] left-0 right-0 mx-auto cursor-crosshair rounded-full bg-activeOrange p-1")}
            />
          </div>
        

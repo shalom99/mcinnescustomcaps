@@ -32,17 +32,6 @@
   mask-size: cover;
 }
 
- #fLabel1 {
-    mask-image: url(../../public/cap/9.png);
-    mask-size: cover;
-  }
-
-
-  #fLabel2 {
-    mask-image: url(../../public/cap/8.png);
-    mask-size: cover;
-  }
-
 
   #backCapBase {
     mask-image: url(../../public/cap/11.png);
@@ -74,33 +63,111 @@
     mask-size: cover;
   }
 
-  #leftCapBase {
+  #rightCapBase {
     mask-image: url(../../public/cap/21.png);
     mask-size: cover;
   }
 
-  #leftCap1 {
+  #rightCap1 {
     mask-image: url(../../public/cap/22.png);
     mask-size: cover;
   }
 
-  #leftCap2 {
+  #rightCap2 {
     mask-image: url(../../public/cap/23.png);
     mask-size: cover;
   }
 
-  #leftCap3 {
+  #rightCap3 {
     mask-image: url(../../public/cap/24.png);
     mask-size: cover;
   }
 
-  #leftCap4 {
+  #rightCap4 {
     mask-image: url(../../public/cap/26.png);
     mask-size: cover;
   }
 
-  #leftCap5 {
+  #rightCap5 {
     mask-image: url(../../public/cap/27.png);
     mask-size: cover;
   }
+
+  #leftCapBase {
+    mask-image: url(../../public/cap/31.png);
+    mask-size: cover;
+  }
+
+  #leftCap1 {
+    mask-image: url(../../public/cap/32.png);
+    mask-size: cover;
+  }
+
+  #leftCap2 {
+    mask-image: url(../../public/cap/33.png);
+    mask-size: cover;
+  }
+
+  #leftCap3 {
+    mask-image: url(../../public/cap/34.png);
+    mask-size: cover;
+  }
+
+  #leftCap4 {
+    mask-image: url(../../public/cap/35.png);
+    mask-size: cover;
+  }
+
+  #leftCap5 {
+    mask-image: url(../../public/cap/36.png);
+    mask-size: cover;
+  }
+
+
+  #fLabel1 {
+    mask-image: url(../../public/cap/9.png);
+    mask-size: cover;
+  }
+
+
+  #fLabel2 {
+    mask-image: url(../../public/cap/8.png);
+    mask-size: cover;
+  }
+
+  #rightFLabel1 {
+    mask-image: url(../../public/cap/frontlabelfill.png);
+    mask-size: cover;
+  }
+
+
+  #rightFLabel2 {
+    mask-image: url(../../public/cap/frontlabel.png);
+    mask-size: cover;
+  }
+
+
+  #leftLabel1 {
+    mask-image: url(../../public/cap/llabelfill.png);
+    mask-size: cover;
+  }
+
+
+  #leftLabel2 {
+    mask-image: url(../../public/cap/llabel.png);
+    mask-size: cover;
+  }
+
+  #rightLabel1 {
+    mask-image: url(../../public/cap/9.png);
+    mask-size: cover;
+  }
+
+
+  #rightLabel2 {
+    mask-image: url(../../public/cap/8.png);
+    mask-size: cover;
+  }
+
+  
 
