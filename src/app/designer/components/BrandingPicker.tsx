@@ -15,20 +15,20 @@ const BrandingPicker: FC<BrandingPickerProps> = ({brandingId}) => {
     const [image, setImage] = useState<File>();
     const [error, setError] = useState("");
 
-      // useEffect(() => {
-      //   if (image) {
-      //     const reader = new FileReader();
-      //     reader.onloadend = () => {
-      //       // setPreviewImg(reader.result as string);
-      //       // setShowPreview(true)
-      //       setBrandingImg(brandingId, reader.result as string)
-      //       console.log(reader.result as string)
-      //     };
-      //     reader.readAsDataURL(image);
-      //   } else {
+      useEffect(() => {
+        if (image) {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            // setPreviewImg(reader.result as string);
+            // setShowPreview(true)
+            setBrandingImg(brandingId, reader.result as string)
+            console.log(reader.result as string)
+          };
+          reader.readAsDataURL(image);
+        } else {
           
-      //   }
-      // }, [image]);
+        }
+      }, [image]);
 
       // function handleFileUpload(event:any){
       //   const file = event.target.files[0];

@@ -2,3 +2,105 @@
 @tailwind components;
 @tailwind utilities;
 
+#frontCapBase {
+  mask-image: url(../../public/cap/1.png);
+  mask-size: cover;
+}
+
+#frontCap2 {
+  mask-image: url(../../public/cap/2.png);
+  mask-size: cover;
+}
+
+#frontCap4 {
+  mask-image: url(../../public/cap/4.png);
+  mask-size: cover;
+}
+
+#frontCap5 {
+  mask-image: url(../../public/cap/5.png);
+  mask-size: cover;
+}
+
+#frontCap6 {
+  mask-image: url(../../public/cap/6.png);
+  mask-size: cover;
+}
+
+#frontCap7 {
+  mask-image: url(../../public/cap/7.png);
+  mask-size: cover;
+}
+
+ #fLabel1 {
+    mask-image: url(../../public/cap/9.png);
+    mask-size: cover;
+  }
+
+
+  #fLabel2 {
+    mask-image: url(../../public/cap/8.png);
+    mask-size: cover;
+  }
+
+
+  #backCapBase {
+    mask-image: url(../../public/cap/11.png);
+    mask-size: cover;
+  }
+
+  #backCap1 {
+    mask-image: url(../../public/cap/12.png);
+    mask-size: cover;
+  }
+
+  #backCap2 {
+    mask-image: url(../../public/cap/13.png);
+    mask-size: cover;
+  }
+
+  #backCap3 {
+    mask-image: url(../../public/cap/14.png);
+    mask-size: cover;
+  }
+
+  #backCap4 {
+    mask-image: url(../../public/cap/15.png);
+    mask-size: cover;
+  }
+
+  #backCap5 {
+    mask-image: url(../../public/cap/16.png);
+    mask-size: cover;
+  }
+
+  #leftCapBase {
+    mask-image: url(../../public/cap/21.png);
+    mask-size: cover;
+  }
+
+  #leftCap1 {
+    mask-image: url(../../public/cap/22.png);
+    mask-size: cover;
+  }
+
+  #leftCap2 {
+    mask-image: url(../../public/cap/23.png);
+    mask-size: cover;
+  }
+
+  #leftCap3 {
+    mask-image: url(../../public/cap/24.png);
+    mask-size: cover;
+  }
+
+  #leftCap4 {
+    mask-image: url(../../public/cap/26.png);
+    mask-size: cover;
+  }
+
+  #leftCap5 {
+    mask-image: url(../../public/cap/27.png);
+    mask-size: cover;
+  }
+

@@ -1,13 +1,20 @@
 "use client";
-import { useCapItemStore, useLabelStore, useSideStore } from "@/libs/store";
+import {
+  useCapItemStore,
+  useLabelStore,
+  useSideStore,
+} from "@/libs/store";
 import { FC } from "react";
-import FrontView from "./FrontView";
+
 import cn from "@/libs/cn";
-import BBranding from "./BBranding";
+import FrontView from "@/app/designer/components/FrontView";
+import BBranding from "@/app/designer/components/BBranding";
+
 
 type ViewsProps = {};
 
-const Views: FC<ViewsProps> = ({}) => {
+const ViewsOriginal: FC<ViewsProps> = ({}) => {
+
   return (
     <div className="w-full h-full">
       <FrontView />
@@ -18,7 +25,7 @@ const Views: FC<ViewsProps> = ({}) => {
   );
 };
 
-export default Views;
+export default ViewsOriginal;
 
 const BackView: FC = ({}) => {
   const { capItems } = useCapItemStore();
@@ -28,50 +35,37 @@ const BackView: FC = ({}) => {
     <div className={cn(side == 1 ? "" : "opacity-0", "absolute inset-0")}>
       <div id="BackV" className="w-full h-full relative">
         <BBranding />
-        <div
-          id="backCap1"
+        <img src="/cap/11.png" className="absolute inset-0 z-10" alt="" />
+        <img
+          src="/cap/12.png"
           className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[5].hexcode,
-          }}
-        ></div>
-
-        <div
-          id="backCap2"
+          alt=""
+          style={{ filter: capItems[5].selectedColorFilter }}
+        />
+        <img
+          src="/cap/13.png"
           className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[3].hexcode,
-          }}
-        ></div>
-        <div
-          id="backCap3"
+          alt=""
+          style={{ filter: capItems[3].selectedColorFilter }}
+        />
+        <img
+          src="/cap/14.png"
           className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[4].hexcode,
-          }}
-        ></div>
-        <div
-          id="backCap4"
+          alt=""
+          style={{ filter: capItems[4].selectedColorFilter }}
+        />
+        <img
+          src="/cap/15.png"
           className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[6].hexcode,
-          }}
-        ></div>
-        <div
-          id="backCap5"
+          alt=""
+          style={{ filter: capItems[6].selectedColorFilter }}
+        />
+        <img
+          src="/cap/16.png"
           className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[0].hexcode,
-          }}
-        ></div>
-
-        <div
-          id="backCapBase"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: "black",
-          }}
-        ></div>
+          alt=""
+          style={{ filter: capItems[0].selectedColorFilter }}
+        />
       </div>
     </div>
   );
@@ -86,13 +80,14 @@ const RightView: FC = ({}) => {
   return (
     <div className={cn(side == 3 ? "" : "opacity-0", "absolute inset-0")}>
       <div id="RightV" className="relative w-full h-full">
-        {labels[0].show ? (
+      {labels[0].show ? (
           <div className="absolute inset-0">
             <img
               src="/cap/frontlabelfill.png"
               className="absolute inset-0 z-10"
               alt=""
               style={{ filter: labels[0].selectedColorFilter }}
+              
             />
             <img
               src="/cap/frontlabel.png"
@@ -103,13 +98,14 @@ const RightView: FC = ({}) => {
         ) : (
           ""
         )}
-        {labels[1].show ? (
+          {labels[1].show ? (
           <div className="absolute inset-0">
             <img
               src="/cap/rlabelfill.png"
               className="absolute inset-0 z-20"
               alt=""
               style={{ filter: labels[1].selectedColorFilter }}
+              
             />
             <img
               src="/cap/rlabel.png"
@@ -121,72 +117,63 @@ const RightView: FC = ({}) => {
           ""
         )}
 
-        <div
-          id="leftCap1"
+        <img src="/cap/21.png" className="absolute inset-0 z-10" alt="" />
+        <img
+          src="/cap/22.png"
           className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[5].hexcode,
-          }}
-        ></div>
+          alt=""
+          style={{ filter: capItems[5].selectedColorFilter }}
+        />
+        <img
+          src="/cap/23.png"
+          className="absolute inset-0"
+          alt=""
+          style={{ filter: capItems[3].selectedColorFilter }}
+        />
+        <img
+          src="/cap/24.png"
+          className="absolute inset-0"
+          alt=""
+          style={{ filter: capItems[4].selectedColorFilter }}
+        />
 
-        <div
-          id="leftCap2"
+        <img
+          src="/cap/26.png"
           className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[3].hexcode,
-          }}
-        ></div>
-        <div
-          id="leftCap3"
+          alt=""
+          style={{ filter: capItems[0].selectedColorFilter }}
+        />
+        <img
+          id="peakLeft"
+          src="/cap/27.png"
           className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[4].hexcode,
-          }}
-        ></div>
-        <div
-          id="leftCap4"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[0].hexcode,
-          }}
-        ></div>
-        <div
-          id="leftCap5"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[1].hexcode,
-          }}
-        ></div>
-
-        <div
-          id="leftCapBase"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: "black",
-          }}
-        ></div>
+          alt=""
+          style={{ filter: capItems[1].selectedColorFilter }}
+        />
       </div>
     </div>
   );
 };
 
 const LeftView: FC = ({}) => {
-  const { side } = useSideStore();
+  const { side} = useSideStore();
   const { capItems } = useCapItemStore();
   const { labels } = useLabelStore();
 
   return (
     <div className={cn(side == 2 ? "" : "opacity-0", "absolute inset-0")}>
       <div id="LeftV" className="relative w-full h-full">
-        {labels[2].show ? (
+
+      {labels[2].show ? (
           <div className="absolute inset-0">
+          
             <img
               src="/cap/llabelfill.png"
               className="absolute inset-0 z-20"
               alt=""
               style={{ filter: labels[2].selectedColorFilter }}
             />
-            <img
+              <img
               src="/cap/llabel.png"
               className="absolute inset-0 z-20"
               alt=""
@@ -195,7 +182,7 @@ const LeftView: FC = ({}) => {
         ) : (
           ""
         )}
-
+     
         <img src="/cap/31.png" className="absolute inset-0 z-10" alt="" />
         <img
           src="/cap/32.png"
