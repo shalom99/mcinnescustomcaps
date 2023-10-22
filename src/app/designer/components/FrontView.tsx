@@ -72,26 +72,24 @@ const FrontView: FC<FrontViewProps> = ({}) => {
           id="frontCap7"
           className="absolute inset-0"
           style={{
-            backgroundColor: capItems[1].hexcode,
+            // backgroundColor: 'capItems[1].hexcode',
+            // backgroundColor: 'red',
           }}
         ></div>
 
-        {/* <div
+        <div
         id="frontCapBase"
           className="absolute top-0 left-0 w-full h-full"
           style={{
-            background: 'black',
-            maskSize: 'cover',
-            maskMode: 'alpha',
- 
+   
           }}
-        ></div> */}
+        ></div>
 
-        <img
+        {/* <img
           src="/cap/1.png"
           className="absolute inset-0"
           alt="Front Cap Base"
-        />
+        /> */}
       </div>
     </div>
   );

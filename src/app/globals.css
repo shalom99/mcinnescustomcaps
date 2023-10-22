@@ -2,15 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 #frontCapBase {
-  -webkit-mask-image:  url(../../public/cap/1.png);
+
+  -webkit-mask-image: url(../../public/cap/1.png);
   mask-image: url(../../public/cap/1.png);
-
+  mix-blend-mode: multiply;
+  -webkit-mask-composite: source-out;
+  mask-composite: exclude;
   mask-size: cover;
-  mask-mode: alpha;
-  mask-composite: add;
-
-
+  background: black;
 }
 
 #frontCap2 {
@@ -18,7 +20,6 @@
   mask-size: cover;
   mask-mode: alpha;
   mask-composite: add;
-
 }
 
 #frontCap4 {
@@ -26,7 +27,6 @@
   mask-size: cover;
   mask-mode: alpha;
   mask-composite: add;
-
 }
 
 #frontCap5 {
@@ -34,7 +34,6 @@
   mask-size: cover;
   mask-mode: alpha;
   mask-composite: add;
-
 }
 
 #frontCap6 {
@@ -45,151 +44,139 @@
 }
 
 #frontCap7 {
+  -webkit-mask-image: url(../../public/cap/7.png);
   mask-image: url(../../public/cap/7.png);
   mask-size: cover;
   mask-mode: alpha;
-  mask-composite: add;
-
-
+  background-color: yellow;
 }
 
+#backCapBase {
+  mask-image: url(../../public/cap/11.png);
+  mask-size: cover;
+}
 
-  #backCapBase {
-    mask-image: url(../../public/cap/11.png);
-    mask-size: cover;
-  }
+#backCap1 {
+  mask-image: url(../../public/cap/12.png);
+  mask-size: cover;
+}
 
-  #backCap1 {
-    mask-image: url(../../public/cap/12.png);
-    mask-size: cover;
-  }
+#backCap2 {
+  mask-image: url(../../public/cap/13.png);
+  mask-size: cover;
+}
 
-  #backCap2 {
-    mask-image: url(../../public/cap/13.png);
-    mask-size: cover;
-  }
+#backCap3 {
+  mask-image: url(../../public/cap/14.png);
+  mask-size: cover;
+}
 
-  #backCap3 {
-    mask-image: url(../../public/cap/14.png);
-    mask-size: cover;
-  }
+#backCap4 {
+  mask-image: url(../../public/cap/15.png);
+  mask-size: cover;
+}
 
-  #backCap4 {
-    mask-image: url(../../public/cap/15.png);
-    mask-size: cover;
-  }
+#backCap5 {
+  mask-image: url(../../public/cap/16.png);
+  mask-size: cover;
+}
 
-  #backCap5 {
-    mask-image: url(../../public/cap/16.png);
-    mask-size: cover;
-  }
+#rightCapBase {
+  mask-image: url(../../public/cap/21.png);
+  mask-size: cover;
+}
 
-  #rightCapBase {
-    mask-image: url(../../public/cap/21.png);
-    mask-size: cover;
-  }
+#rightCap1 {
+  mask-image: url(../../public/cap/22.png);
+  mask-size: cover;
+}
 
-  #rightCap1 {
-    mask-image: url(../../public/cap/22.png);
-    mask-size: cover;
-  }
+#rightCap2 {
+  mask-image: url(../../public/cap/23.png);
+  mask-size: cover;
+}
 
-  #rightCap2 {
-    mask-image: url(../../public/cap/23.png);
-    mask-size: cover;
-  }
+#rightCap3 {
+  mask-image: url(../../public/cap/24.png);
+  mask-size: cover;
+}
 
-  #rightCap3 {
-    mask-image: url(../../public/cap/24.png);
-    mask-size: cover;
-  }
+#rightCap4 {
+  mask-image: url(../../public/cap/26.png);
+  mask-size: cover;
+}
 
-  #rightCap4 {
-    mask-image: url(../../public/cap/26.png);
-    mask-size: cover;
-  }
+#rightCap5 {
+  mask-image: url(../../public/cap/27.png);
+  mask-size: cover;
+}
 
-  #rightCap5 {
-    mask-image: url(../../public/cap/27.png);
-    mask-size: cover;
-  }
+#leftCapBase {
+  mask-image: url(../../public/cap/31.png);
+  mask-size: cover;
+}
 
-  #leftCapBase {
-    mask-image: url(../../public/cap/31.png);
-    mask-size: cover;
-  }
+#leftCap1 {
+  mask-image: url(../../public/cap/32.png);
+  mask-size: cover;
+}
 
-  #leftCap1 {
-    mask-image: url(../../public/cap/32.png);
-    mask-size: cover;
-  }
+#leftCap2 {
+  mask-image: url(../../public/cap/33.png);
+  mask-size: cover;
+}
 
-  #leftCap2 {
-    mask-image: url(../../public/cap/33.png);
-    mask-size: cover;
-  }
+#leftCap3 {
+  mask-image: url(../../public/cap/34.png);
+  mask-size: cover;
+}
 
-  #leftCap3 {
-    mask-image: url(../../public/cap/34.png);
-    mask-size: cover;
-  }
+#leftCap4 {
+  mask-image: url(../../public/cap/35.png);
+  mask-size: cover;
+}
 
-  #leftCap4 {
-    mask-image: url(../../public/cap/35.png);
-    mask-size: cover;
-  }
+#leftCap5 {
+  mask-image: url(../../public/cap/36.png);
+  mask-size: cover;
+}
 
-  #leftCap5 {
-    mask-image: url(../../public/cap/36.png);
-    mask-size: cover;
-  }
+#fLabel1 {
+  mask-image: url(../../public/cap/9.png);
+  mask-size: cover;
+}
 
+#fLabel2 {
+  mask-image: url(../../public/cap/8.png);
+  mask-size: cover;
+}
 
-  #fLabel1 {
-    mask-image: url(../../public/cap/9.png);
-    mask-size: cover;
-  }
+#rightFLabel1 {
+  mask-image: url(../../public/cap/frontlabelfill.png);
+  mask-size: cover;
+}
 
+#rightFLabel2 {
+  mask-image: url(../../public/cap/frontlabel.png);
+  mask-size: cover;
+}
 
-  #fLabel2 {
-    mask-image: url(../../public/cap/8.png);
-    mask-size: cover;
-  }
+#leftLabel1 {
+  mask-image: url(../../public/cap/llabelfill.png);
+  mask-size: cover;
+}
 
-  #rightFLabel1 {
-    mask-image: url(../../public/cap/frontlabelfill.png);
-    mask-size: cover;
-  }
+#leftLabel2 {
+  mask-image: url(../../public/cap/llabel.png);
+  mask-size: cover;
+}
 
+#rightLabel1 {
+  mask-image: url(../../public/cap/rlabelfill.png);
+  mask-size: cover;
+}
 
-  #rightFLabel2 {
-    mask-image: url(../../public/cap/frontlabel.png);
-    mask-size: cover;
-  }
-
-
-  #leftLabel1 {
-    mask-image: url(../../public/cap/llabelfill.png);
-    mask-size: cover;
-  }
-
-
-  #leftLabel2 {
-    mask-image: url(../../public/cap/llabel.png);
-    mask-size: cover;
-  }
-
-  #rightLabel1 {
-    mask-image: url(../../public/cap/rlabelfill.png);
-    mask-size: cover;
-  }
-
-
-  #rightLabel2 {
-    
-    mask-image: url(../../public/cap/rlabel.png);
-    mask-size: cover;
-  }
-
-  
-
+#rightLabel2 {
+  mask-image: url(../../public/cap/rlabel.png);
+  mask-size: cover;
+}

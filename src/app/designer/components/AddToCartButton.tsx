@@ -10,7 +10,7 @@ import {
 import { useRouter } from "next/navigation";
 import { FC } from "react";
 import { ClipLoader } from "react-spinners";
-
+import FileSaver, { saveAs } from 'file-saver';
 
 import * as htmlToImage from "html-to-image";
 type AddToCartButtonProps = {
@@ -32,11 +32,16 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({
     brandings,
   };
 
+
+
   const addToCartHandler = () => {
     setIsLoading(true);
     generateBase64();
+ 
 
   };
+
+  
 
   return (
     <>
@@ -107,10 +112,10 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({
       .then(function (dataUrl) {
         views["front"] = dataUrl;
 
-        //  const link = document.createElement("a");
-        // link.download = "my-image-name.png";
-        // link.href = dataUrl;
-        // link.click();
+         const link = document.createElement("a");
+        link.download = "my-image-name.png";
+        link.href = dataUrl;
+        link.click();
 
         addToCart({
           name: "Custom Hat Design",
