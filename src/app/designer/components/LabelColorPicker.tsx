@@ -61,7 +61,7 @@ const LabelColorPicker: FC<ColorPickerProps> = ({ label }) => {
               className="w-full text-gray-600 pl-2 py-2 rounded-md border border-black text-sm"
               maxLength={12}
             />
-            <h2 className="pl-2 text-sm mt-3">Background Color</h2>
+            <h2 className="pl-2 text-sm mt-3">Label Background Color</h2>
           </div>
           <div className="w-full grid grid-cols-4 justify-evenly gap-y-5">
 

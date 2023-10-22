@@ -33,7 +33,7 @@ const BackView: FC = ({}) => {
 
   return (
     <div className={cn(side == 1 ? "" : "opacity-0", "absolute inset-0")}>
-      <div id="BackV" className="w-full h-full relative">
+      <div id="BackV2" className="w-full h-full relative">
         <BBranding />
         <img src="/cap/11.png" className="absolute inset-0 z-10" alt="" />
         <img
@@ -79,7 +79,7 @@ const RightView: FC = ({}) => {
 
   return (
     <div className={cn(side == 3 ? "" : "opacity-0", "absolute inset-0")}>
-      <div id="RightV" className="relative w-full h-full">
+      <div id="RightV2" className="relative w-full h-full">
       {labels[0].show ? (
           <div className="absolute inset-0">
             <img
@@ -162,7 +162,7 @@ const LeftView: FC = ({}) => {
 
   return (
     <div className={cn(side == 2 ? "" : "opacity-0", "absolute inset-0")}>
-      <div id="LeftV" className="relative w-full h-full">
+      <div id="LeftV2" className="relative w-full h-full">
 
       {labels[2].show ? (
           <div className="absolute inset-0">

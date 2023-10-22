@@ -38,8 +38,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
                 {capItem.name}
               </h3>
               <div className="flex flex-col text-sm">
-              <p style={{ color: capItem.hexcode }}>Color #{capItem.colorId}</p>
-              {/* <p style={{ color: capItem.hexcode }}>Color Id{capItem.colorId}</p> */}
+              <p style={{ color: capItem.hexcode }}>{capItem.colorId ? "Color #"+capItem.colorId : ""}</p>
               </div>
             </div>
 

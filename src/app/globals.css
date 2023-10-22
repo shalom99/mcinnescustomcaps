@@ -3,33 +3,54 @@
 @tailwind utilities;
 
 #frontCapBase {
+  -webkit-mask-image:  url(../../public/cap/1.png);
   mask-image: url(../../public/cap/1.png);
+
   mask-size: cover;
+  mask-mode: alpha;
+  mask-composite: add;
+
+
 }
 
 #frontCap2 {
   mask-image: url(../../public/cap/2.png);
   mask-size: cover;
+  mask-mode: alpha;
+  mask-composite: add;
+
 }
 
 #frontCap4 {
   mask-image: url(../../public/cap/4.png);
   mask-size: cover;
+  mask-mode: alpha;
+  mask-composite: add;
+
 }
 
 #frontCap5 {
   mask-image: url(../../public/cap/5.png);
   mask-size: cover;
+  mask-mode: alpha;
+  mask-composite: add;
+
 }
 
 #frontCap6 {
   mask-image: url(../../public/cap/6.png);
   mask-size: cover;
+  mask-mode: alpha;
+  mask-composite: add;
 }
 
 #frontCap7 {
   mask-image: url(../../public/cap/7.png);
   mask-size: cover;
+  mask-mode: alpha;
+  mask-composite: add;
+
+
 }
 
 
@@ -159,13 +180,14 @@
   }
 
   #rightLabel1 {
-    mask-image: url(../../public/cap/9.png);
+    mask-image: url(../../public/cap/rlabelfill.png);
     mask-size: cover;
   }
 
 
   #rightLabel2 {
-    mask-image: url(../../public/cap/8.png);
+    
+    mask-image: url(../../public/cap/rlabel.png);
     mask-size: cover;
   }
 

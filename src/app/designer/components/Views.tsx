@@ -79,7 +79,6 @@ const BackView: FC = ({}) => {
 
 const RightView: FC = ({}) => {
   const { side } = useSideStore();
-
   const { capItems } = useCapItemStore();
   const { labels } = useLabelStore();
 

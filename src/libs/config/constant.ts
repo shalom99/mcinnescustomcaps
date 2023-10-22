@@ -6,7 +6,7 @@ export const CapItems = [
     hexcode: '',
     selectedColorFilter: '',
     colorId: 0,
-    showColorPicker: true,
+    showColorPicker: false,
     hasBranding: false,
     showBrandingPicker: false,
   },

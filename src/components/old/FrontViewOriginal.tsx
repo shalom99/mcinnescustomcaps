@@ -15,8 +15,8 @@ const FrontViewOriginal: FC<FrontViewProps> = ({}) => {
  
   return (
     <div className={cn(side == 0 ? "" : "opacity-0", "absolute inset-0")}>
-      <div id="FrontV" className="relative w-full h-full">
-        <FBranding />
+      <div id="FrontV2" className="relative w-full h-full">
+        {/* <FBranding /> */}
         {labels[0].show ? (
           <div className="absolute inset-0">
             <img

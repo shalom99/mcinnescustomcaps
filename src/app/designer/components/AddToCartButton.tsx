@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { FC } from "react";
 import { ClipLoader } from "react-spinners";
 
+
 import * as htmlToImage from "html-to-image";
 type AddToCartButtonProps = {
 
@@ -34,6 +35,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({
   const addToCartHandler = () => {
     setIsLoading(true);
     generateBase64();
+
   };
 
   return (
@@ -67,39 +69,43 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({
       left: "",
     };
 
+    // htmlToImage
+    //   .toPng(document.getElementById("FrontV") as HTMLElement)
+    //   .then(function (dataUrl) {
+    //     console.log(dataUrl)
+    //            //  const link = document.createElement("a");
+    //     // link.download = "my-image-name.png";
+    //     // link.href = dataUrl;
+    //     // link.click();
+    //     views["front"] = dataUrl;
+    //   });
+
+    // htmlToImage
+    //   .toPng(document.getElementById("BackV") as HTMLElement)
+    //   .then(function (dataUrl) {
+    //     views["back"] = dataUrl;
+
+    //     //  const link = document.createElement("a");
+    //     // link.download = "my-image-name.png";
+    //     // link.href = dataUrl;
+    //     // link.click();
+    //   });
+
+    // htmlToImage
+    //   .toPng(document.getElementById("RightV") as HTMLElement)
+    //   .then(function (dataUrl) {
+    //     views["right"] = dataUrl;
+
+    //     //  const link = document.createElement("a");
+    //     // link.download = "my-image-name.png";
+    //     // link.href = dataUrl;
+    //     // link.click();
+    //   });
+
     htmlToImage
       .toPng(document.getElementById("FrontV") as HTMLElement)
       .then(function (dataUrl) {
-        // console.log(dataUrl)
         views["front"] = dataUrl;
-      });
-
-    htmlToImage
-      .toPng(document.getElementById("BackV") as HTMLElement)
-      .then(function (dataUrl) {
-        views["back"] = dataUrl;
-
-        //  const link = document.createElement("a");
-        // link.download = "my-image-name.png";
-        // link.href = dataUrl;
-        // link.click();
-      });
-
-    htmlToImage
-      .toPng(document.getElementById("RightV") as HTMLElement)
-      .then(function (dataUrl) {
-        views["right"] = dataUrl;
-
-        //  const link = document.createElement("a");
-        // link.download = "my-image-name.png";
-        // link.href = dataUrl;
-        // link.click();
-      });
-
-    htmlToImage
-      .toPng(document.getElementById("LeftV") as HTMLElement)
-      .then(function (dataUrl) {
-        views["left"] = dataUrl;
 
         //  const link = document.createElement("a");
         // link.download = "my-image-name.png";
