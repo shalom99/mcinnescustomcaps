@@ -10,16 +10,11 @@ import {
 import { useRouter } from "next/navigation";
 import { FC } from "react";
 import { ClipLoader } from "react-spinners";
-import FileSaver, { saveAs } from 'file-saver';
 
 import * as htmlToImage from "html-to-image";
-type AddToCartButtonProps = {
+type AddToCartButtonProps = {};
 
-};
-
-const AddToCartButton: FC<AddToCartButtonProps> = ({
-
-}) => {
+const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
   const { capItems, setResetCap } = useCapItemStore();
   const { labels, setResetLabels } = useLabelStore();
   const { brandings, setResetBrandings } = useBrandingStore();
@@ -32,21 +27,21 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({
     brandings,
   };
 
-
+  let views = {
+    front: "",
+    back: "",
+    right: "",
+    left: "",
+  };
 
   const addToCartHandler = () => {
     setIsLoading(true);
-    generateBase64();
- 
-
+    generateFront();
   };
-
-  
 
   return (
     <>
       <button
-        id="testy"
         onClick={addToCartHandler}
         className="bg-activeOrange rounded-full w-[170px] py-2 text-white flex items-center justify-center select-none"
       >
@@ -62,91 +57,107 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({
           "Add to Cart"
         )}
       </button>
-
     </>
   );
 
+  function generateFront() {
+    htmlToImage
+      .toPng(document.getElementById("FrontV") as HTMLElement)
+      .then(function (dataUrlFront) {
+        // const link = document.createElement("a");
+        // link.download = "my-image-name.png";
+        // link.href = dataUrlFront;
+        // link.click();
+        // console.log(dataUrlFront)
+        views["front"] = dataUrlFront;
+        generateBack();
+      });
+  }
+
+  function generateBack() {
+    htmlToImage
+      .toPng(document.getElementById("BackV") as HTMLElement)
+      .then(function (dataUrlBack) {
+        // const link = document.createElement("a");
+        // link.download = "my-image-name.png";
+        // link.href = dataUrlBack;
+        // link.click();
+        // console.log(dataUrlBack)
+        views["back"] = dataUrlBack;
+        generateRight();
+      });
+  }
+
+  function generateRight() {
+    htmlToImage
+      .toPng(document.getElementById("RightV") as HTMLElement)
+      .then(function (dataUrlRight) {
+        // const link = document.createElement("a");
+        // link.download = "my-image-name.png";
+        // link.href = dataUrlRight;
+        // link.click();
+        // console.log(dataUrlRight)
+        // views["front"] = dataUrlFront;
+        views["right"] = dataUrlRight;
+        generateLeft();
+      });
+  }
+
+  function generateLeft() {
+    htmlToImage
+      .toPng(document.getElementById("LeftV") as HTMLElement)
+      .then(function (dataUrlLeft) {
+        // const link = document.createElement("a");
+        // link.download = "my-image-name.png";
+        // link.href = dataUrlLeft;
+        // link.click();
+        // console.log(dataUrlLeft)
+        views["left"] = dataUrlLeft;
+        generateBase64();
+      });
+  }
+
   function generateBase64() {
-    let views = {
+    addToCart({
+      name: "Custom Hat Design",
+      quantity: 25,
+      mockQuantity: 25,
+      price: 15,
+      subtotal: 25 * 15,
+      type: 0,
+      configuration,
+      views: {
+        front: views.front,
+        back: views.back,
+        left: views.left,
+        right: views.right,
+        bottom: "",
+      },
+    });
+
+    // const productId = 1;
+    // const productName = "Custom Hat Design";
+    // const productQuantity = 25;
+    // const productPrice = 15;
+    // const productType = 0;
+
+    setResetCap();
+    setResetLabels();
+    setResetBrandings();
+    setIsLoading(false);
+    views = {
       front: "",
       back: "",
       right: "",
       left: "",
     };
+  
+    router.push("/cart");
+  }
 
-    // htmlToImage
-    //   .toPng(document.getElementById("FrontV") as HTMLElement)
-    //   .then(function (dataUrl) {
-    //     console.log(dataUrl)
-    //            //  const link = document.createElement("a");
-    //     // link.download = "my-image-name.png";
-    //     // link.href = dataUrl;
-    //     // link.click();
-    //     views["front"] = dataUrl;
-    //   });
-
-    // htmlToImage
-    //   .toPng(document.getElementById("BackV") as HTMLElement)
-    //   .then(function (dataUrl) {
-    //     views["back"] = dataUrl;
-
-    //     //  const link = document.createElement("a");
-    //     // link.download = "my-image-name.png";
-    //     // link.href = dataUrl;
-    //     // link.click();
-    //   });
-
-    // htmlToImage
-    //   .toPng(document.getElementById("RightV") as HTMLElement)
-    //   .then(function (dataUrl) {
-    //     views["right"] = dataUrl;
-
-    //     //  const link = document.createElement("a");
-    //     // link.download = "my-image-name.png";
-    //     // link.href = dataUrl;
-    //     // link.click();
-    //   });
-
-    htmlToImage
-      .toPng(document.getElementById("FrontV") as HTMLElement)
-      .then(function (dataUrl) {
-        views["front"] = dataUrl;
-
-         const link = document.createElement("a");
-        link.download = "my-image-name.png";
-        link.href = dataUrl;
-        link.click();
-
-        addToCart({
-          name: "Custom Hat Design",
-          quantity: 25,
-          mockQuantity: 25,
-          price: 15,
-          subtotal: 25 * 15,
-          type: 0,
-          configuration,
-          views: {
-            front: views.front,
-            back: views.back,
-            left: views.left,
-            right: views.right,
-            bottom: "",
-          },
-        });
-
-        // const productId = 1; 
-        // const productName = "Custom Hat Design";
-        // const productQuantity = 25;
-        // const productPrice = 15;
-        // const productType = 0;
-      
-
-        setResetCap();
-        setResetLabels();
-        setResetBrandings();
-        setIsLoading(false);
-        router.push("/cart");
-      });
+  let price1 = 0;
+  function calculatePrice(){
+    
   }
 };
 

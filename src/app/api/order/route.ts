@@ -141,13 +141,13 @@ export async function POST(request: NextRequest) {
   
         <h2> Custom Cap A Details: </h2>
         <ul>
-          <li>Front Panel: ${cartItems[0].configuration.capParts[0].hexcode ? cartItems[0].configuration.capParts[0].hexcode  : 'N/A'} </li>
-          <li>Peak: ${cartItems[0].configuration.capParts[1].hexcode ? cartItems[0].configuration.capParts[1].hexcode  : 'N/A'} </li>
-          <li>Under Brim: ${cartItems[0].configuration.capParts[2].hexcode ? cartItems[0].configuration.capParts[2].hexcode  : 'N/A'} </li>
-          <li>Upper Stripe: ${cartItems[0].configuration.capParts[3].hexcode ? cartItems[0].configuration.capParts[3].hexcode  : 'N/A'} </li>
-          <li>Lower Stripe: ${cartItems[0].configuration.capParts[4].hexcode ? cartItems[0].configuration.capParts[4].hexcode  : 'N/A'}</li>
-          <li>Back Mesh: ${cartItems[0].configuration.capParts[5].hexcode ? cartItems[0].configuration.capParts[5].hexcode  : 'N/A'}</li>
-          <li>Snap Back: ${cartItems[0].configuration.capParts[6].hexcode ? cartItems[0].configuration.capParts[6].hexcode  : 'N/A'} </li>
+          <li>Front Panel: ${cartItems[0].configuration.capParts[0].colorId ? cartItems[0].configuration.capParts[0].colorId  : 'N/A'} </li>
+          <li>Peak: ${cartItems[0].configuration.capParts[1].colorId ? cartItems[0].configuration.capParts[1].colorId  : 'N/A'} </li>
+          <li>Under Brim: ${cartItems[0].configuration.capParts[2].colorId ? cartItems[0].configuration.capParts[2].colorId  : 'N/A'} </li>
+          <li>Upper Stripe: ${cartItems[0].configuration.capParts[3].colorId ? cartItems[0].configuration.capParts[3].colorId  : 'N/A'} </li>
+          <li>Lower Stripe: ${cartItems[0].configuration.capParts[4].colorId ? cartItems[0].configuration.capParts[4].colorId  : 'N/A'}</li>
+          <li>Back Mesh: ${cartItems[0].configuration.capParts[5].colorId ? cartItems[0].configuration.capParts[5].colorId  : 'N/A'}</li>
+          <li>Snap Back: ${cartItems[0].configuration.capParts[6].colorId ? cartItems[0].configuration.capParts[6].colorId  : 'N/A'} </li>
         </ul>
         <img src="cid:unique1@nodemailer.com" alt="img1" width="100">
         <img src="cid:unique2@nodemailer.com" alt="img2" width="100">

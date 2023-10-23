@@ -27,51 +27,53 @@ const BackView: FC = ({}) => {
   return (
     <div className={cn(side == 1 ? "" : "opacity-0", "absolute inset-0")}>
       <div id="BackV" className="w-full h-full relative">
-        <BBranding />
-        <div
-          id="backCap1"
+        {/* <BBranding /> */}
+        <img
+          src="/cap/12.png"
           className="absolute inset-0"
+          alt="Back Cap 1"
           style={{
-            backgroundColor: capItems[5].hexcode,
+            filter: capItems[5].selectedColorFilter,
           }}
-        ></div>
+        />
+        <img
+          src="/cap/13.png"
+          className="absolute inset-0"
+          alt="Back Cap 2"
+          style={{
+            filter: capItems[3].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/14.png"
+          className="absolute inset-0"
+          alt="Back Cap 3"
+          style={{
+            filter: capItems[4].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/15.png"
+          className="absolute inset-0"
+          alt="Back Cap 4"
+          style={{
+            filter: capItems[6].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/16.png"
+          className="absolute inset-0"
+          alt="Back Cap 5"
+          style={{
+            filter: capItems[0].selectedColorFilter,
+          }}
+        />
 
-        <div
-          id="backCap2"
+        <img
+          src="/cap/11.png"
           className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[3].hexcode,
-          }}
-        ></div>
-        <div
-          id="backCap3"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[4].hexcode,
-          }}
-        ></div>
-        <div
-          id="backCap4"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[6].hexcode,
-          }}
-        ></div>
-        <div
-          id="backCap5"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[0].hexcode,
-          }}
-        ></div>
-
-        <div
-          id="backCapBase"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: "black",
-          }}
-        ></div>
+          alt="Back Cap Base"
+        />
       </div>
     </div>
   );
@@ -85,24 +87,21 @@ const RightView: FC = ({}) => {
   return (
     <div className={cn(side == 3 ? "" : "opacity-0", "absolute inset-0")}>
       <div id="RightV" className="relative w-full h-full">
-
-
         {labels[0].show ? (
           <div className="absolute inset-0">
-            <div
-              id="rightFLabel1"
-              className="absolute inset-0 z-10"
+            <img
+              src="/cap/frontlabelfill.png"
+              className="absolute inset-0 z-20"
+              alt="Front Right Label 1"
               style={{
-                backgroundColor: labels[0].filterHexColor
-                  ? labels[0].filterHexColor
-                  : "white",
+                filter: labels[0].selectedColorFilter,
               }}
-            ></div>
-            <div
-              id="rightFLabel2"
-              className="absolute inset-0 z-10"
-              style={{ backgroundColor: "black" }}
-            ></div>
+            />
+            <img
+              src="/cap/frontlabel.png"
+              className="absolute inset-0 z-20"
+              alt="Front Right Label 2"
+            />
           </div>
         ) : (
           ""
@@ -110,69 +109,70 @@ const RightView: FC = ({}) => {
 
         {labels[1].show ? (
           <div className="absolute inset-0">
-            <div
-              id="rightLabel1"
-              className="absolute inset-0 z-10"
+            <img
+              src="/cap/rlabelfill.png"
+              className="absolute inset-0 z-20"
+              alt="Right Label 1"
               style={{
-                backgroundColor: labels[1].filterHexColor
-                  ? labels[1].filterHexColor
-                  : "white",
+                filter: labels[1].selectedColorFilter,
               }}
-            ></div>
-            <div
-              id="rightLabel2"
-              className="absolute inset-0 z-10"
-              style={{ backgroundColor: "black" }}
-            ></div>
+            />
+            <img
+              src="/cap/rlabel.png"
+              className="absolute inset-0 z-20"
+              alt="Right Label 2"
+            />
           </div>
         ) : (
           ""
         )}
 
-        <div
-          id="rightCap1"
+        <img
+          src="/cap/22.png"
           className="absolute inset-0"
+          alt="Right Cap 1"
           style={{
-            backgroundColor: capItems[5].hexcode,
+            filter: capItems[5].selectedColorFilter,
           }}
-        ></div>
+        />
+        <img
+          src="/cap/23.png"
+          className="absolute inset-0"
+          alt="Right Cap 2"
+          style={{
+            filter: capItems[3].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/24.png"
+          className="absolute inset-0"
+          alt="Right Cap 3"
+          style={{
+            filter: capItems[4].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/26.png"
+          className="absolute inset-0"
+          alt="Right Cap 4"
+          style={{
+            filter: capItems[0].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/27.png"
+          className="absolute inset-0"
+          alt="Right Cap 5"
+          style={{
+            filter: capItems[1].selectedColorFilter,
+          }}
+        />
 
-        <div
-          id="rightCap2"
+        <img
+          src="/cap/21.png"
           className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[3].hexcode,
-          }}
-        ></div>
-        <div
-          id="rightCap3"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[4].hexcode,
-          }}
-        ></div>
-        <div
-          id="rightCap4"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[0].hexcode,
-          }}
-        ></div>
-        <div
-          id="rightCap5"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[1].hexcode,
-          }}
-        ></div>
-
-        <div
-          id="rightCapBase"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: "black",
-          }}
-        ></div>
+          alt="Right Cap Base"
+        />
       </div>
     </div>
   );
@@ -188,69 +188,70 @@ const LeftView: FC = ({}) => {
       <div id="LeftV" className="relative w-full h-full">
         {labels[2].show ? (
           <div className="absolute inset-0">
-            <div
-              id="leftLabel1"
-              className="absolute inset-0 z-10"
+            <img
+              src="/cap/llabelfill.png"
+              className="absolute inset-0 z-20"
+              alt="Left Label 1"
               style={{
-                backgroundColor: labels[2].filterHexColor
-                  ? labels[2].filterHexColor
-                  : "white",
+                filter: labels[2].selectedColorFilter,
               }}
-            ></div>
-            <div
-              id="leftLabel2"
-              className="absolute inset-0 z-10"
-              style={{ backgroundColor: "black" }}
-            ></div>
+            />
+            <img
+              src="/cap/llabel.png"
+              className="absolute inset-0 z-20"
+              alt="Left Label 2"
+            />
           </div>
         ) : (
           ""
         )}
 
-        <div
-          id="leftCap1"
+        <img
+          src="/cap/32.png"
           className="absolute inset-0"
+          alt="Left Cap 1"
           style={{
-            backgroundColor: capItems[5].hexcode,
+            filter: capItems[5].selectedColorFilter,
           }}
-        ></div>
+        />
+        <img
+          src="/cap/33.png"
+          className="absolute inset-0"
+          alt="Left Cap 2"
+          style={{
+            filter: capItems[3].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/34.png"
+          className="absolute inset-0"
+          alt="Left Cap 3"
+          style={{
+            filter: capItems[4].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/35.png"
+          className="absolute inset-0"
+          alt="Left Cap 4"
+          style={{
+            filter: capItems[0].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/36.png"
+          className="absolute inset-0"
+          alt="Left Cap 5"
+          style={{
+            filter: capItems[1].selectedColorFilter,
+          }}
+        />
 
-        <div
-          id="leftCap2"
+        <img
+          src="/cap/31.png"
           className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[3].hexcode,
-          }}
-        ></div>
-        <div
-          id="leftCap3"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[4].hexcode,
-          }}
-        ></div>
-        <div
-          id="leftCap4"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[0].hexcode,
-          }}
-        ></div>
-        <div
-          id="leftCap5"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: capItems[1].hexcode,
-          }}
-        ></div>
-
-        <div
-          id="leftCapBase"
-          className="absolute inset-0"
-          style={{
-            backgroundColor: "black",
-          }}
-        ></div>
+          alt="Left Cap Base"
+        />
       </div>
     </div>
   );

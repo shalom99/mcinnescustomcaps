@@ -66,6 +66,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
 
               {!label.showColorPicker ? (
                 <MdOutlineKeyboardArrowDown />
+                
               ) : (
                 <MdOutlineKeyboardArrowUp />
               )}

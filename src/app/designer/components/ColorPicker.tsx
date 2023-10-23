@@ -14,8 +14,8 @@ const ColorPicker: FC<ColorPickerProps> = ({ title, capItemId }) => {
   const { capItems, setCapItemColor, setShowPicker } = useCapItemStore();
   const { setSelectedSide } = useSideStore();
 
-  function handleChangeColor(id: number, color: string, colorId: number ) {
-    setCapItemColor(id, color, colorId);
+  function handleChangeColor(id: number, color: string, colorId: number, filter: string ) {
+    setCapItemColor(id, color, colorId, filter);
     setShowPicker(id);
   }
 
@@ -54,7 +54,8 @@ const ColorPicker: FC<ColorPickerProps> = ({ title, capItemId }) => {
                 handleChangeColor(
                   capItemId,
                   colorOption.code,
-                  colorOption.id
+                  colorOption.id,
+                  colorOption.filter
                 )
               }
               className={cn("w-[40px] h-[40px]  rounded-full border")}

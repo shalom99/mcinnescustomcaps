@@ -12,9 +12,9 @@ export const useCapItemStore = create<CapItemType>()((set) => ({
         capItem.id === capItemId ? { ...capItem, showColorPicker: !capItem.showColorPicker } : capItem
         )
     })),
-    setCapItemColor: (capItemId, hexcode, colorId) => set((state) => ({
+    setCapItemColor: (capItemId, hexcode, colorId, filter) => set((state) => ({
         capItems: state.capItems.map((capItem) => 
-        capItem.id === capItemId ? { ...capItem, hexcode, colorId } : capItem
+        capItem.id === capItemId ? { ...capItem, hexcode, colorId, selectedColorFilter: filter } : capItem
         )
     })),
     setResetCap: () => set({capItems: CapItems})
@@ -44,9 +44,9 @@ export const useLabelStore = create<LabelsType>()((set) => ({
         label.id === labelId ? { ...label, filterHexColor: hexcode} : label
         )
     })),
-    setLabelBackgroundColor: (labelId, hexcode, colorId) => set((state) => ({
+    setLabelBackgroundColor: (labelId, hexcode, colorId, filter) => set((state) => ({
         labels: state.labels.map((label) => 
-        label.id === labelId ? { ...label, filterHexColor: hexcode, colorId} : label
+        label.id === labelId ? { ...label, filterHexColor: hexcode, colorId, selectedColorFilter: filter} : label
         )
     })),
     setResetLabels: () => set({labels: Labels})
