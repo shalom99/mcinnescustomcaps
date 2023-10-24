@@ -1,5 +1,5 @@
 "use client";
-import { FC } from "react";
+import { FC, useState } from "react";
 import ColorPicker from "./ColorPicker";
 import LabelColorPicker from "./LabelColorPicker";
 import { useLabelStore, useCapItemStore, useBrandingStore } from "@/libs/store";
@@ -17,7 +17,8 @@ type ToolbarProps = {};
 const Toolbar: FC<ToolbarProps> = ({}) => {
   const labels = useLabelStore();
   const capItems = useCapItemStore();
-  const {brandings, setShowBranding} = useBrandingStore()
+  const {brandings, setShowBrandingPicker} = useBrandingStore()
+  const [hatProfile, setHatProfile] = useState("");
 
   return (
     <>
@@ -86,14 +87,14 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
         {brandings.map((branding) => (
           <div key={"branding"+branding.id} className="">
             <div
-              onClick={() => setShowBranding(branding.id)}
+              onClick={() => setShowBrandingPicker(branding.id)}
               className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2"
             >
               <h3 className="text-md text-slate-600 select-none">
                 {branding.part} Branding
               </h3>
 
-              {!branding.show ? (
+              {!branding.showBrandingPicker ? (
                 <MdOutlineKeyboardArrowDown />
               ) : (
                 <MdOutlineKeyboardArrowUp />
@@ -101,13 +102,34 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
             </div>
 
             <div className="flex items-center gap-x-5 relative">
-              {branding.show && (
+              {branding.showBrandingPicker && (
                 <BrandingPicker brandingId={branding.id}/>
               )}
             </div>
           </div>
         ))}
         {/* END CAP BRANDINGS */}
+
+
+        <div  className="">
+            <div
+              
+              className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2"
+            >
+              <h3 className="text-md text-slate-600 select-none">
+            Select Hat Profile
+              </h3>
+                <select defaultValue={0} onChange={(e) => { setHatProfile(e.target.value)}} name="hatProfile" id="hatProfile" >
+                <option value="0" disabled className="text-gray-300">Choose</option>
+                  <option value="Low">Low</option>
+                  <option value="Mid">Mid</option>
+                  <option value="High">High</option>
+                </select>
+        
+            </div>
+
+           
+          </div>
 
 
 

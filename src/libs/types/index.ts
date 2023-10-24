@@ -37,7 +37,8 @@ export interface CartItem {
     configuration: {
         capParts: typeof CapItems,
         labels: typeof Labels,
-        brandings: typeof Brandings
+        brandings: typeof Brandings,
+        // hatProfile: string;
     },
     views: {
         front: string,
@@ -50,7 +51,7 @@ export interface CartItem {
 
 export interface CartType {
     cartItems: CartItem[]
-    addToCart: (item: Omit<CartItem, 'id'>) => void;
+    addToCart: (item: Omit<CartItem, 'id'| 'price'| 'subtotal' | 'quantity' | 'mockQuantity'>) => void;
     removeFromCart: (id: number) => void;
     // setCartItem: (id: number, quantity: number) => void;
     setMockQuantity: (id: number, mockQuantity: number) => void;
@@ -62,7 +63,7 @@ export interface CartType {
 
 export interface brandingType {
     brandings: typeof Brandings;
-    setShowBranding: (brandingId: number) => void;
+    setShowBrandingPicker: (brandingId: number) => void;
     setBrandingImg: (brandingId: number, img: string) => void;
     removeBrandingImg: (brandingId: number) => void;
     setResetBrandings: () => void;

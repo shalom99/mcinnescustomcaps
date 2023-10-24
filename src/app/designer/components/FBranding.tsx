@@ -16,6 +16,8 @@ const FBranding: FC = ({}) => {
   });
 
   useEffect(() => {
+
+
     const container = document.querySelector("#fPanelContainer")!;
     const element = document.querySelector("#fPanelElement")!;
     const middleCanvas = document.querySelector("#middleCanvas")!;
@@ -32,7 +34,7 @@ const FBranding: FC = ({}) => {
     <div
       id="fPanelContainer"
       className={cn(
-        brandings[0].show
+        brandings[0].showBrandingPicker
           ? "border-2 border-dashed border-red-700  "
           : "",
         "z-30"
@@ -50,7 +52,7 @@ const FBranding: FC = ({}) => {
     {brandings[0].imageURL ? <div
           id="fPanelElement"
           className={cn(brandings[0].imageURL ? "block" : "hidden",
-            brandings[0].show
+            brandings[0].showBrandingPicker
               ? "border-2 border-blue-700"
               : "pointer-events-none",
             "select-none"
@@ -78,7 +80,7 @@ const FBranding: FC = ({}) => {
           <CgArrowsExpandLeft
             id="resizer"
             className={cn(
-              brandings[0].show ? "" : "hidden pointer-events-none",
+              brandings[0].showBrandingPicker ? "" : "hidden pointer-events-none",
               "absolute bottom-[-30px] right-[-20px] select-none cursor-se-resize rounded-full bg-activeOrange p-1"
             )}
             size={25}
@@ -87,7 +89,7 @@ const FBranding: FC = ({}) => {
             id="rotater"
             size={25}
             className={cn(
-              brandings[0].show ? "" : "hidden pointer-events-none",
+              brandings[0].showBrandingPicker ? "" : "hidden pointer-events-none",
               "absolute bottom-[-30px] left-0 right-0 mx-auto cursor-crosshair rounded-full bg-activeOrange p-1"
             )}
           />

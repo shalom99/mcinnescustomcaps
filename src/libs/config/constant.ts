@@ -117,6 +117,7 @@ export const Brandings = [
   {
     id: 0,
     part: 'Front',
+    showBrandingPicker:  false,
     show: false,
     imageURL: '',
     x: 0,
@@ -127,6 +128,7 @@ export const Brandings = [
   {
     id: 1,
     part: 'Left',
+    showBrandingPicker:  false,
     show: false,
     imageURL: '',
     x: 0,
@@ -137,6 +139,7 @@ export const Brandings = [
   {
     id: 2,
     part: 'Right',
+    showBrandingPicker:  false,
     show: false,
     imageURL: '',
     x: 0,
@@ -147,6 +150,7 @@ export const Brandings = [
   {
     id: 3,
     part: 'Back',
+    showBrandingPicker:  false,
     show: false,
     imageURL: '',
     x: 0,
@@ -157,6 +161,7 @@ export const Brandings = [
   {
     id: 4,
     part: 'Under Brim',
+    showBrandingPicker:  false,
     show: false,
     imageURL: '',
     x: 0,

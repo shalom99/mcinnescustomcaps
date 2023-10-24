@@ -25,6 +25,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
     capParts: capItems,
     labels,
     brandings,
+
   };
 
   let views = {
@@ -92,12 +93,6 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
     htmlToImage
       .toPng(document.getElementById("RightV") as HTMLElement)
       .then(function (dataUrlRight) {
-        // const link = document.createElement("a");
-        // link.download = "my-image-name.png";
-        // link.href = dataUrlRight;
-        // link.click();
-        // console.log(dataUrlRight)
-        // views["front"] = dataUrlFront;
         views["right"] = dataUrlRight;
         generateLeft();
       });
@@ -107,11 +102,6 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
     htmlToImage
       .toPng(document.getElementById("LeftV") as HTMLElement)
       .then(function (dataUrlLeft) {
-        // const link = document.createElement("a");
-        // link.download = "my-image-name.png";
-        // link.href = dataUrlLeft;
-        // link.click();
-        // console.log(dataUrlLeft)
         views["left"] = dataUrlLeft;
         generateBase64();
       });
@@ -120,10 +110,10 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
   function generateBase64() {
     addToCart({
       name: "Custom Hat Design",
-      quantity: 25,
-      mockQuantity: 25,
-      price: 15,
-      subtotal: 25 * 15,
+      // quantity: 25,
+      // mockQuantity: 25,
+      // price: 15,
+      // subtotal: 25 * 15,
       type: 0,
       configuration,
       views: {
@@ -134,12 +124,6 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
         bottom: "",
       },
     });
-
-    // const productId = 1;
-    // const productName = "Custom Hat Design";
-    // const productQuantity = 25;
-    // const productPrice = 15;
-    // const productType = 0;
 
     setResetCap();
     setResetLabels();
@@ -155,10 +139,6 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
     router.push("/cart");
   }
 
-  let price1 = 0;
-  function calculatePrice(){
-    
-  }
 };
 
 export default AddToCartButton;

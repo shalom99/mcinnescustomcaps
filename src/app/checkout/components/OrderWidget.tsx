@@ -19,13 +19,21 @@ const OrderWidget: FC<OrderWidgetProps> = ({}) => {
                 </div>
         
                 <ul className="text-start list-disc list-inside">
-                  <li>Front Panel: {item.configuration.capParts[0].hexcode}</li>
-                  <li>Peak:{item.configuration.capParts[1].hexcode} </li>
-                  <li>Under Brim:{item.configuration.capParts[2].hexcode} </li>
-                  <li>Upper Stripe:{item.configuration.capParts[3].hexcode} </li>
-                  <li>Lower Stripe:{item.configuration.capParts[4].hexcode} </li>
-                  <li>Back Mesh:{item.configuration.capParts[5].hexcode} </li>
-                  <li>Snap Back:{item.configuration.capParts[6].hexcode} </li>
+                  <li>Front Panel: <span style={{color: item.configuration.capParts[0].hexcode}}>{item.configuration.capParts[0].colorId ? "Color: #"+ item.configuration.capParts[0].colorId : "" }</span></li>
+
+                  <li>Peak:<span style={{color: item.configuration.capParts[1].hexcode}}>{item.configuration.capParts[1].colorId ? "Color: #"+ item.configuration.capParts[1].colorId : "" }</span> </li>
+
+                  <li>Under Brim:<span style={{color: item.configuration.capParts[2].hexcode}}>{item.configuration.capParts[2].colorId ? "Color: #"+ item.configuration.capParts[2].colorId : "" }</span> </li>
+
+                  <li>Upper Stripe:<span style={{color: item.configuration.capParts[3].hexcode}}>{item.configuration.capParts[3].colorId ? "Color: #"+ item.configuration.capParts[3].colorId : "" }</span> </li>
+
+                  <li>Lower Stripe:
+                    <span style={{color: item.configuration.capParts[4].hexcode}}>{item.configuration.capParts[4].colorId ? "Color: #"+ item.configuration.capParts[4].colorId : "" }</span>
+                  </li>
+
+                  <li>Back Mesh:<span style={{color: item.configuration.capParts[5].hexcode}}>{item.configuration.capParts[5].colorId ? "Color: #"+ item.configuration.capParts[5].colorId : "" }</span> </li>
+
+                  <li>Snap Back:<span style={{color: item.configuration.capParts[6].hexcode}}>{item.configuration.capParts[6].colorId ? "Color: #"+ item.configuration.capParts[6].colorId : "" }</span> </li>
                 </ul>
         
                 <div className="flex justify-between">
