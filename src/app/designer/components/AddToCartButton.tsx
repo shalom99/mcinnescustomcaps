@@ -8,11 +8,21 @@ import {
   useLoaderStore,
 } from "@/libs/store";
 import { useRouter } from "next/navigation";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { ClipLoader } from "react-spinners";
 
 import * as htmlToImage from "html-to-image";
 type AddToCartButtonProps = {};
+
+interface requiredItemType {
+  id: number,
+  name: string,
+  hexcode: string,
+  selectedColorFilter: string,
+  colorId: number,
+  showColorPicker: boolean,
+  hasBranding: boolean
+}
 
 const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
   const { capItems, setResetCap } = useCapItemStore();
@@ -21,11 +31,12 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
   const { addToCart, setUpdateViews } = useCartStore();
   const router = useRouter();
   const { isLoading, setIsLoading } = useLoaderStore();
+  const [ requiredItems, setRequiredItems] = useState<requiredItemType[] | []>([])
+
   const configuration = {
     capParts: capItems,
     labels,
     brandings,
-
   };
 
   let views = {
@@ -35,15 +46,27 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
     left: "",
   };
 
-  const addToCartHandler = () => {
+
+
+
+  function validateCapItem(){
+    const emptyHexcodeItems = capItems.filter(item => item.hexcode === '');
+    
     setIsLoading(true);
-    generateFront();
-  };
+
+    if(emptyHexcodeItems.length === 0){
+      generateFront();
+      
+    }else{
+      setRequiredItems(emptyHexcodeItems)
+      setIsLoading(false);
+    }
+  }
 
   return (
     <>
       <button
-        onClick={addToCartHandler}
+        onClick={validateCapItem}
         className="bg-activeOrange rounded-full w-[170px] py-2 text-white flex items-center justify-center select-none"
       >
         {isLoading ? (
@@ -58,6 +81,19 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
           "Add to Cart"
         )}
       </button>
+      {requiredItems.length === 0 ? "" : (
+        <>
+        <p className="text-red-700 font-bold w-full text-sm my-2">Please complete the following required cap parts: </p>
+        <ul className="w-full text-sm text-red-700">
+        { requiredItems.map(item => 
+          <li key={item.id}> -{item.name}</li>
+          )} 
+        
+        </ul>
+       </>
+      )}
+  
+
     </>
   );
 
@@ -79,11 +115,6 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
     htmlToImage
       .toPng(document.getElementById("BackV") as HTMLElement)
       .then(function (dataUrlBack) {
-        // const link = document.createElement("a");
-        // link.download = "my-image-name.png";
-        // link.href = dataUrlBack;
-        // link.click();
-        // console.log(dataUrlBack)
         views["back"] = dataUrlBack;
         generateRight();
       });
@@ -110,10 +141,6 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
   function generateBase64() {
     addToCart({
       name: "Custom Hat Design",
-      // quantity: 25,
-      // mockQuantity: 25,
-      // price: 15,
-      // subtotal: 25 * 15,
       type: 0,
       configuration,
       views: {
@@ -124,6 +151,8 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
         bottom: "",
       },
     });
+
+    setRequiredItems([])
 
     setResetCap();
     setResetLabels();

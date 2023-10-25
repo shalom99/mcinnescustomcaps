@@ -7,13 +7,24 @@ import { CartItem } from "@/libs/types";
 import { BsFillCartXFill } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 import ItemComponent from "./components/ItemComponent";
+import PreviewItem from "@/components/modals/PreviewItem";
 
 type pageProps = {};
 
 const CartPage: FC<pageProps> = ({}) => {
-  const { cartItems, setUpdateCart } = useCartStore();
+  const { cartItems, setUpdateCart } = useCartStore();6
   const [removeItemModal, setRemoveItemModal] = useState(false);
-  const { setIsLoading} = useLoaderStore()
+  const [selectedRemoveItem, setSelectedRemoveItem] = useState<number | null>(null);
+  const [showitemPreview, setShowItemPreview] = useState(false);
+  const [previewItem, setPreviewItem] = useState({
+    front: '',
+    back: '',
+    left: '',
+    right:'',
+    bottom:''
+  });
+
+  const { setIsLoading } = useLoaderStore();
   const router = useRouter();
   console.log(cartItems);
 
@@ -73,6 +84,9 @@ const CartPage: FC<pageProps> = ({}) => {
                     <ItemComponent
                       key={i}
                       setRemoveItemModal={setRemoveItemModal}
+                      setSelectedRemoveItem={setSelectedRemoveItem}
+                      setPreviewItem={setPreviewItem}
+                      setShowItemPreview={setShowItemPreview}
                       item={item}
                       index={i}
                     />
@@ -137,8 +151,20 @@ const CartPage: FC<pageProps> = ({}) => {
         </div>
         {removeItemModal ? (
           <RemoveItem
-            cartItem={cartItems[0]}
+      
+            selectedRemoveItem={selectedRemoveItem}
             setRemoveItemModal={setRemoveItemModal}
+            setSelectedRemoveItem={setSelectedRemoveItem}
+          />
+        ) : (
+          ""
+        )}
+
+        {showitemPreview && (Object.keys(previewItem).length > 0) ? (
+          <PreviewItem
+          previewItem={previewItem}
+          setShowItemPreview={setShowItemPreview}
+          setPreviewItem={setPreviewItem}
           />
         ) : (
           ""
@@ -148,24 +174,24 @@ const CartPage: FC<pageProps> = ({}) => {
   }
 
   function handleToCheckout() {
-    setIsLoading(true)
-    setTimeout(()=>{
-      router.push("/checkout")
-      setIsLoading(false)
-    },2000)
- 
-
+    setIsLoading(true);
+    setTimeout(() => {
+      router.push("/checkout");
+      setIsLoading(false);
+    }, 2000);
   }
 
   function handleUpdateCart(e: React.MouseEvent<HTMLElement>) {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
     setTimeout(() => {
-      setUpdateCart()
-      setIsLoading(false)
-    }, 2000)
-  
+      setUpdateCart();
+      setIsLoading(false);
+    }, 2000);
   }
+
+
+
 };
 
 export default CartPage;

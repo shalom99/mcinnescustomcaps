@@ -150,7 +150,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
           END CAP LABELS
         </div>
 
-        <div className="flex justify-center py-4">
+        <div className="flex flex-col items-center justify-center py-4">
           <AddToCartButton />
         </div>
       </div>

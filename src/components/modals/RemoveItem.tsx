@@ -1,17 +1,19 @@
 'use client'
 
 import { useCartStore } from "@/libs/store";
-import { CartItem } from "@/libs/types";
-import { FC } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 
 
 type RemoveItemProps = {
+  
   setRemoveItemModal: any
-  cartItem: CartItem
+  selectedRemoveItem: number | null
+  setSelectedRemoveItem: Dispatch<SetStateAction<number | null>>
 };
 
-const RemoveItem: FC<RemoveItemProps> = ({setRemoveItemModal, cartItem}) => {
+const RemoveItem: FC<RemoveItemProps> = ({ setRemoveItemModal, selectedRemoveItem,setSelectedRemoveItem}) => {
   const {removeFromCart} = useCartStore()
+
   return (
     <>
       <div className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[50%] z-50">
@@ -28,8 +30,12 @@ const RemoveItem: FC<RemoveItemProps> = ({setRemoveItemModal, cartItem}) => {
   );
 
   function handleOnRemove(){
-    removeFromCart(cartItem.id)
-    setRemoveItemModal(false)
+    if(selectedRemoveItem != null){
+      removeFromCart(selectedRemoveItem)
+      setSelectedRemoveItem(null)
+      setRemoveItemModal(false)
+    }
+  
   }
 };
 
