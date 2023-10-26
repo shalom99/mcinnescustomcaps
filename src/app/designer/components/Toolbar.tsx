@@ -2,7 +2,7 @@
 import { FC, useState } from "react";
 import ColorPicker from "./ColorPicker";
 import LabelColorPicker from "./LabelColorPicker";
-import { useLabelStore, useCapItemStore, useBrandingStore } from "@/libs/store";
+import { useLabelStore, useCapItemStore, useBrandingStore, useSideStore } from "@/libs/store";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
@@ -17,6 +17,7 @@ type ToolbarProps = {};
 const Toolbar: FC<ToolbarProps> = ({}) => {
   const labels = useLabelStore();
   const capItems = useCapItemStore();
+  const { setSelectedSide } = useSideStore()
   const {brandings, setShowBrandingPicker} = useBrandingStore()
   const [hatProfile, setHatProfile] = useState<string | number>(0);
 
@@ -87,7 +88,12 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
         {brandings.map((branding) => (
           <div key={"branding"+branding.id} className="">
             <div
-              onClick={() => setShowBrandingPicker(branding.id)}
+              onClick={() => {
+                
+                setShowBrandingPicker(branding.id);
+               setSelectedSide(branding.id) ;
+              }
+              }
               className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2"
             >
               <h3 className="text-md text-slate-600 select-none">

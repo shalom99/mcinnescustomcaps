@@ -127,28 +127,6 @@ export const Brandings = [
   },
   {
     id: 1,
-    part: 'Left',
-    showBrandingPicker:  false,
-    show: false,
-    imageURL: '',
-    x: 0,
-    y: 0,
-    width: 0,
-    height: 0
-  },
-  {
-    id: 2,
-    part: 'Right',
-    showBrandingPicker:  false,
-    show: false,
-    imageURL: '',
-    x: 0,
-    y: 0,
-    width: 0,
-    height: 0
-  },
-  {
-    id: 3,
     part: 'Back',
     showBrandingPicker:  false,
     show: false,
@@ -159,8 +137,8 @@ export const Brandings = [
     height: 0
   },
   {
-    id: 4,
-    part: 'Under Brim',
+    id: 2,
+    part: 'Left',
     showBrandingPicker:  false,
     show: false,
     imageURL: '',
@@ -169,6 +147,28 @@ export const Brandings = [
     width: 0,
     height: 0
   },
+  {
+    id: 3,
+    part: 'Right',
+    showBrandingPicker:  false,
+    show: false,
+    imageURL: '',
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0
+  },
+  // {
+  //   id: 4,
+  //   part: 'Under Brim',
+  //   showBrandingPicker:  false,
+  //   show: false,
+  //   imageURL: '',
+  //   x: 0,
+  //   y: 0,
+  //   width: 0,
+  //   height: 0
+  // },
 ]
 
 

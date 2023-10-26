@@ -1,6 +1,6 @@
 "use client";
 import cn from "@/libs/cn";
-import { useBrandingStore } from "@/libs/store";
+import { useBrandingStore, useSideStore } from "@/libs/store";
 import { FC, useEffect, useState } from "react";
 import { CgArrowsExpandLeft } from "react-icons/cg";
 import { FiRotateCw } from "react-icons/fi";
@@ -8,6 +8,7 @@ import { FiRotateCw } from "react-icons/fi";
 
 const FBranding: FC = ({}) => {
   const { brandings } = useBrandingStore();
+
   const [fLogo, setFLogo] = useState({
     top: 0,
     left: 0,
