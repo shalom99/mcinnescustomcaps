@@ -12,7 +12,9 @@ import { FC, useState } from "react";
 import { ClipLoader } from "react-spinners";
 
 import * as htmlToImage from "html-to-image";
-type AddToCartButtonProps = {};
+type AddToCartButtonProps = {
+  hatProfile: string | number;
+};
 
 interface requiredItemType {
   id: number,
@@ -24,7 +26,7 @@ interface requiredItemType {
   hasBranding: boolean
 }
 
-const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
+const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
   const { capItems, setResetCap } = useCapItemStore();
   const { labels, setResetLabels } = useLabelStore();
   const { brandings, setResetBrandings } = useBrandingStore();
@@ -36,7 +38,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
   const configuration = {
     capParts: capItems,
     labels,
-    brandings,
+    brandings
   };
 
   let views = {
@@ -47,14 +49,11 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
   };
 
 
-
-
   function validateCapItem(){
     const emptyHexcodeItems = capItems.filter(item => item.hexcode === '');
-    
     setIsLoading(true);
 
-    if(emptyHexcodeItems.length === 0){
+    if(emptyHexcodeItems.length === 0 && hatProfile !== 0){
       generateFront();
       
     }else{
@@ -88,7 +87,10 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
         { requiredItems.map(item => 
           <li key={item.id}> -{item.name}</li>
           )} 
-        
+          {hatProfile ?"" : 
+            <li> -Hat Profile </li>
+          }
+      
         </ul>
        </>
       )}
@@ -139,10 +141,17 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({}) => {
   }
 
   function generateBase64() {
+
+    
     addToCart({
       name: "Custom Hat Design",
       type: 0,
-      configuration,
+      configuration: {
+        capParts: configuration.capParts,
+        labels: configuration.labels,
+        brandings: configuration.brandings,
+        hatProfile: hatProfile as string
+      },
       views: {
         front: views.front,
         back: views.back,

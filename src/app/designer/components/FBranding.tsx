@@ -37,7 +37,7 @@ const FBranding: FC = ({}) => {
         brandings[0].showBrandingPicker
           ? "border-2 border-dashed border-red-700  "
           : "",
-        "z-30"
+        "z-30 overflow-hidden"
       )}
       style={{
         position: "absolute",

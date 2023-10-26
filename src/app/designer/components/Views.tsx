@@ -27,7 +27,7 @@ const BackView: FC = ({}) => {
   return (
     <div className={cn(side == 1 ? "" : "opacity-0", "absolute inset-0")}>
       <div id="BackV" className="w-full h-full relative">
-        {/* <BBranding /> */}
+        <BBranding />
         <img
           src="/cap/12.png"
           className="absolute inset-0"

@@ -18,7 +18,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
   const labels = useLabelStore();
   const capItems = useCapItemStore();
   const {brandings, setShowBrandingPicker} = useBrandingStore()
-  const [hatProfile, setHatProfile] = useState("");
+  const [hatProfile, setHatProfile] = useState<string | number>(0);
 
   return (
     <>
@@ -119,16 +119,13 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
               <h3 className="text-md text-slate-600 select-none">
             Select Hat Profile
               </h3>
-                <select defaultValue={0} onChange={(e) => { setHatProfile(e.target.value)}} name="hatProfile" id="hatProfile" >
+                <select value={hatProfile} onChange={(e) => { setHatProfile(e.target.value)}} name="hatProfile" id="hatProfile" >
                 <option value="0" disabled className="text-gray-300">Choose</option>
                   <option value="Low">Low</option>
                   <option value="Mid">Mid</option>
                   <option value="High">High</option>
                 </select>
-        
-            </div>
-
-           
+            </div>          
           </div>
 
 
@@ -151,7 +148,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
         </div>
 
         <div className="flex flex-col items-center justify-center py-4">
-          <AddToCartButton />
+          <AddToCartButton hatProfile={hatProfile} />
         </div>
       </div>
     

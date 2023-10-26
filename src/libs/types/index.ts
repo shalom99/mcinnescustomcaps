@@ -38,7 +38,7 @@ export interface CartItem {
         capParts: typeof CapItems,
         labels: typeof Labels,
         brandings: typeof Brandings,
-        // hatProfile: string;
+        hatProfile: string;
     },
     views: {
         front: string,
