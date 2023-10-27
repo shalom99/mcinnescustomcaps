@@ -129,10 +129,10 @@ const ItemComponent: FC<ItemComponentProps> = ({
               Back Branding:{" "}
               {item.configuration.brandings[3].imageURL ? "IMG" : "N/A"}
             </li>
-            <li>
+            {/* <li>
               Under Brim Branding:{" "}
               {item.configuration.brandings[4].imageURL ? "IMG" : "N/A"}
-            </li>
+            </li> */}
             <li>Hat Profile: </li>
             <li>Cap Fabric Material: </li>
             <li>
