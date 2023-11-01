@@ -16,7 +16,6 @@ const ColorPicker: FC<ColorPickerProps> = ({ title, capItemId }) => {
 
   function handleChangeColor(id: number, color: string, colorId: number, filter: string ) {
     setCapItemColor(id, color, colorId, filter);
-    setShowPicker(id);
   }
 
   useEffect(() => {

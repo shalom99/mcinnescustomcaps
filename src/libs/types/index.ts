@@ -67,6 +67,7 @@ export interface brandingType {
     setBrandingImg: (brandingId: number, img: string) => void;
     removeBrandingImg: (brandingId: number) => void;
     setResetBrandings: () => void;
+    setCloseAllBrandings: () => void;
 }
 
 export interface loaderType {

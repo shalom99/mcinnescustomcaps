@@ -7,14 +7,27 @@ import { Brandings, CapItems, Labels } from '../config/constant'
 export const useCapItemStore = create<CapItemType>()((set) => ({
     capItems: CapItems,
     setCapItems: (capItems) => set({ capItems }),
-    setShowPicker: (capItemId) => set((state) => ({
-        capItems: state.capItems.map((capItem) =>
-            capItem.id === capItemId ? { ...capItem, showColorPicker: !capItem.showColorPicker } : capItem
+    setShowPicker: (capItemId) => set((state) =>
+    ({
+        capItems: state.capItems.map((capItem) => {
+            if (capItem.id === capItemId) {
+                return {
+                    ...capItem,
+                    showColorPicker: !capItem.showColorPicker,
+                };
+            } else {
+                return {
+                    ...capItem,
+                    showColorPicker: false
+                }
+            }
+        }
         )
-    })),
+    })
+    ),
     setCapItemColor: (capItemId, hexcode, colorId, filter) => set((state) => ({
         capItems: state.capItems.map((capItem) =>
-            capItem.id === capItemId ? { ...capItem, hexcode, colorId, selectedColorFilter: filter } : capItem
+            capItem.id === capItemId ? { ...capItem, hexcode, colorId, selectedColorFilter: filter, showColorPicker: false } : capItem
         )
     })),
     setResetCap: () => set({ capItems: CapItems })
@@ -25,8 +38,19 @@ export const useLabelStore = create<LabelsType>()((set) => ({
     labels: Labels,
     setLabels: (labels) => set({ labels }),
     setShowPicker: (labelId) => set((state) => ({
-        labels: state.labels.map((label) =>
-            label.id === labelId ? { ...label, showColorPicker: !label.showColorPicker } : label
+        labels: state.labels.map((label) => {
+            if (label.id === labelId) {
+                return {
+                    ...label,
+                    showColorPicker: !label.showColorPicker,
+                };
+            } else {
+                return {
+                    ...label,
+                    showColorPicker: false,
+                };
+            }
+        }
         )
     })),
     setShowLabel: (labelId, option) => set((state) => ({
@@ -146,12 +170,22 @@ export const useCartStore = create<CartType>((set) => {
 
 
 
-
 export const useBrandingStore = create<brandingType>()((set) => ({
     brandings: Brandings,
     setShowBrandingPicker: (brandingId) => set((state) => ({
-        brandings: state.brandings.map((branding) =>
-            branding.id === brandingId ? { ...branding, showBrandingPicker: !branding.showBrandingPicker } : branding
+        brandings: state.brandings.map((branding) => {
+            if (branding.id === brandingId) {
+              return {
+                ...branding,
+                showBrandingPicker: !branding.showBrandingPicker,
+              };
+            } else {
+              return {
+                ...branding,
+                showBrandingPicker: false,
+              };
+            }
+          }
         )
     })),
     setBrandingImg: (brandingId, img) => set((state) => ({
@@ -164,7 +198,13 @@ export const useBrandingStore = create<brandingType>()((set) => ({
             branding.id === brandingId ? { ...branding, imageURL: "", show: false } : branding
         )
     })),
-    setResetBrandings: () => set({ brandings: Brandings })
+    setResetBrandings: () => set({ brandings: Brandings }),
+    setCloseAllBrandings: () => set((state) => ({
+        brandings: state.brandings.map((branding) => ({
+            ...branding,
+            showBrandingPicker: false
+        })),
+    })),
 }))
 
 

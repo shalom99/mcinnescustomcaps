@@ -29,7 +29,7 @@ interface requiredItemType {
 const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
   const { capItems, setResetCap } = useCapItemStore();
   const { labels, setResetLabels } = useLabelStore();
-  const { brandings, setResetBrandings } = useBrandingStore();
+  const { brandings, setResetBrandings, setCloseAllBrandings } = useBrandingStore();
   const { addToCart, setUpdateViews } = useCartStore();
   const router = useRouter();
   const { isLoading, setIsLoading } = useLoaderStore();
@@ -49,11 +49,15 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
   };
 
 
+
+
   function validateCapItem(){
+
     const emptyHexcodeItems = capItems.filter(item => item.hexcode === '');
     setIsLoading(true);
-
+    setCloseAllBrandings();
     if(emptyHexcodeItems.length === 0 && hatProfile !== 0){
+
       generateFront();
       
     }else{

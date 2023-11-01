@@ -4,6 +4,7 @@ import { FC, useState, useEffect } from "react";
 import frontBase from "../../../../public/cap/1.png";
 import cn from "@/libs/cn";
 import FBranding from "./FBranding";
+import FBrandingTest from "./FBrandingTest";
 
 
 type FrontViewProps = {};

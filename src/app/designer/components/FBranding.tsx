@@ -5,7 +5,6 @@ import { FC, useEffect, useState } from "react";
 import { CgArrowsExpandLeft } from "react-icons/cg";
 import { FiRotateCw } from "react-icons/fi";
 
-
 const FBranding: FC = ({}) => {
   const { brandings } = useBrandingStore();
 
@@ -17,8 +16,6 @@ const FBranding: FC = ({}) => {
   });
 
   useEffect(() => {
-
-
     const container = document.querySelector("#fPanelContainer")!;
     const element = document.querySelector("#fPanelElement")!;
     const middleCanvas = document.querySelector("#middleCanvas")!;
@@ -30,73 +27,90 @@ const FBranding: FC = ({}) => {
   }, [brandings[0].imageURL]);
 
   return (
-
-    
-    <div
-      id="fPanelContainer"
-      className={cn(
-        brandings[0].showBrandingPicker
-          ? "border-2 border-dashed border-red-700  "
-          : "",
-        "z-30 overflow-hidden"
-      )}
-      style={{
-        position: "absolute",
-        top: "13.3%",
-        bottom: "250px",
-        left: "15.5%",
-        right: "14.3%",
-        borderRadius: "170px 170px 0px 0px",
-      }}
-      draggable={false}
-    >
-    {brandings[0].imageURL ? <div
-          id="fPanelElement"
-          className={cn(brandings[0].imageURL ? "block" : "hidden",
-            brandings[0].showBrandingPicker
-              ? "border-2 border-blue-700"
-              : "pointer-events-none",
-            "select-none"
-          )}
-          draggable={false}
-          style={{
-            position: "absolute",
-            top: fLogo.top,
-            left: fLogo.left,
-            width: fLogo.width + "px",
-            height: fLogo.height + "px",
-          }}
-        >
-          <img
-            id="fPanelImg"
-            src={brandings[0].imageURL ? brandings[0].imageURL : ""}
-            alt=""
-            className="absolute object-cover select-none z-50"
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
+    <div className="w-full h-full relative">
+      <div
+        id="fPanelContainer"
+        className={cn(
+          brandings[0].showBrandingPicker
+            ? "border-2 border-dashed border-red-700  "
+            : "",
+          "z-30"
+        )}
+        style={{
+          position: "absolute",
+          top: "13.3%",
+          bottom: "250px",
+          left: "15.5%",
+          right: "14.3%",
+          borderRadius: "170px 170px 0px 0px",
+        }}
+        draggable={false}
+      >
+        {brandings[0].imageURL ? (
+          <div
+            id="fPanelElement"
+            className={cn(
+              brandings[0].imageURL ? "block" : "hidden",
+              brandings[0].showBrandingPicker
+                ? "border-2 border-blue-700"
+                : "pointer-events-none",
+              "select-none"
+            )}
             draggable={false}
-          />
-          <CgArrowsExpandLeft
-            id="resizer"
-            className={cn(
-              brandings[0].showBrandingPicker ? "" : "hidden pointer-events-none",
-              "absolute bottom-[-30px] right-[-20px] select-none cursor-se-resize rounded-full bg-activeOrange p-1"
-            )}
-            size={25}
-          />
-          <FiRotateCw
-            id="rotater"
-            size={25}
-            className={cn(
-              brandings[0].showBrandingPicker ? "" : "hidden pointer-events-none",
-              "absolute bottom-[-30px] left-0 right-0 mx-auto cursor-crosshair rounded-full bg-activeOrange p-1"
-            )}
-          />
-        </div>: ""}
-        
-
+            style={{
+              position: "absolute",
+              top: fLogo.top,
+              left: fLogo.left,
+              width: fLogo.width + "px",
+              height: fLogo.height + "px",
+            }}
+          >
+            <img
+              id="fPanelImg"
+              src={brandings[0].imageURL ? brandings[0].imageURL : ""}
+              alt=""
+              className="absolute object-cover select-none z-50"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+              draggable={false}
+            />
+            <CgArrowsExpandLeft
+              id="resizer"
+              className={cn(
+                brandings[0].showBrandingPicker
+                  ? ""
+                  : "hidden pointer-events-none",
+                "absolute bottom-[-30px] right-[-20px] select-none cursor-se-resize rounded-full bg-activeOrange p-1"
+              )}
+              size={25}
+            />
+            <FiRotateCw
+              id="rotater"
+              size={25}
+              className={cn(
+                brandings[0].showBrandingPicker
+                  ? ""
+                  : "hidden pointer-events-none",
+                "absolute bottom-[-30px] left-0 right-0 mx-auto cursor-crosshair rounded-full bg-activeOrange p-1"
+              )}
+            />
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+      <div
+        className={cn(
+          brandings[0].showBrandingPicker
+            ? "absolute left-0 right-0 top-[60%] z-50 flex flex-col items-center"
+            : "hidden"
+        )}
+      >
+        <div className="border-l-2 border-dashed border-red-700 h-[50px]"></div>
+        <p className="text-center text-sm text-red-700 font-bold">Safe Area</p>
+      </div>
     </div>
   );
 
