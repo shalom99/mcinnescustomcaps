@@ -1,5 +1,5 @@
 "use client";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 type myMapProps = {};
 

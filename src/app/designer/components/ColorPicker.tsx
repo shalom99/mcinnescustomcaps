@@ -3,7 +3,7 @@ import cn from "@/libs/cn";
 import { useCapItemStore, useSideStore } from "@/libs/store";
 import { FC, useEffect } from "react";
 import { ColorOptions } from "@/libs/config/constant";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 type ColorPickerProps = {
   title: string;
@@ -11,7 +11,7 @@ type ColorPickerProps = {
 };
 
 const ColorPicker: FC<ColorPickerProps> = ({ title, capItemId }) => {
-  const { capItems, setCapItemColor, setShowPicker } = useCapItemStore();
+  const { capItems, setCapItemColor } = useCapItemStore();
   const { setSelectedSide } = useSideStore();
 
   function handleChangeColor(id: number, color: string, colorId: number, filter: string ) {
@@ -25,20 +25,7 @@ const ColorPicker: FC<ColorPickerProps> = ({ title, capItemId }) => {
   }, [capItems[capItemId].hexcode]);
 
   return (
-    <motion.div
-      initial={{
-        height: 0,
-        opacity: 0,
-      }}
-      animate={{
-        height: "auto",
-        opacity: 1,
-      }}
-      exit={{
-        height: 0,
-        opacity: 0,
-      }}
-      transition={{ duration: 1 }}
+    <div
       className="text-black w-full flex flex-col gap-y-5 py-5 select-none"
     >
       <h2 className="font-bold text-sm px-2">Choose Color:</h2>
@@ -64,7 +51,7 @@ const ColorPicker: FC<ColorPickerProps> = ({ title, capItemId }) => {
           </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

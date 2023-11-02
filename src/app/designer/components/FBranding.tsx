@@ -1,6 +1,6 @@
 "use client";
 import cn from "@/libs/cn";
-import { useBrandingStore, useSideStore } from "@/libs/store";
+import { useBrandingStore } from "@/libs/store";
 import { FC, useEffect, useState } from "react";
 import { CgArrowsExpandLeft } from "react-icons/cg";
 import { FiRotateCw } from "react-icons/fi";
@@ -24,6 +24,7 @@ const FBranding: FC = ({}) => {
     makeDraggable(element, container);
     makeResizable(element, container, img, middleCanvas);
     makeRotatable(element);
+
   }, [brandings[0].imageURL]);
 
   return (
@@ -108,7 +109,7 @@ const FBranding: FC = ({}) => {
             : "hidden"
         )}
       >
-        <div className="border-l-2 border-dashed border-red-700 h-[50px]"></div>
+        <div className="border-l-2 border-dashed border-red-700 h-[25px]"></div>
         <p className="text-center text-sm text-red-700 font-bold">Safe Area</p>
       </div>
     </div>
