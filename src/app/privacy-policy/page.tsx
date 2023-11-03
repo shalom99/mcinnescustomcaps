@@ -4,8 +4,8 @@ type pageProps = {};
 
 const page: FC<pageProps> = ({}) => {
   return (
-    <div className="h-screen bg-gray-600 flex justify-center pt-32">
-      <div id="container" className="w-full lg:w-[800px] text-white px-2">
+    <div className="lg:h-screen bg-gray-600 flex justify-center pt-10 pb-10 lg:pt-32">
+      <div id="container" className="w-full lg:w-[800px] text-white px-4">
         <h1 className="text-center text-activeOrange text-3xl font-bold mb-10">
           Privacy Policy
         </h1>

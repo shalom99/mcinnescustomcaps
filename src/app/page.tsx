@@ -11,13 +11,13 @@ const myFont = localFont({
 export default function Home() {
   return (
     <>
-      <main className="bg-main bg-cover bg-no-repeat bg-center h-screen relative flex flex-col justify-end items-center">
+      <main className="bg-main bg-cover bg-no-repeat bg-center h-[85vh] lg:h-[95vh] relative flex flex-col justify-end items-center">
         <div
           id="overlay"
           className="absolute inset-0 bg-black opacity-25 "
         ></div>
         <div className="w-full lg:w-[1200px] text-white z-10 px-5 pb-10 lg:pb-0 lg:px-0">
-          <h2 className={`text-6xl font-regular mb-5 `+ myFont.className}>MCINNES CUSTOM CAPS</h2>
+          <h2 className={`text-4xl lg:text-6xl font-regular mb-5 `+ myFont.className}>MCINNES CUSTOM CAPS</h2>
           <h3 className={`text-2xl `+ myFont.className}>
             The Custom Trucker Cap Specialists!
           </h3>
