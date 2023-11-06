@@ -153,14 +153,20 @@ const ItemComponent: FC<ItemComponentProps> = ({
         <p>${item.price.toFixed(2)}</p>
       </div>
       <div>
-        <input
+        <select value={item.mockQuantity} onChange={(e) => setMockQuantity(item.id, Number(e.target.value))}>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="200">200</option>
+        </select>
+        {/* <input
           type="number"
           value={item.mockQuantity}
           className="border text-black w-[100px] text-center"
           min={25}
           onChange={(e) => setMockQuantity(item.id, Number(e.target.value))}
           max={1000}
-        />
+        /> */}
       </div>
       <div>
         <p>${(item.price * item.mockQuantity).toFixed(2)}</p>
