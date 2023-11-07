@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Views from "./components/Views";
+import { BackView, FrontView, LeftView, RightView } from "./components/Views";
 import CapSideSelector from "./components/CapSideSelector";
 import Toolbar from "./components/Toolbar";
 
@@ -24,7 +24,13 @@ const Designer: FC<pageProps> = ({}) => {
             className="grow bg-white flex items-center justify-center "
           >
             <div className="relative w-full min-h-[450px] lg:w-[600px] lg:h-[600px] p-5">
-              <Views />
+              <div className="w-full h-full">
+                <FrontView />
+                <BackView />
+                <LeftView />
+                <RightView />
+              </div>
+
               <CapSideSelector />
             </div>
           </div>

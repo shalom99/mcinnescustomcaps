@@ -50,7 +50,6 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
 
 
 
-
   function validateCapItem(){
 
     // const emptyHexcodeItems = capItems.filter(item => item.hexcode === '');
@@ -142,11 +141,11 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
       .toPng(document.getElementById("LeftV") as HTMLElement)
       .then(function (dataUrlLeft) {
         views["left"] = dataUrlLeft;
-        generateBase64();
+        handleAddToCart();
       });
   }
 
-  function generateBase64() {
+  function handleAddToCart() {
 
     
     addToCart({

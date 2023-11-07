@@ -1,7 +1,5 @@
 "use client";
 import { FC, useState } from "react";
-import ColorPicker from "./ColorPicker";
-import LabelColorPicker from "./LabelColorPicker";
 import { useLabelStore, useCapItemStore, useBrandingStore, useSideStore } from "@/libs/store";
 import {
   MdOutlineKeyboardArrowDown,
@@ -9,7 +7,8 @@ import {
 } from "react-icons/md";
 
 import AddToCartButton from "./AddToCartButton";
-import BrandingPicker from "./BrandingPicker";
+
+import { BrandingPicker, ColorPicker, LabelColorPicker } from "./Pickers";
 
 
 type ToolbarProps = {};
@@ -47,7 +46,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
             <div className="flex items-center flex-col gap-x-5 relative">
               {capItem.showColorPicker && (
                 <div>
-                  <ColorPicker title={capItem.name} capItemId={capItem.id} />
+                  <ColorPicker capItemId={capItem.id} />
                 </div>
               )}
             </div>

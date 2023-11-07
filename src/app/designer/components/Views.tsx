@@ -1,26 +1,94 @@
 "use client";
 import { useCapItemStore, useLabelStore, useSideStore } from "@/libs/store";
 import { FC } from "react";
-import FrontView from "./FrontView";
 import cn from "@/libs/cn";
 import BBranding from "./BBranding";
+import FBranding from "./FBranding";
 
-type ViewsProps = {};
 
-const Views: FC<ViewsProps> = ({}) => {
+
+export const FrontView: FC = () => {
+  const { side } = useSideStore();
+  const { capItems } = useCapItemStore();
+  const { labels } = useLabelStore();
+
   return (
-    <div className="w-full h-full">
-      <FrontView />
-      <BackView />
-      <LeftView />
-      <RightView />
+    <div className={cn(side == 0 ? "" : "opacity-0", "absolute inset-0")}>
+      <div id="FrontV" className="relative w-full h-full">
+       
+        <FBranding />
+        {labels[0].show ? (
+          <div className="absolute inset-0">
+            <img
+              src="/cap/9.png"
+              className="absolute inset-0 z-20"
+              alt="Front Label 1"
+              style={{
+                filter: labels[0].selectedColorFilter,
+              }}
+            />
+            <img
+              src="/cap/8.png"
+              className="absolute inset-0 z-20"
+              alt="Front Label 2"
+            />
+          </div>
+        ) : (
+          ""
+        )}
+        <img
+          src="/cap/2.png"
+          className="absolute inset-0"
+          alt="Front Cap Base"
+          style={{
+            filter: capItems[5].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/4.png"
+          className="absolute inset-0"
+          alt="Front Cap Base"
+          style={{
+            filter: capItems[3].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/5.png"
+          className="absolute inset-0"
+          alt="Front Cap Base"
+          style={{
+            filter: capItems[4].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/6.png"
+          className="absolute inset-0"
+          alt="Front Cap Base"
+          style={{
+            filter: capItems[0].selectedColorFilter,
+          }}
+        />
+        <img
+          src="/cap/7.png"
+          className="absolute inset-0"
+          alt="Front Cap Base"
+          style={{
+            filter: capItems[1].selectedColorFilter,
+          }}
+        />
+
+        <img
+          src="/cap/1.png"
+          className="absolute inset-0"
+          alt="Front Cap Base"
+        />
+      </div>
     </div>
   );
 };
 
-export default Views;
 
-const BackView: FC = ({}) => {
+export const BackView: FC = () => {
   const { capItems } = useCapItemStore();
   const { side } = useSideStore();
 
@@ -79,7 +147,7 @@ const BackView: FC = ({}) => {
   );
 };
 
-const RightView: FC = ({}) => {
+export const RightView: FC = () => {
   const { side } = useSideStore();
   const { capItems } = useCapItemStore();
   const { labels } = useLabelStore();
@@ -178,7 +246,7 @@ const RightView: FC = ({}) => {
   );
 };
 
-const LeftView: FC = ({}) => {
+export const LeftView: FC = () => {
   const { side } = useSideStore();
   const { capItems } = useCapItemStore();
   const { labels } = useLabelStore();
