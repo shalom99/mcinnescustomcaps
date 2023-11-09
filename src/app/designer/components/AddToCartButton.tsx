@@ -85,7 +85,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
           "Add to Cart"
         )}
       </button>
-      {requiredItems.length === 0 ? "" : (
+      {requiredItems.length === 0 && hatProfile === "" ? "" : (
         <>
         <p className="text-red-700 font-bold w-full text-sm my-2">Please complete the following required cap parts: </p>
         <ul className="w-full text-sm text-red-700">
