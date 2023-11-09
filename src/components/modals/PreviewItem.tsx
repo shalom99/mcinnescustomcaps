@@ -27,9 +27,7 @@ const PreviewItem: FC<PreviewItemProps> = ({setShowItemPreview, previewItem, set
   
   return (
     <>
-      <div className="fixed 
- 
-      z-50">
+      <div className="fixed inset-0 flex items-center justify-center z-50">
         <div className="bg-white flex flex-col justify-center items-center px-10 py-5">
           <p>Preview Cap Sides</p>
           <div className="grid grid-cols-2">

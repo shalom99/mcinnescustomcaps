@@ -129,7 +129,7 @@ const CartPage: FC<pageProps> = ({}) => {
                 <div className="flex border-b py-2 px-3">
                   <h3 className="w-[40%] font-bold">Total</h3>
                   <p className="w-[60%]">
-                    ${calculateTotal(cartItems).toFixed(2)}
+                    ${calculateTotal(cartItems).toFixed(2)} + GST
                   </p>
                 </div>
 
@@ -151,7 +151,6 @@ const CartPage: FC<pageProps> = ({}) => {
         </div>
         {removeItemModal ? (
           <RemoveItem
-      
             selectedRemoveItem={selectedRemoveItem}
             setRemoveItemModal={setRemoveItemModal}
             setSelectedRemoveItem={setSelectedRemoveItem}
@@ -172,6 +171,9 @@ const CartPage: FC<pageProps> = ({}) => {
       </div>
     );
   }
+
+
+
 
   function handleToCheckout() {
     setIsLoading(true);

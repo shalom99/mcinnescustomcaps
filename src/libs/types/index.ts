@@ -29,9 +29,11 @@ export interface sideType {
 export interface CartItem {
     id: number, 
     name: string,
-    price: number, 
+    addonPrice: number,
+    basePrice: number, 
     quantity: number,
     mockQuantity: number,
+    mockBasePrice: number,
     subtotal: number,
     type: number,
     configuration: {
@@ -51,9 +53,10 @@ export interface CartItem {
 
 export interface CartType {
     cartItems: CartItem[]
-    addToCart: (item: Omit<CartItem, 'id'| 'price'| 'subtotal' | 'quantity' | 'mockQuantity'>) => void;
+    addToCart: (item: Omit<CartItem, 'id'| 'price'| 'basePrice'|'subtotal' | 'quantity' | 'mockQuantity' | 'mockBasePrice' | 'addonPrice'>) => void;
     removeFromCart: (id: number) => void;
     // setCartItem: (id: number, quantity: number) => void;
+
     setMockQuantity: (id: number, mockQuantity: number) => void;
     setUpdateCart: () => void;
     setUpdateViews: (id: number, side: string, img: string) => void;

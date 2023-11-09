@@ -10,14 +10,16 @@ type ItemComponentProps = {
   setRemoveItemModal: any;
   index: number;
   setSelectedRemoveItem: Dispatch<SetStateAction<null | number>>;
-  setPreviewItem: Dispatch<SetStateAction<{
-    front: string;
-    back: string;
-    left: string;
-    right: string;
-    bottom: string;
-}>>
-  setShowItemPreview:  Dispatch<SetStateAction<boolean>>;
+  setPreviewItem: Dispatch<
+    SetStateAction<{
+      front: string;
+      back: string;
+      left: string;
+      right: string;
+      bottom: string;
+    }>
+  >;
+  setShowItemPreview: Dispatch<SetStateAction<boolean>>;
 };
 
 const ItemComponent: FC<ItemComponentProps> = ({
@@ -26,7 +28,7 @@ const ItemComponent: FC<ItemComponentProps> = ({
   setSelectedRemoveItem,
   index,
   setPreviewItem,
-  setShowItemPreview
+  setShowItemPreview,
 }) => {
   const { setMockQuantity } = useCartStore();
 
@@ -115,64 +117,65 @@ const ItemComponent: FC<ItemComponentProps> = ({
 
             <li>
               Front Branding:{" "}
-              {item.configuration.brandings[0].imageURL ? "IMG" : "N/A"}
+              {item.configuration.brandings[0].imageURL ? "With (+$2)" : "N/A"}
             </li>
             <li>
               Side Left Branding:{" "}
-              {item.configuration.brandings[1].imageURL ? "IMG" : "N/A"}{" "}
+              {item.configuration.brandings[1].imageURL ? "With (+$2)" : "N/A"}{" "}
             </li>
             <li>
               Side Right Branding:{" "}
-              {item.configuration.brandings[2].imageURL ? "IMG" : "N/A"}
+              {item.configuration.brandings[2].imageURL ? "With (+$2)" : "N/A"}
             </li>
             <li>
               Back Branding:{" "}
-              {item.configuration.brandings[3].imageURL ? "IMG" : "N/A"}
+              {item.configuration.brandings[3].imageURL ? "With (+$2)" : "N/A"}
             </li>
             {/* <li>
               Under Brim Branding:{" "}
               {item.configuration.brandings[4].imageURL ? "IMG" : "N/A"}
             </li> */}
-            <li>Hat Profile: </li>
+            <li>Hat Profile: {item.configuration.hatProfile} </li>
             <li>Cap Fabric Material: </li>
             <li>
-              Front Label: {item.configuration.labels[0].show ? "With" : "N/A"}{" "}
+              Front Label: {item.configuration.labels[0].show ? "With (+$2)" : "N/A"}{" "}
             </li>
             <li>
               Side Left Label:{" "}
-              {item.configuration.labels[2].show ? "With" : "N/A"}{" "}
+              {item.configuration.labels[2].show ? "With (+$2)" : "N/A"}{" "}
             </li>
             <li>
               Side Right Label:{" "}
-              {item.configuration.labels[1].show ? "With" : "N/A"}{" "}
+              {item.configuration.labels[1].show ? "With (+$2)" : "N/A"}{" "}
             </li>
           </ul>
         </div>
       </div>
       <div>
-        <p>${item.price.toFixed(2)}</p>
+        <p className="text-sm font-bold">${(item.mockBasePrice + item.addonPrice).toFixed(2) }
+            (${item.mockBasePrice} + add-ons)
+        </p>
       </div>
       <div>
-        <select value={item.mockQuantity} onChange={(e) => setMockQuantity(item.id, Number(e.target.value))}>
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-          <option value="200">200</option>
-        </select>
-        {/* <input
-          type="number"
+        <select
           value={item.mockQuantity}
-          className="border text-black w-[100px] text-center"
-          min={25}
           onChange={(e) => setMockQuantity(item.id, Number(e.target.value))}
-          max={1000}
-        /> */}
+          className="text-sm"
+        >
+          <option value="25" className="text-sm">
+            25 pcs - $27 per piece
+          </option>
+          <option value="50">50 pcs - $18.95 per piece</option>
+          <option value="100">100 pcs - $15.95 per piece</option>
+          <option value="200">200 pcs - $14 per piece</option>
+        </select>
       </div>
       <div>
-        <p>${(item.price * item.mockQuantity).toFixed(2)}</p>
+        <p>${((item.mockBasePrice + item.addonPrice) * item.mockQuantity).toFixed(2)}</p>
       </div>
     </>
   );
+
 
   function handleShowPreview() {
     setPreviewItem(item.views);

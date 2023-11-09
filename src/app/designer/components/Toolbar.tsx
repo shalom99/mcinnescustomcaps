@@ -1,6 +1,11 @@
 "use client";
 import { FC, useState } from "react";
-import { useLabelStore, useCapItemStore, useBrandingStore, useSideStore } from "@/libs/store";
+import {
+  useLabelStore,
+  useCapItemStore,
+  useBrandingStore,
+  useSideStore,
+} from "@/libs/store";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
@@ -10,14 +15,13 @@ import AddToCartButton from "./AddToCartButton";
 
 import { BrandingPicker, ColorPicker, LabelColorPicker } from "./Pickers";
 
-
 type ToolbarProps = {};
 
 const Toolbar: FC<ToolbarProps> = ({}) => {
   const labels = useLabelStore();
   const capItems = useCapItemStore();
-  const { setSelectedSide } = useSideStore()
-  const {brandings, setShowBrandingPicker} = useBrandingStore()
+  const { setSelectedSide } = useSideStore();
+  const { brandings, setShowBrandingPicker } = useBrandingStore();
   const [hatProfile, setHatProfile] = useState<string | number>(0);
 
   return (
@@ -39,7 +43,9 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
                 {capItem.name}
               </h3>
               <div className="flex flex-col text-sm">
-              <p style={{ color: capItem.hexcode }}>{capItem.colorId ? "Color #"+capItem.colorId : ""}</p>
+                <p style={{ color: capItem.hexcode }}>
+                  {capItem.colorId ? "Color #" + capItem.colorId : ""}
+                </p>
               </div>
             </div>
 
@@ -56,7 +62,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
 
         {/* START CAP LABELS */}
         {labels.labels.map((label) => (
-          <div key={"label"+label.id} className="">
+          <div key={"label" + label.id} className="">
             <div
               onClick={() => labels.setShowPicker(label.id)}
               className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2"
@@ -67,32 +73,26 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
 
               {!label.showColorPicker ? (
                 <MdOutlineKeyboardArrowDown />
-                
               ) : (
                 <MdOutlineKeyboardArrowUp />
               )}
             </div>
 
             <div className="flex items-center gap-x-5 relative">
-              {label.showColorPicker && (
-                <LabelColorPicker label={label} />
-              )}
+              {label.showColorPicker && <LabelColorPicker label={label} />}
             </div>
           </div>
         ))}
         {/* END CAP LABELS */}
 
-
         {/* START CAP BRANDINGS */}
         {brandings.map((branding) => (
-          <div key={"branding"+branding.id} className="">
+          <div key={"branding" + branding.id} className="">
             <div
               onClick={() => {
-                
                 setShowBrandingPicker(branding.id);
-               setSelectedSide(branding.id) ;
-              }
-              }
+                setSelectedSide(branding.id);
+              }}
               className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2"
             >
               <h3 className="text-md text-slate-600 select-none">
@@ -108,32 +108,37 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
 
             <div className="flex items-center gap-x-5 relative">
               {branding.showBrandingPicker && (
-                <BrandingPicker brandingId={branding.id}/>
+                <BrandingPicker brandingId={branding.id} />
               )}
             </div>
           </div>
         ))}
         {/* END CAP BRANDINGS */}
 
-
-        <div  className="">
-            <div
-              
-              className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2"
+        <div className="w-full">
+          <div className="flex items-center justify-between gap-x-3 cursor-pointer border-b-2 py-4 px-2">
+            <h3 className="text-md text-slate-600 select-none">
+              Hat Profile
+            </h3>
+            <select
+              value={hatProfile}
+              onChange={(e) => {
+                setHatProfile(e.target.value);
+              }}
+               className="w-full"
+              name="hatProfile"
+              id="hatProfile"
             >
-              <h3 className="text-md text-slate-600 select-none">
-            Select Hat Profile
-              </h3>
-                <select value={hatProfile} onChange={(e) => { setHatProfile(e.target.value)}} name="hatProfile" id="hatProfile" >
-                <option value="0" disabled className="text-gray-300">Choose</option>
-                  <option value="Low">Low</option>
-                  <option value="Mid">Mid</option>
-                  <option value="High">High</option>
-                </select>
-            </div>          
+              <option value="0" disabled className="text-gray-300">
+                Select
+              </option>
+              <option value="Low">Low</option>
+              <option value="Mid">Mid</option>
+              <option value="High">High</option>
+            </select>
           </div>
-
-
+  
+        </div>
 
         <div className="lg:hidden w-full bg-yellow-200 grid grid-cols-4 gap-x-4 items-center">
           START CAP LABELS
@@ -156,7 +161,6 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
           <AddToCartButton hatProfile={hatProfile} />
         </div>
       </div>
-    
     </>
   );
 };

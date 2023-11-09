@@ -112,10 +112,13 @@ export const useCartStore = create<CartType>((set) => {
                 const newItem = {
                     ...item,
                     id: itemIdCounter,
+                    mockBasePrice: 27,
                     mockQuantity: 25,
+                    basePrice: 27,
                     quantity: 25,
-                    price: (counter * 2) + 10,
-                    subtotal: ((counter * 2) + 10) * 25
+                    addonPrice: counter * 2,
+                    price: (counter * 2) + 27,
+                    subtotal: ((counter * 2) + 27) * 25
                 };
                 itemIdCounter++;
                 return {
@@ -130,11 +133,23 @@ export const useCartStore = create<CartType>((set) => {
             cartItems: state.cartItems.filter(item => item.id !== id)
         })),
         setMockQuantity: (id, mockQuantity) => set((state) => {
+            let mockPrice = 27;
+            if(mockQuantity === 25){
+                mockPrice = 27;
+            }else if(mockQuantity === 50){
+                mockPrice = 18.95;
+            }else if(mockQuantity === 100){
+                mockPrice = 15.95;
+            }else if(mockQuantity === 200){
+                mockPrice = 14;
+            }
+
             const updatedItems = state.cartItems.map(item => {
                 if (item.id === id) {
                     return {
                         ...item,
                         mockQuantity,
+                        mockBasePrice: mockPrice
                     };
                 }
                 return item;
@@ -145,7 +160,8 @@ export const useCartStore = create<CartType>((set) => {
             const updatedItems = state.cartItems.map(item => ({
                 ...item,
                 quantity: item.mockQuantity,
-                subtotal: item.price * item.mockQuantity
+                basePrice: item.mockBasePrice,
+                subtotal: (item.mockBasePrice + item.addonPrice) * item.mockQuantity
             }));
             return { cartItems: updatedItems }
         }),
