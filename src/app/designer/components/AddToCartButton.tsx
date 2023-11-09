@@ -52,19 +52,19 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
 
   function validateCapItem(){
 
-    // const emptyHexcodeItems = capItems.filter(item => item.hexcode === '');
+    const emptyHexcodeItems = capItems.filter(item => item.hexcode === '');
     setIsLoading(true);
     setCloseAllBrandings();
-    generateFront();
+    // generateFront();
       
-    // if(emptyHexcodeItems.length === 0 && hatProfile !== 0){
+    if(emptyHexcodeItems.length === 0 && hatProfile !== 0){
 
-    //   generateFront();
+      generateFront();
       
-    // }else{
-    //   setRequiredItems(emptyHexcodeItems)
-    //   setIsLoading(false);
-    // }
+    }else{
+      setRequiredItems(emptyHexcodeItems)
+      setIsLoading(false);
+    }
   }
 
   return (
