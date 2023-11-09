@@ -152,7 +152,7 @@ const ItemComponent: FC<ItemComponentProps> = ({
         </div>
       </div>
       <div>
-        <p className="text-sm font-bold">${(item.mockBasePrice + item.addonPrice).toFixed(2) }
+        <p className="text-sm font-bold">${(item.mockBasePrice + item.addonPrice).toFixed(2)+ " "} 
             (${item.mockBasePrice} + add-ons)
         </p>
       </div>
@@ -163,11 +163,11 @@ const ItemComponent: FC<ItemComponentProps> = ({
           className="text-sm"
         >
           <option value="25" className="text-sm">
-            25 pcs - $27 per piece
+            25 pcs. - $27 per pc.
           </option>
-          <option value="50">50 pcs - $18.95 per piece</option>
-          <option value="100">100 pcs - $15.95 per piece</option>
-          <option value="200">200 pcs - $14 per piece</option>
+          <option value="50">50 pcs. - $18.95 per pc.</option>
+          <option value="100">100 pcs. - $15.95 per pc.</option>
+          <option value="200">200 pcs. - $14 per pc.</option>
         </select>
       </div>
       <div>

@@ -42,7 +42,7 @@ const CartItem: FC<CartItemProps> = ({ cartItems }) => {
                     <li>Quantity</li>
                     <li className="text-center">{item.quantity}</li>
                     <li>Price / cap</li>
-                    <li className="text-center">$ {item.price}</li>
+                    <li className="text-center">$ {item.basePrice + item.addonPrice}</li>
                     <li>Item Total</li>
                     <li className="text-center">$ {item.subtotal}</li>
                   </ul>
