@@ -139,6 +139,7 @@ const CartPage: FC<pageProps> = ({}) => {
                 >
                   Proceed to checkout
                 </button>
+                <p className="text-xs font-semibold">* Final pricing will be determined once design has been assessed by our customer service team as some intricate logos cost more.</p>
               </div>
             </div>
           </div>
