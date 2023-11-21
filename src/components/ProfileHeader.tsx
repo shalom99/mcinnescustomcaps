@@ -35,7 +35,7 @@ const ProfileHeader: FC= ({}) => {
         id="cartModal"
         className="
         hidden group-hover:block 
-        absolute top-9 right-0 w-[350px] z-50"
+        absolute top-5 right-0 w-[200px] z-50"
       >
         {cartItems.length === 0 ? (
           <div className="flex flex-col">
@@ -45,11 +45,11 @@ const ProfileHeader: FC= ({}) => {
                 style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
               ></div>
             </div>
-            <div className="flex flex-col py-2 bg-activeOrange justify-center">
-            <p className="text-center ">Your cart is empty</p>
-              <div>
+            <div className="flex flex-col item-center py-2 bg-activeOrange justify-center">
+         
+              <div className="flex justify-center gap-x-5">
                 <button>Login</button>
-                <button>Design Items</button>
+                <button>Register</button>
               </div>
             </div>
           </div>

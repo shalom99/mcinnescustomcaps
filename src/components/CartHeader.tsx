@@ -50,8 +50,8 @@ const CartHeader: FC<CartProps> = ({}) => {
             <p className="text-center ">Your cart is empty</p>
             <MdAddShoppingCart size={70} />
               <div className="text-sm flex gap-x-5">
-                <button className="outline outline-1">Design</button>
-                <button className="outline outline-1">Visit Store</button>
+                <button className="outline outline-1 p-1">Design</button>
+                <button className="outline outline-1 p-1">Visit Store</button>
               </div>
             </div>
           </div>
