@@ -22,7 +22,7 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
   const capItems = useCapItemStore();
   const { setSelectedSide } = useSideStore();
   const { brandings, setShowBrandingPicker } = useBrandingStore();
-  const [hatProfile, setHatProfile] = useState<string | number>(0);
+  const [hatProfile, setHatProfile] = useState<string>("");
 
   return (
     <>
@@ -125,11 +125,11 @@ const Toolbar: FC<ToolbarProps> = ({}) => {
               onChange={(e) => {
                 setHatProfile(e.target.value);
               }}
-               className="w-full"
+               className=""
               name="hatProfile"
               id="hatProfile"
             >
-              <option value="0" disabled className="text-gray-300">
+              <option value="" disabled className="text-gray-300">
                 Select
               </option>
               <option value="Low">Low</option>

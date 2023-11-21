@@ -6,10 +6,12 @@ import {
 } from "react-icons/bs";
 import { MdLocationOn } from "react-icons/md";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { GoPerson } from 'react-icons/go'
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "./Navbar";
 import CartHeader from "./CartHeader";
+import ProfileHeader from "./ProfileHeader";
 
 
 type NavbarProps = {};
@@ -71,6 +73,7 @@ const Header: FC<NavbarProps> = ({}) => {
                 />
               </Link>
             </div>
+              <ProfileHeader />
               <CartHeader />
           </div>
         </div>

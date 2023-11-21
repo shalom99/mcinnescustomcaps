@@ -13,32 +13,35 @@ import { ClipLoader } from "react-spinners";
 
 import * as htmlToImage from "html-to-image";
 type AddToCartButtonProps = {
-  hatProfile: string | number;
+  hatProfile: string;
 };
 
 interface requiredItemType {
-  id: number,
-  name: string,
-  hexcode: string,
-  selectedColorFilter: string,
-  colorId: number,
-  showColorPicker: boolean,
-  hasBranding: boolean
+  id: number;
+  name: string;
+  hexcode: string;
+  selectedColorFilter: string;
+  colorId: number;
+  showColorPicker: boolean;
+  hasBranding: boolean;
 }
 
-const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
+const AddToCartButton: FC<AddToCartButtonProps> = ({ hatProfile }) => {
   const { capItems, setResetCap } = useCapItemStore();
   const { labels, setResetLabels } = useLabelStore();
-  const { brandings, setResetBrandings, setCloseAllBrandings } = useBrandingStore();
+  const { brandings, setResetBrandings, setCloseAllBrandings } =
+    useBrandingStore();
   const { addToCart, setUpdateViews } = useCartStore();
   const router = useRouter();
   const { isLoading, setIsLoading } = useLoaderStore();
-  const [ requiredItems, setRequiredItems] = useState<requiredItemType[] | []>([])
+  const [requiredItems, setRequiredItems] = useState<requiredItemType[] | []>(
+    []
+  );
 
   const configuration = {
     capParts: capItems,
     labels,
-    brandings
+    brandings,
   };
 
   let views = {
@@ -48,21 +51,18 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
     left: "",
   };
 
+  function validateCapItem() {
+    const emptyHexcodeItems = capItems.filter((item) => item.hexcode === "");
+    
 
-
-  function validateCapItem(){
-
-    const emptyHexcodeItems = capItems.filter(item => item.hexcode === '');
     setIsLoading(true);
     setCloseAllBrandings();
     // generateFront();
-      
-    if(emptyHexcodeItems.length === 0 && hatProfile !== 0){
 
+    if (emptyHexcodeItems.length === 0 && hatProfile !== "") {
       generateFront();
-      
-    }else{
-      setRequiredItems(emptyHexcodeItems)
+    } else {
+      setRequiredItems(emptyHexcodeItems);
       setIsLoading(false);
     }
   }
@@ -85,22 +85,21 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
           "Add to Cart"
         )}
       </button>
-      {requiredItems.length === 0 && hatProfile === "" ? "" : (
+      {requiredItems.length === 0 ? (
+        ""
+      ) : (
         <>
-        <p className="text-red-700 font-bold w-full text-sm my-2">Please complete the following required cap parts: </p>
-        <ul className="w-full text-sm text-red-700">
-        { requiredItems.map(item => 
-          <li key={item.id}> -{item.name}</li>
-          )} 
-          {hatProfile ?"" : 
-            <li> -Hat Profile </li>
-          }
-      
-        </ul>
-       </>
+          <p className="text-red-700 font-bold w-full text-sm my-2">
+            Please complete the following required cap parts:{" "}
+          </p>
+          <ul className="w-full text-sm text-red-700">
+            {requiredItems.map((item) => (
+              <li key={item.id}> -{item.name}</li>
+            ))}
+            {hatProfile ? "" : <li> -Hat Profile </li>}
+          </ul>
+        </>
       )}
-  
-
     </>
   );
 
@@ -146,8 +145,6 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
   }
 
   function handleAddToCart() {
-
-    
     addToCart({
       name: "Custom Hat Design",
       type: 0,
@@ -155,7 +152,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
         capParts: configuration.capParts,
         labels: configuration.labels,
         brandings: configuration.brandings,
-        hatProfile: hatProfile as string
+        hatProfile: hatProfile as string,
       },
       views: {
         front: views.front,
@@ -166,7 +163,7 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
       },
     });
 
-    setRequiredItems([])
+    setRequiredItems([]);
 
     setResetCap();
     setResetLabels();
@@ -178,10 +175,9 @@ const AddToCartButton: FC<AddToCartButtonProps> = ({hatProfile}) => {
       right: "",
       left: "",
     };
-  
+
     router.push("/cart");
   }
-
 };
 
 export default AddToCartButton;

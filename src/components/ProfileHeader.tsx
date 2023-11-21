@@ -3,20 +3,19 @@ import { FC } from "react";
 import { BsCart3 } from "react-icons/bs";
 
 import { BiSolidUpArrow } from "react-icons/bi";
-import { MdAddShoppingCart } from "react-icons/md";
-
+import { GoPerson } from "react-icons/go";
 import CartItem from "./CartItem";
 import { useCartStore } from "@/libs/store";
 
-type CartProps = {};
 
-const CartHeader: FC<CartProps> = ({}) => {
+
+const ProfileHeader: FC= ({}) => {
   const { cartItems } = useCartStore();
 
   return (
     <div className="ml-4 flex gap-x-3 relative group">
           
-      <BsCart3 size={25} />
+      <GoPerson size={25} />
 
       {
         // START HIDE/SHOW CART NUMBER
@@ -36,7 +35,7 @@ const CartHeader: FC<CartProps> = ({}) => {
         id="cartModal"
         className="
         hidden group-hover:block 
-        absolute top-5 right-[-3px] w-[200px] z-50"
+        absolute top-9 right-0 w-[350px] z-50"
       >
         {cartItems.length === 0 ? (
           <div className="flex flex-col">
@@ -46,12 +45,11 @@ const CartHeader: FC<CartProps> = ({}) => {
                 style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
               ></div>
             </div>
-            <div className="flex flex-col items-center gap-y-5 py-2 bg-activeOrange justify-center">
+            <div className="flex flex-col py-2 bg-activeOrange justify-center">
             <p className="text-center ">Your cart is empty</p>
-            <MdAddShoppingCart size={70} />
-              <div className="text-sm flex gap-x-5">
-                <button className="outline outline-1">Design</button>
-                <button className="outline outline-1">Visit Store</button>
+              <div>
+                <button>Login</button>
+                <button>Design Items</button>
               </div>
             </div>
           </div>
@@ -63,4 +61,5 @@ const CartHeader: FC<CartProps> = ({}) => {
   );
 };
 
-export default CartHeader;
+
+export default ProfileHeader
