@@ -34,21 +34,23 @@ const ProfileHeader: FC = ({}) => {
             </div>
             <div className="flex flex-col py-2 px-2 bg-activeOrange rounded-lg ">
               <div className="flex flex-col gap-y-4 text-sm text-start">
-                <button className="text-start flex items-center gap-x-5 hover:border-b-2">
+                <div className="text-start flex items-center gap-x-5 ">
                   <IoEnterOutline size={25} />
-                  <p>     Login / Register</p>
-             
-                </button>
+                  <div className="flex gap-x-2">
+                    <button className="hover:border-b-2"> Login </button> /
+                    <button className="hover:border-b-2"> Register</button>
+                  </div>
+                </div>
 
-                <button className="text-start flex items-center gap-x-5 hover:border-b-2">
+                <div className="text-start flex items-center gap-x-5">
                   <PiPackageLight size={25} />
-                  Orders
-                </button>
+                  <button className="hover:border-b-2">Orders</button>
+                </div>
 
-                <button className="text-start flex items-center gap-x-5 hover:border-b-2">
+                <div className="text-start flex items-center gap-x-5 ">
                   <AiOutlineQuestionCircle ne size={25} />
-                  FAQ
-                </button>
+                  <button className="hover:border-b-2"> FAQ</button>
+                </div>
               </div>
             </div>
           </div>
