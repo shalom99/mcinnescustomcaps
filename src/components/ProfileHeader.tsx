@@ -1,13 +1,12 @@
 "use client";
 import { FC } from "react";
-import { BsCart3 } from "react-icons/bs";
 import { IoEnterOutline } from "react-icons/io5";
-import { BiSolidUpArrow } from "react-icons/bi";
 import { GoPerson } from "react-icons/go";
 import CartItem from "./CartItem";
 import { useCartStore } from "@/libs/store";
 import { PiPackageLight } from "react-icons/pi";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
+import Link from "next/link";
 
 const ProfileHeader: FC = ({}) => {
   const { cartItems } = useCartStore();
@@ -37,14 +36,14 @@ const ProfileHeader: FC = ({}) => {
                 <div className="text-start flex items-center gap-x-5 ">
                   <IoEnterOutline size={25} />
                   <div className="flex gap-x-2">
-                    <button className="hover:border-b-2"> Login </button> /
-                    <button className="hover:border-b-2"> Register</button>
+                    <Link href="/customer/account/login" className="hover:border-b-2"> Login </Link> /
+                    <Link href="/customer/account/register" className="hover:border-b-2"> Register</Link>
                   </div>
                 </div>
 
                 <div className="text-start flex items-center gap-x-5">
                   <PiPackageLight size={25} />
-                  <button className="hover:border-b-2">Orders</button>
+                  <Link href="/customer/account/login" className="hover:border-b-2">Orders</Link>
                 </div>
 
                 <div className="text-start flex items-center gap-x-5 ">
