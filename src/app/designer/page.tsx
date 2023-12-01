@@ -20,11 +20,11 @@ const Designer: FC<pageProps> = ({}) => {
           className="w-full flex flex-col gap-y-5 lg:flex-row h-full"
         >
           <div
-            id="CapCanvas"
+            id="CapCanvasOuter"
             className="grow bg-white flex items-center justify-center "
           >
-            <div className="relative w-full min-h-[450px] lg:w-[600px] lg:h-[600px] p-5">
-              <div className="w-full h-full">
+            <div className="relative w-full min-h-[450px] lg:w-[600px] lg:h-[600px]">
+              <div id="CapCanvasInner" className="w-full h-full">
                 <FrontView />
                 <BackView />
                 <LeftView />
