@@ -40,13 +40,29 @@ const BBranding: FC<BBrandingProps> = ({}) => {
       style={{
         position: "absolute",
         top: "23.3%",
-        bottom: "38%",
+        bottom: "39%",
         left: "17%",
         right: "18%",
-        borderRadius: "170px 170px 0px 0px",
+        borderRadius: "600px 600px 270px 270px",
       }}
       draggable={false}
     >
+      <img src="/cap/backCrop.png" id="cropContainer" 
+         className={cn(
+          brandings[1].showBrandingPicker
+            ? "hidden"
+            : "",
+          "z-[100] select-none pointer-events-none"
+        )}
+      style={{
+        position: "absolute",
+        left: "17.7%",
+        bottom: "-11.2%",
+        scale: "69%",
+   
+      }}
+      />
+   
       {brandings[1].imageURL ? (
         <div
           id="bPanelElement"

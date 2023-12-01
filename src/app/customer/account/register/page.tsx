@@ -15,7 +15,7 @@ const page: FC<pageProps> = ({}) => {
             id="registerHeader"
             className="flex justify-between w-full"
           >
-            <div className="w-[50%] border-b-2 border-black font-semibold text-center py-5">
+            <div className="w-[50%] border-b-2 border-activeOrange font-semibold text-center py-5">
               New Customer
             </div>
             <Link
@@ -61,7 +61,7 @@ const page: FC<pageProps> = ({}) => {
                 <input type="input" className="border h-10" />
               </div>
 
-              <button className="w-full bg-black text-white h-10 mt-5 mb-3">
+              <button className="w-full bg-activeOrange text-white h-10 mt-5 mb-3">
                 CONFIRM AND CONTINUE
               </button>
               <p className="text-xs text-center text-gray-500">
