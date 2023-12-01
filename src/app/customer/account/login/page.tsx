@@ -19,7 +19,7 @@ const LoginPage: FC = ({}) => {
             >
               New Customer
             </Link>
-            <div className="w-[50%] border-b-2 border-black font-semibold text-center py-5">
+            <div className="w-[50%] border-b-2 border-activeOrange font-semibold text-center py-5">
               Returning Customer
             </div>
           </div>
@@ -57,7 +57,7 @@ const LoginPage: FC = ({}) => {
                 </button>
               </div>
 
-              <button className="w-full bg-black text-white h-10 mt-5 mb-3">
+              <button className="w-full bg-activeOrange text-white h-10 mt-5 mb-3">
                 LOG IN
               </button>
               <p className="text-xs text-center text-gray-500">

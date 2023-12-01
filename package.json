@@ -41,6 +41,7 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.10.1",
     "react-resizable": "^3.0.5",
+    "react-social-media-embed": "^2.3.8",
     "react-spinners": "^0.13.8",
     "react-to-pdf": "^1.0.1",
     "tailwind-merge": "^1.14.0",

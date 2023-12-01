@@ -4,6 +4,8 @@ import { FC } from "react";
 import cn from "@/libs/cn";
 import BBranding from "./BBranding";
 import FBranding from "./FBranding";
+import RBranding from "./RBranding";
+import LBranding from "./LBranding";
 
 
 
@@ -155,6 +157,7 @@ export const RightView: FC = () => {
   return (
     <div className={cn(side == 3 ? "" : "opacity-0", "absolute inset-0")}>
       <div id="RightV" className="relative w-full h-full">
+        <RBranding />
         {labels[0].show ? (
           <div className="absolute inset-0">
             <img
@@ -254,6 +257,7 @@ export const LeftView: FC = () => {
   return (
     <div className={cn(side == 2 ? "" : "opacity-0", "absolute inset-0")}>
       <div id="LeftV" className="relative w-full h-full">
+        <LBranding />
         {labels[2].show ? (
           <div className="absolute inset-0">
             <img
